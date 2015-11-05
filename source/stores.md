@@ -1,27 +1,17 @@
 ---
-title: Best Buy Developer
+title: Stores API
 
 language_tabs:
   - json: JSON
   - xml: XML
 
 toc_footers:
-  - <a href="#">Products API</a>
-
+  - <a href='/index.html'>Products API</a>
 
 includes:
-  - overview
   - products
   - categories
   - recommendations
 
 search: true
 ---
-
-
-
-
-
-
-
-

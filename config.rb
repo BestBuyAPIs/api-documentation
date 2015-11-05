@@ -18,11 +18,7 @@ set :fonts_dir, 'fonts'
 # Activate the syntax highlighter
 activate :syntax
 
-activate :autoprefixer do |config|
-  config.browsers = ['last 2 version', 'Firefox ESR']
-  config.cascade  = false
-  config.inline   = true
-end
+
 
 # Github pages require relative links
 activate :relative_assets
@@ -35,4 +31,9 @@ configure :build do
   # activate :relative_assets
   # activate :asset_hash
   # activate :gzip
+  activate :autoprefixer do |config|
+  config.browsers = ['last 2 version', 'Firefox ESR']
+  config.cascade  = false
+  config.inline   = true
+  end
 end
