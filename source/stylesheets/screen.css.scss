@@ -503,8 +503,9 @@ html, body {
   }
 
   code {
-    background-color: rgba(0,0,0,0.05);
-    padding: 3px;
+    background-color: #e1e1e3;
+    color: #053f68;
+    padding: 2px 4px;
     border-radius: 3px;
     @extend %break-words;
     @extend %code-font;
