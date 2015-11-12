@@ -4,6 +4,8 @@ path: documentation/stores-api
 title: Stores API
 ---
 
+# Stores API
+
 The Best Buy Stores API provides store information for all Best Buy stores in the United States and Puerto Rico. This information includes address, location, hours and services offered.
 
 In addition, store availability of a product can be determined by querying the Products API together with the Stores API. Refer to [In Store Availability](#documentation/stores-api-in-store-availability) for more information on these type of queries.
