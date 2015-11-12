@@ -14,6 +14,7 @@ includes:
   - products
   - categories
   - recommendations
+  - stores
 
 search: true
 ---
