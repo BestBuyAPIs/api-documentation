@@ -7,7 +7,7 @@ If this is your first time using our APIs, please check out our <a href="#">Gett
 ## Search
 *Applies to: <a href="#">Products API</a> &#149; <a href="#">Stores API</a> &#149; <a href="#">Reviews API</a> &#149; <a href="#">Categories API</a>*
 
-Search consists of one or more terms that generally include an attribute, operator and value. Terms are combined with ampersands `&<` or pipes `|`. Searches are implemented as part of an HTTP GET request to the deisred Best Buy API. `term1&term2` - specifies term1 AND term2 `term1|term2` - specifies term1 OR term2.
+Search consists of one or more terms that generally include an attribute, operator and value. Terms are combined with ampersands `&` or pipes `|`. Searches are implemented as part of an HTTP GET request to the deisred Best Buy API. `term1&term2` - specifies term1 AND term2 `term1|term2` - specifies term1 OR term2.
 
 Attribute *names* are case sensitive; attribute *values* are not.
 
@@ -21,7 +21,7 @@ Attribute *names* are case sensitive; attribute *values* are not.
 + `>` - attribute **greater than** a specified value
 + `<` - attribute **less than** a specified value
 + `>=<` - attribute **greater than or equal to** a specified value
-+ `<=` - attribute **less than or equal to**a specified value
++ `<=` - attribute **less than or equal to** a specified value
 + `in` - search based on a **list** of attribute values
 
 
@@ -90,7 +90,7 @@ http://api.bestbuy.com/v1/products(manufacturer=canon&salePrice<1000)?format=jso
     }
 ```
 
-If you need to serach for the values of more than one attribute and **all**of the attributes must be present, combine them with an ampersand `&`.
+If you need to serach for the values of more than one attribute and **all** of the attributes must be present, combine them with an ampersand `&`.
 
 <div></div>
 
@@ -801,7 +801,7 @@ http://api.bestbuy.com/v1/products(type=Movie)?format=json&show=sku,name,salePri
     }
 ```
 
-*In this example we ask for the 1000th page of results and for each page to contain just 3 products*
+*In this example we ask for the 1000th page of results and for each page to contain just 3 products.*
 
 <div></div>
 
@@ -839,27 +839,101 @@ http://api.bestbuy.com/beta/products/openBox?apiKey=YourAPIKey&page=2&pageSize=1
 
 ## Retrieving Collections
 
+*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a>*
 
+To retrieve more than one item at a time (e.g. all Products in our catalog), use one of the following queries. *By default the max page size is 100 (meaning 100 unique results). See <a href="#">Pagination</a> for more information on returning results greater than 100.*
 
+Description | Query | Result
+------------|-------|-------
+retrieve all products | http://api.bestbuy.com/v1/products?apiKey=YourAPIKey | returns a collection of products
+retrieve all stores | http://api.bestbuy.com/v1/stores?apiKey=YourAPIKey | returns a collection of stores
+retrieve all reviews | http://api.bestbuy.com/v1/reviews?apiKey=YourAPIKey | returns a collection of reviews
+retrieve all categories | http://api.bestbuy.com/v1/categories?apiKey=YourAPIKey | returns a collection of categories
 
+Other sections in this documentation explain how to modify these queries to retrieve only the information that you need.
 
++ <a href="#">Pagination</a>: describes how results consisting of multiple pages are returned
++ <a href="#">Search</a>: describes how to perform search operations
++ <a href="#">Sort</a>: describes how to specify sort criteria for collections
++ <a href="#">Facets</a>: describes how to ask for summarized information about collections
 
+### Collection Header
 
+When a query results in a collection, the response includes an information header containing the following attributes:
 
+Name | Description
+-----|------------
+item | the type of items returned and counted
+current page | the page being returned
+totalPages | the number of pages required to list all items
+from | the index of the first item returned on the current page
+to | the index of the last item returned on the current page
+total | the total number of items returned by the query
+queryTime | the time required to search the database
+totalTime | the time required to parse, search, format and return results
+canonicalURL | the non-server part of the query URL
+partial | flag indicating whether or not the query returned only partial results (in the event of a timeout)
 
+### Example Collection Header
 
+```text
+http://api.bestbuy.com/v1/products?format=json&apiKey=YourAPIKey
+```
 
+```json
+{
+  "from": 1,
+  "to": 10,
+  "total": 724145,
+  "currentPage": 1,
+  "totalPages": 72415,
+  "queryTime": "0.183",
+  "totalTime": "0.195",
+  "partial": false,
+  "canonicalUrl": "/v1/products?format=json&apiKey=YourAPIKey",
+  "products": [
+```
 
+## Errors and Mock Data
 
+### Errors
 
+*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a> &#8226: <a href="#">Recommendations API</a>*
 
+Best Buy uses standard HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g., a required parameter was missing), and codes in the 5xx range indicate an error with Best Buy's servers.
 
+Status Code | Explanation
+------------|------------
+200 | It is all good.
+400 | The request is missing key information or is malformed.
+403 | The allocated call limit is exceeded.
+404 | The requested item cannot be found.
+405 | Particular method not allowed (error will be returned for methods like a POST).
+500, 501, 503 | There is a server error on the Best Buy side.
 
+### Mock Data
 
+*Applies to: <a href="#"> Recommendations API</a>
 
+Best Buy allows you to submit mock data for the <a href="#">Recommendations API</a> Also Viewed and Similar Products endpoints. These endpoints accept mock data and return appropriate responses.
 
+Mock codes supported:
 
+Mock Code | Response
+----------|---------
+mock500 | {"errorMessage":"An unexpected error kept us from completing your request","status":500}
+mock418 | {"errorMessage":"I am a teapot, short and stout","status":418}
+mockEmpty | {"results": []}
 
+### Example
+
+```text
+http://api.bestbuy.com/beta/products/mock500/alsoViewed?apiKey=YourAPIKey
+```
+
+```json
+{"errorMessage":"An unexpected error kept us from completing your request","status":500}
+```
 
 
 
