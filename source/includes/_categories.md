@@ -15,14 +15,14 @@ _The Products API also includes the category path information for each product. 
 
 Attribute | Description
 --------- | -----------
-**Name** | <li>Used to find all subcategories (e.g., parents, siblings, children) within a specific category</li>
-**ID** | <li>Used to find all results within a specific category (e.g., abcat0100000)</li>
-**path.name** | <li>Used to find all categories, starting with the root, within a particular path (e.g., electronics)</li>
-**path.id** | <li>Used to find all categories, starting with the root, within a particular path (e.g., abcat0014001)</li>
-**subCategories.name** | <li>Used to identify subcategories within a specific category (e.g., Kitchen Essentials within Gift Ideas)</li>
-**subCategories.id** | <li>Used to identify subcategories within a specific category (e.g., abcat0011002)</li>
+**name** | Used to find all subcategories (e.g., parents, siblings, children) within a specific category
+**id** | Used to find all results within a specific category (e.g., abcat0100000)
+**path.name** | Used to find all categories, starting with the root, within a particular path (e.g., electronics)
+**path.id** | Used to find all categories, starting with the root, within a particular path (e.g., abcat0014001)
+**subCategories.name** | Used to identify subcategories within a specific category (e.g., Kitchen Essentials within Gift Ideas)
+**subCategories.id** | Used to identify subcategories within a specific category (e.g., abcat0011002)
 
-<strong>Request/Response Examples</strong>
+### Request/Response Examples
 
 ```text
 http://api.bestbuy.com/v1/categories?format=json&apiKey=YourAPIKey&show=id
@@ -57,7 +57,7 @@ http://api.bestbuy.com/v1/categories?format=json&apiKey=YourAPIKey&show=id
 }
 ```
 
-<strong>Return all the categories</strong>
+### Return all the categories
 
 The query to the right will return all the Best Buy product categories. Query is filtered to show only `id`s.
 
@@ -101,7 +101,7 @@ http://api.bestbuy.com/v1/categories(name=Sony%20DSLR%20Camera*)?format=json&api
   ]
 }
 ```
-<strong>Return category information using category identifier</strong>
+### Return category information using category identifier
 
 The following query will return the category path for the category `name` specified in the input. In the below example we are requesting the category path for a **Sony DSLR Camera**. The query results are shown in a flat hierarchical path starting from the root. In this case **Best Buy** is the root category which is the first in the path, followed by its child category **Name Brands**, whose child is **Sony**, and its child **Sony DSLR Camera**, which is also the last category in this path.
 
