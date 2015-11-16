@@ -1,5 +1,5 @@
 ## Offers and Deals
-The Best Buy offer attributes provide a comprehensive view into the deals at Best Buy. This includes what is in our Sunday circular (also available online), our "Deal of the Day" and other special offers like "Free Shipping on Orders $35 and Up". Each offer will contain a description of the offer and a link to the offer on **BESTBUY.COM** where applicable. Offer information is grouped together in a collection. Each product can have one or more offers associated to it.
+The Best Buy offer attributes provide a comprehensive view into the deals at Best Buy. This includes what is in our Sunday circular (also available online), our "Deal of the Day" and other special offers like "Free Shipping on Orders $35 and Up." Each offer will contain a description of the offer and a link to the offer on **BESTBUY.COM** where applicable. Offer information is grouped together in a collection. Each product can have one or more offers associated to it.
 
 *NOTE: Offers are updated on a daily basis. Offers are subject to change and applicability will be determined at checkout.*
 
