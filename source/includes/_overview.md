@@ -56,7 +56,7 @@ http://api.bestbuy.com/v1/stores(region=ut)?format=json&show=storeId,city,region
     }
 ```
 
-Our <a href="#">Products</a>, <a href="#">Stores</a>, <a href="#">Reviews</a> and <a href="#">Categories</a> APIs can be serached by nearly all available attributes. For Example, to find only the stores located in Utah, you can use the query shown to the right.
+Our <a href="#">Products</a>, <a href="#">Stores</a>, <a href="#">Reviews</a> and <a href="#">Categories</a> APIs can be searched by nearly all available attributes. For example, to find only the stores located in Utah, you can use the query shown to the right.
 
 <div></div>
 
@@ -90,7 +90,7 @@ http://api.bestbuy.com/v1/products(manufacturer=canon&salePrice<1000)?format=jso
     }
 ```
 
-If you need to serach for the values of more than one attribute and **all** of the attributes must be present, combine them with an ampersand `&`.
+If you need to search for the values of more than one attribute and **all** of the attributes must be present, combine them with an ampersand `&`.
 
 <div></div>
 
@@ -160,7 +160,7 @@ http://api.bestbuy.com/v1/products(platform=psp&(salePrice<=15|(salePrice<=20&tr
 ]
 ```
 
-Complex searches can be performed by combining AND `&` and OR `|` operations with parantheses. For example: let's say that you're looking for a Play station Portable video game `(platform=psp)`. YOu don't want to spend more than $15 `(salePrice<=15)`. However, because you will trade in the game when you're done, you could spend up to $20 `(saleProce<=20)` - but only if the game's trade-in value is more than $10 `(tradeInValue>10)`.
+Complex searches can be performed by combining AND `&` and OR `|` operations with parantheses. For example: let's say that you're looking for a Play Station Portable video game `(platform=psp)`. You don't want to spend more than $15 `(salePrice<=15)`. However, because you will trade in the game when you're done, you could spend up to $20 `(saleProce<=20)` - but only if the game's trade-in value is more than $10 `(tradeInValue>10)`.
 
 The search terms for this example can be combined as:
 
@@ -299,7 +299,7 @@ http://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb=
     }
 ```
 
-You can use the asterisk `*` as a wildcard character. The widecard can be used to:
+You can use the asterisk `*` as a wildcard character. The wildcard can be used to:
 
 + indicate the presence of attribute values
 + request all values for filtered attributes
@@ -395,7 +395,7 @@ When used as part of a string search, the wildcard performs two functions. First
 ### Limitations
 
 + You cannot use a wildcard to begin a string search (e.g. <code>(name=*top)</code>); this type of search is extremely resource intensive and doing so will result in a <code>400</code> error.
-+ Wildacrd with data is valid for strings only. When used alone, the wildcard can represent any data type. When used with other characters, the wildcard can only represent string data. For example, to find Canon products with customer reviews of 4.x, you cannot use <code>(manufacturer=canon&customerReviewAverage=4.*)</code> as the search string. You would have to use a search string like this: <code>(manufacturer=canon&customerReviewAverage>4&customerReviewAverage<5)</code>.
++ Wildcard with data is valid for strings only. When used alone, the wildcard can represent any data type. When used with other characters, the wildcard can only represent string data. For example, to find Canon products with customer reviews of 4.x, you cannot use <code>(manufacturer=canon&customerReviewAverage=4.*)</code> as the search string. You would have to use a search string like this: <code>(manufacturer=canon&customerReviewAverage>4&customerReviewAverage<5)</code>.
 
 <div></div>
 
@@ -422,7 +422,7 @@ http://api.bestbuy.com/v1/products(search=oven&search=stainless&search=steel)?fo
 
 *Applies to: <a href="#">Products API</a>*
 
-Our **Keyword Search** function (search=searchterm) allows you to search text accross several common attributes. To search for a term thtat includes a space, include an `&` ampersand between the words or it will be treated as an `|` or. The **Keyword Search** includes the following attributes:
+Our **Keyword Search** function `(search=searchterm)` allows you to search text accross several common attributes. To search for a term that includes a space, include an `&` ampersand between the words or it will be treated as an `|` or. The **Keyword Search** includes the following attributes:
 
 + <code>name</code>
 + <code>manufacturer</code>
@@ -517,7 +517,7 @@ http://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&apiKey=Y
 
 *Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a>*
 
-In order to make the API responses more manageable, we don't return all available attributes for those items that contain many (e.g. <a href="#">Products</a> and <a href="#">Stores</a>. In the event that you want to use one of these hidden attributes, you can set `show=all` in the query parameters for the API
+In order to make the API responses more manageable, we don't return all available attributes for those items that contain many (e.g. <a href="#">Products</a> and <a href="#">Stores</a>). In the event that you want to use one of these hidden attributes, you can set `show=all` in the query parameters for the API
 
 For example, the <a href="#">Stores API</a> does not return the `detailedHours` attribute by default. By setting `show=all` you will receive `detailedHours` in the response. Both the default response and the response containing `detailedHours` are provided below for store 2387.
 
@@ -764,12 +764,12 @@ Here is an explanation of the meta data when more than one page is available
 Name | Description | Additional Details
 -----|-------------|-------------------
 canonicalURL | the non-server part of the query | 
-currentPage | the page being returned | referred to as "page.current" for the REcommendations and Buying Options APIs
+currentPage | the page being returned | referred to as "page.current" for the Recommendations and Buying Options APIs
 from | the index of the first item returned on the current page | not available on the Recommendations and Buying Options APIs
 size | the number of results returned per page | only available on the Recommendations and Buying Options APIs
 to | the index of the last item returned on the current page | not available on the Recommendations and Buying Options APIs
 total | the total number of items returned by the query | referred to as "resultSet.count" for the Recommendations and Buying Options APIs
-totalPages | the number of pages required to list all items | refereed to as "page.total" for the Recommendations and Buying Options APIs
+totalPages | the number of pages required to list all items | referred to as "page.total" for the Recommendations and Buying Options APIs
 
 ### Example response header for Products, Stores, Reviews and Category APIs
 
@@ -898,7 +898,7 @@ http://api.bestbuy.com/v1/products?format=json&apiKey=YourAPIKey
 
 ### Errors
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a> &#8226: <a href="#">Recommendations API</a>*
+*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a> &#8226; <a href="#">Recommendations API</a>*
 
 Best Buy uses standard HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g., a required parameter was missing), and codes in the 5xx range indicate an error with Best Buy's servers.
 
@@ -913,7 +913,7 @@ Status Code | Explanation
 
 ### Mock Data
 
-*Applies to: <a href="#"> Recommendations API</a>
+*Applies to: <a href="#"> Recommendations API</a>*
 
 Best Buy allows you to submit mock data for the <a href="#">Recommendations API</a> Also Viewed and Similar Products endpoints. These endpoints accept mock data and return appropriate responses.
 
