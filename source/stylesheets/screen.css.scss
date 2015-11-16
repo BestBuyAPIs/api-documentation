@@ -504,7 +504,7 @@ html, body {
 
   code {
     background-color: #e1e1e3;
-    color: #053f68;
+    color: $bby-blue;
     padding: 2px 4px;
     border-radius: 3px;
     @extend %break-words;
@@ -513,6 +513,7 @@ html, body {
 
   pre>code {
     background-color: transparent;
+    color: #fff;
     padding: 0;
   }
 
