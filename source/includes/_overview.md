@@ -392,7 +392,7 @@ http://api.bestbuy.com/v1/products(name=classic*)?format=json&show=sku,name,sale
 
 When used as part of a string search, the wildcard performs two functions. First, it tokenizes the string, breaking it into words. Second, it operates as a standard wildcard, matching any set of characters in the tokenized string. The following example illustrates both functions. When searching for a string value, you may want to search for variations on a specific word. For example, if you want to find CDs whose titles include the words Classic, Classics or Classical you would use the following query:
 
-#### Limitations
+### Limitations
 
 + You cannot use a wildcard to begin a string search (e.g. <code>(name=*top)</code>); this type of search is extremely resource intensive and doing so will result in a <code>400</code> error.
 + Wildacrd with data is valid for strings only. When used alone, the wildcard can represent any data type. When used with other characters, the wildcard can only represent string data. For example, to find Canon products with customer reviews of 4.x, you cannot use <code>(manufacturer=canon&customerReviewAverage=4.*)</code> as the search string. You would have to use a search string like this: <code>(manufacturer=canon&customerReviewAverage>4&customerReviewAverage<5)</code>.
@@ -431,7 +431,7 @@ Our **Keyword Search** function (search=searchterm) allows you to search text ac
 + <code>features.feature</code>
 + <code>details.value</code>
 
-Here is an example that loos for 'stainless steel ovens':
+Here is an example that looks for 'stainless steel ovens':
 
 ## Response Format
 
@@ -497,7 +497,7 @@ If you tried the example query in the <a href="#">Getting Started</a> section, y
 
 For example, if you are only interested in the product's `sku`, `name` and `salePrice`, you can list these attributes in the show parameter.
 
-#### Products Response `show=sku,name,salePrice`
+### Products Response `show=sku,name,salePrice`
 
 ```text
 http://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&apiKey=YourAPIKey
@@ -521,7 +521,7 @@ In order to make the API responses more manageable, we don't return all availabl
 
 For example, the <a href="#">Stores API</a> does not return the `detailedHours` attribute by default. By setting `show=all` you will receive `detailedHours` in the response. Both the default response and the response containing `detailedHours` are provided below for store 2387.
 
-#### Stores Response - Default Attributes Only
+### Stores Response - Default Attributes Only
 
 ```text
 http://api.bestbuy.com/v1/stores/2387.json?apiKey=YourAPIKey
@@ -560,7 +560,7 @@ http://api.bestbuy.com/v1/stores/2387.json?apiKey=YourAPIKey
 
 <div></div>
 
-#### Stores Response `show=all`
+### Stores Response `show=all`
 
 ```text
 http://api.bestbuy.com/v1/stores/2387.json?show=all&apiKey=YourAPIKey
