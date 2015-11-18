@@ -2,7 +2,8 @@
 title: Best Buy Developer
 
 language_tabs:
-  - json: JSON
+  - shell
+  - javascript
 
 toc_footers:
 
