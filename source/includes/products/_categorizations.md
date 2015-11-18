@@ -19,7 +19,7 @@ Attribute | Description | Type
 **categoryPath.id** | Category identifiers | string
 **categoryPath.name** | Category names | string
 
-The list attributes are used for specific events like Valentine's Day. These lists are curated by,  Best Buy merchant teams for customer visibility for a specific event or purpose.
+The list attributes are used for specific events such as Valentine's Day. These lists are curated by Best Buy merchant teams for customer visibility for a specific event or purpose.
 
 Attribute | Description | Type
 --------- | ----------- | ----
