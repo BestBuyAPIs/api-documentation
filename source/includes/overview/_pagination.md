@@ -1,20 +1,20 @@
 ## Pagination
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a> &#8226; <a href="#">Recommendations API</a> &#8226; <a href="#">Buying Options API</a>*
+*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API*
 
-Even if you've trimmed down the number of products returned by making use of <a href="#">search</a>, many of our APIs have the potential to return lots of results. To make these large responses more manageable, we break them into pages. By default, we include 10 results per page, but you can ask for up to 100 per page by making use of the `pageSize` parameter. Use the `page` parameter to choose which page of results you'd like returned.
+Even if you've trimmed down the number of products returned by making use of search, many of our APIs have the potential to return lots of results. To make these large responses more manageable, we break them into pages. By default, we include 10 results per page, but you can ask for up to 100 per page by making use of the `pageSize` parameter. Use the `page` parameter to choose which page of results you'd like returned.
 
 Here is an explanation of the meta data when more than one page is available
 
 Name | Description | Additional Details
 -----|-------------|-------------------
-canonicalURL | the non-server part of the query | 
-currentPage | the page being returned | referred to as "page.current" for the Recommendations and Buying Options APIs
-from | the index of the first item returned on the current page | not available on the Recommendations and Buying Options APIs
-size | the number of results returned per page | only available on the Recommendations and Buying Options APIs
-to | the index of the last item returned on the current page | not available on the Recommendations and Buying Options APIs
-total | the total number of items returned by the query | referred to as "resultSet.count" for the Recommendations and Buying Options APIs
-totalPages | the number of pages required to list all items | referred to as "page.total" for the Recommendations and Buying Options APIs
+**canonicalURL** | the non-server part of the query | 
+**currentPage** | the page being returned | referred to as "page.current" for the Recommendations and Buying Options APIs
+**from** | the index of the first item returned on the current page | not available on the Recommendations and Buying Options APIs
+**size** | the number of results returned per page | only available on the Recommendations and Buying Options APIs
+**to** | the index of the last item returned on the current page | not available on the Recommendations and Buying Options APIs
+**total** | the total number of items returned by the query | referred to as "resultSet.count" for the Recommendations and Buying Options APIs
+**totalPages** | the number of pages required to list all items | referred to as "page.total" for the Recommendations and Buying Options APIs
 
 ### Example response header for Products, Stores, Reviews and Category APIs
 

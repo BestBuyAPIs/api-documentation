@@ -1,14 +1,14 @@
 ## Show
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a>*
+*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
 
 The Show attribute allows you to control which attributes are returned. You can return specific attributes by following the syntax in **Show Only** description. To return all attributes follow the syntax in the **Show All** description.
 
 ### Show Only
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a>*
+*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
 
-If you tried the example query in the <a href="#">Getting Started</a> section, you probably noticed that our <a href="#">Products API</a> returns a lot of attributes for each product. For convenience, we provide a `show` query parameter that allows you to specify just the attributes that you want returned in the response.
+If you tried the example query in the Getting Started section, you probably noticed that our Products API returns a lot of attributes for each product. For convenience, we provide a `show` query parameter that allows you to specify just the attributes that you want returned in the response.
 
 For example, if you are only interested in the product's `sku`, `name` and `salePrice`, you can list these attributes in the show parameter.
 
@@ -30,11 +30,11 @@ http://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&apiKey=Y
 
 ### Show All
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a>*
+*Applies to: Products API &#8226; Stores API*
 
-In order to make the API responses more manageable, we don't return all available attributes for those items that contain many (e.g. <a href="#">Products</a> and <a href="#">Stores</a>). In the event that you want to use one of these hidden attributes, you can set `show=all` in the query parameters for the API
+In order to make the API responses more manageable, we don't return all available attributes for those items that contain many (e.g. <Products and Stores). In the event that you want to use one of these hidden attributes, you can set `show=all` in the query parameters for the API
 
-For example, the <a href="#">Stores API</a> does not return the `detailedHours` attribute by default. By setting `show=all` you will receive `detailedHours` in the response. Both the default response and the response containing `detailedHours` are provided below for store 2387.
+For example, the Stores API does not return the `detailedHours` attribute by default. By setting `show=all` you will receive `detailedHours` in the response. Both the default response and the response containing `detailedHours` are provided below for store 2387.
 
 ### Stores Response - Default Attributes Only
 

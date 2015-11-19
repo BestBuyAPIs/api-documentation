@@ -1,5 +1,5 @@
 ## Search
-*Applies to: <a href="#">Products API</a> &#149; <a href="#">Stores API</a> &#149; <a href="#">Reviews API</a> &#149; <a href="#">Categories API</a>*
+*Applies to: Products API &#149; Stores API &#149; Reviews API &#149; Categories API*
 
 Search consists of one or more terms that generally include an attribute, operator and value. Terms are combined with ampersands `&` or pipes `|`. Searches are implemented as part of an HTTP GET request to the deisred Best Buy API. `term1&term2` - specifies term1 AND term2 `term1|term2` - specifies term1 OR term2.
 
@@ -50,7 +50,7 @@ http://api.bestbuy.com/v1/stores(region=ut)?format=json&show=storeId,city,region
     }
 ```
 
-Our <a href="#">Products</a>, <a href="#">Stores</a>, <a href="#">Reviews</a> and <a href="#">Categories</a> APIs can be searched by nearly all available attributes. For example, to find only the stores located in Utah, you can use the query shown to the right.
+Our Products, Stores, Reviews and Categories APIs can be searched by nearly all available attributes. For example, to find only the stores located in Utah, you can use the query shown to the right.
 
 <div></div>
 
@@ -414,7 +414,7 @@ http://api.bestbuy.com/v1/products(search=oven&search=stainless&search=steel)?fo
     }
 ```
 
-*Applies to: <a href="#">Products API</a>*
+*Applies to: Products API*
 
 Our **Keyword Search** function `(search=searchterm)` allows you to search text accross several common attributes. To search for a term that includes a space, include an `&` ampersand between the words or it will be treated as an `|` or. The **Keyword Search** includes the following attributes:
 
