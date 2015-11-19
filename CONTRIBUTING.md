@@ -1,9 +1,11 @@
+# Contributing to Best Buy's API Documentation
+
+Thanks for being interested in contributing to Best Buy's API!
+
+- If you find a bug or want to add a feature, create an issue on [GitHub](https://github.com/BestBuyAPIs/api-documentation)
+- If you have questions, you can email us at developer@bestbuy.com
+- If you'd like to learn more, please visit https://developer.bestbuy.com/
+
 # Contributing to Slate
 
-Thanks for contributing to Slate! A couple of quick guidelines for submitting PRs:
-
-- Please point your pull requests at the `dev` branch, and keep your commit messages clear and informative.
-- Please make sure your contributions work in the most recent version of Chrome, Firefox, and IE.
-- If you're implementing a new feature, even if it's relatively small, it's nice to open an issue before you start so that others know what you're working on and can help make sure you're on the right track.
-
-Thanks again! Happy coding.
+See [Slate's Contribution Guide](https://github.com/tripit/slate/blob/master/CONTRIBUTING.md) for information on how to contribute.
