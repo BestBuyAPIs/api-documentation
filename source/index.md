@@ -12,7 +12,6 @@ includes:
   - overview
   - categories
   - products
-  - recommendations
   - stores
 
 search: true
