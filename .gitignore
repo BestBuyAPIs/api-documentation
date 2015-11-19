@@ -1,0 +1,30 @@
+# Sublime files we don't want to get included
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+sftp-config.json
+
+# Default Slate .gitignore starts after here
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+*.DS_STORE
+build/
+.cache
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+.idea/
