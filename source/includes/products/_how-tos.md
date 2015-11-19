@@ -1,6 +1,4 @@
-## How-Tos
-This section includes several general examples of how to search and return product information.
-
+## How To: Search Using 'or'
 ```text
 http://api.bestbuy.com/v1/products(longDescription=iPhone*|sku=7619002)?show=sku,name&pageSize=15&page=5&apiKey=YourAPIKey&format=json
 ```
@@ -35,12 +33,12 @@ http://api.bestbuy.com/v1/products(longDescription=iPhone*|sku=7619002)?show=sku
   ]
 }
 ```
-### Search for products based on a description or SKU
+
 There are several description attributes by which you can search, including `longDescription`, `shortDescription`, `description` or `name`. There is a single `SKU` attribute to search based on `SKU`. 
 
 In the example below we are searching the `longDescription` for iPhone&#42;. We have appended iPhone with a wildcard `*` so we can search for iPhones with any suffix. We are also looking for any products that have a SKU with a value of **7619002** - note the **or** `|`. Finally, in our example we have updated the number of results that can be returned per page to **15**. Our search will return page **5** of the total **184** pages. Additional information on how to specify the number of results that should be returned per page and which page to return can be found in our Pagination section.
-<div></div>
 
+## How To: Search on Reviews 
 ```text
 http://api.bestbuy.com/v1/products(customerReviewAverage>=4&customerReviewCount>100)?show=customerReviewAverage,customerReviewCount,name,sku&format=json&apiKey=YourAPIKey
 ```
@@ -62,12 +60,12 @@ http://api.bestbuy.com/v1/products(customerReviewAverage>=4&customerReviewCount>
   ]
 }
 ```
-### Search for products based on review criteria
+
 To search based on review criteria you can use the `customerReviewAverage` and/or the `customerReviewCount` attributes. You can also limit the product information returned using our `show` functionality. *HINT: You can specify additional attributes in your search or to be included in the response document for most attributes in the Products API.* 
 
 In this example, we are searching for all products that have a customer review average greater than four and a customer review count greater than 100. In addition, we are limiting the product information returned to customer review average, customer review count, name and sku, and forcing a format of json (default is xml when using the Products API).
-<div></div>
 
+## How To: Search Using 'in'
 ```text
 http://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPIKey
 ```
@@ -95,10 +93,10 @@ http://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPI
   ]
 }
 ```
-### Search for products based on a list of attribute values
-To search for products based on list of attribute values, we recommend using the `in` operator. Most attributes can be used with the `in` operator. The most common attribute used is **SKU**. Using the 'in' operator helps to avoid Query Per Second errors (QPS). Additional information is available in our <a href="http://developer.bestbuy.com/legal#operationalPolicy" target="_blank">Rate Limit</a> section. 
-<div></div>
 
+To search for products based on list of attribute values, we recommend using the `in` operator. Most attributes can be used with the `in` operator. The most common attribute used is **SKU**. Using the 'in' operator helps to avoid Query Per Second errors (QPS). Additional information is available in our <a href="http://developer.bestbuy.com/legal#operationalPolicy" target="_blank">Rate Limit</a> section. 
+
+## How To: Use Keyword Search
 ```text
 http://api.bestbuy.com/v1/products((search=touchscreen&search=apple)&salePrice<500&categoryPath.id=pcmcat209000050006)?show=name,sku,salePrice&format=json&apiKey=YourAPIKey
 ```
@@ -123,7 +121,7 @@ http://api.bestbuy.com/v1/products((search=touchscreen&search=apple)&salePrice<5
   ]
 }
 ```
-### Using the Keyword Search to find products
+
 Using our **Keyword Search** functionality you can search across several common attributes using a single call. These attributes include:
 
 * `name` 

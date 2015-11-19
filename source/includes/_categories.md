@@ -35,8 +35,6 @@ bby.categories('',{show:'id'}).then(function(data){
 });
 ```
 
-> The above command returns JSON structured like this:
-
 ```json
 {
   "from": 1,
@@ -84,8 +82,6 @@ bby.categories('name=Sony DSLR Camera*',{show:'path'}).then(function(data){
   console.log(require('util').inspect(data, false, null));
 });
 ```
-
-> The above command returns JSON structured like this:
 
 ```json
 {
