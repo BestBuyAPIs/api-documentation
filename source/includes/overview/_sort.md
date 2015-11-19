@@ -1,6 +1,6 @@
 ## Sort
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a>*
+*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
 
 You can specify the way in which you'd like to have the results sorted by one or more attribute value(s).
 

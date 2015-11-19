@@ -1,8 +1,8 @@
 ## Retrieving Collections
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a>*
+*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
 
-To retrieve more than one item at a time (e.g. all Products in our catalog), use one of the following queries. *By default the max page size is 100 (meaning 100 unique results). See <a href="#">Pagination</a> for more information on returning results greater than 100.*
+To retrieve more than one item at a time (e.g. all Products in our catalog), use one of the following queries. *By default the max page size is 100 (meaning 100 unique results). See Pagination for more information on returning results greater than 100.*
 
 Description | Query | Result
 ------------|-------|-------

@@ -1,6 +1,6 @@
 ## Facets
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a>*
+*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
 
 ```text
 http://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&show=sku,name,salePrice&facet=manufacturer,5&apiKey=YourAPIKey

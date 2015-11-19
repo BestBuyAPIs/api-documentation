@@ -2,7 +2,7 @@
 
 ### Errors
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a> &#8226; <a href="#">Recommendations API</a>*
+*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API*
 
 Best Buy uses standard HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g., a required parameter was missing), and codes in the 5xx range indicate an error with Best Buy's servers.
 
@@ -17,9 +17,9 @@ Status Code | Explanation
 
 ### Mock Data
 
-*Applies to: <a href="#"> Recommendations API</a>*
+*Applies to: Recommendations API*
 
-Best Buy allows you to submit mock data for the <a href="#">Recommendations API</a> Also Viewed and Similar Products endpoints. These endpoints accept mock data and return appropriate responses.
+Best Buy allows you to submit mock data for the Recommendations API Also Viewed and Similar Products endpoints. These endpoints accept mock data and return appropriate responses.
 
 Mock codes supported:
 

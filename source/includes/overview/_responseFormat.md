@@ -2,15 +2,15 @@
 
 Responses can be returned in either **JSON** or **XML**.
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a>*
+*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
 
 To request a single item, such as a specific product, indicate the desired response format with the extension added after the item's identifier. For example, `/products/8880044.json`.
 
-To request a collection of items, such as all the products in our catalog, the desired response format is specified in the `format` query parameter. An example of this can be seen in the <a href="#">Retrieving Collections</a> section. If no format is specified then xml will be returned.
+To request a collection of items, such as all the products in our catalog, the desired response format is specified in the `format` query parameter. An example of this can be seen in the Retrieving Collections section. If no format is specified then xml will be returned.
 
-*Applies to: <a href="#"> Recommendations API</a>*
+*Applies to: Recommendations API*
 
-When using any of the endpoints in the <a href="#">Recommendations API</a> the response format returned will be json. The **XML** format is not supported for the <a href="#">Recommendations API</a> endpoints. You can specify the format using `/6534009/alsoViewed.json` or not specify a format like `/6534009/alsoViewed`.
+When using any of the endpoints in the Recommendations API the response format returned will be json. The **XML** format is not supported for the Recommendations API endpoints. You can specify the format using `/6534009/alsoViewed.json` or not specify a format like `/6534009/alsoViewed`.
 
 ### JSONP
 
@@ -41,8 +41,8 @@ $.ajax({
 );
 ```
 
-*Applies to: <a href="#">Products API</a> &#8226; <a href="#">Stores API</a> &#8226; <a href="#">Reviews API</a> &#8226; <a href="#">Categories API</a> &#8226; <a href="#">Recommendations API</a> &#8226; <a href="#">Buying Options API</a>*
+*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API*
 
-To perform cross-site scripting and work with <a href="#">browsers that do not support CORS</a>, use **JSONP** to load our API onto your pages.
+To perform cross-site scripting and work with browsers that do not support CORS, use **JSONP** to load our API onto your pages.
 
 Shown to the right is a javascript example, leveraging jQuery's JSONP support, that displays product names by the sample query from the Basic Search section.
