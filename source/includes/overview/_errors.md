@@ -8,12 +8,12 @@ Best Buy uses standard HTTP response codes to indicate success or failure of an 
 
 Status Code | Explanation
 ------------|------------
-200 | It is all good.
-400 | The request is missing key information or is malformed.
-403 | The allocated call limit is exceeded.
-404 | The requested item cannot be found.
-405 | Particular method not allowed (error will be returned for methods like a POST).
-500, 501, 503 | There is a server error on the Best Buy side.
+**200** | It is all good.
+**400** | The request is missing key information or is malformed.
+**403** | The allocated call limit is exceeded.
+**404** | The requested item cannot be found.
+**405** | Particular method not allowed (error will be returned for methods like a POST).
+**500, 501, 503** | There is a server error on the Best Buy side.
 
 ### Mock Data
 
@@ -25,9 +25,9 @@ Mock codes supported:
 
 Mock Code | Response
 ----------|---------
-mock500 | {"errorMessage":"An unexpected error kept us from completing your request","status":500}
-mock418 | {"errorMessage":"I am a teapot, short and stout","status":418}
-mockEmpty | {"results": []}
+**mock500** | {"errorMessage":"An unexpected error kept us from completing your request","status":500}
+**mock418** | {"errorMessage":"I am a teapot, short and stout","status":418}
+**mockEmpty** | {"results": []}
 
 ### Example
 

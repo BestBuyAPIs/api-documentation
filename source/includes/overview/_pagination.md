@@ -8,13 +8,13 @@ Here is an explanation of the meta data when more than one page is available
 
 Name | Description | Additional Details
 -----|-------------|-------------------
-canonicalURL | the non-server part of the query | 
-currentPage | the page being returned | referred to as "page.current" for the Recommendations and Buying Options APIs
-from | the index of the first item returned on the current page | not available on the Recommendations and Buying Options APIs
-size | the number of results returned per page | only available on the Recommendations and Buying Options APIs
-to | the index of the last item returned on the current page | not available on the Recommendations and Buying Options APIs
-total | the total number of items returned by the query | referred to as "resultSet.count" for the Recommendations and Buying Options APIs
-totalPages | the number of pages required to list all items | referred to as "page.total" for the Recommendations and Buying Options APIs
+**canonicalURL** | the non-server part of the query | 
+**currentPage** | the page being returned | referred to as "page.current" for the Recommendations and Buying Options APIs
+**from** | the index of the first item returned on the current page | not available on the Recommendations and Buying Options APIs
+**size** | the number of results returned per page | only available on the Recommendations and Buying Options APIs
+**to** | the index of the last item returned on the current page | not available on the Recommendations and Buying Options APIs
+**total** | the total number of items returned by the query | referred to as "resultSet.count" for the Recommendations and Buying Options APIs
+**totalPages** | the number of pages required to list all items | referred to as "page.total" for the Recommendations and Buying Options APIs
 
 ### Example response header for Products, Stores, Reviews and Category APIs
 
