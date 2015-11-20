@@ -8,113 +8,322 @@ title: Stores API
 
 The Best Buy Stores API provides store information for all Best Buy stores in the United States and Puerto Rico. This information includes address, location, hours and services offered.
 
-In addition, store availability of a product can be determined by querying the Products API together with the Stores API. Refer to [In Store Availability](#documentation/stores-api-in-store-availability) for more information on these type of queries.
-
+In addition, store availability of a product can be determined by querying the Products API together with the Stores API. Refer to In Store Availability for more information on these type of queries.
 
 ## Information
 
  The Stores API enables you to retrieve the basic store information for all Best Buy stores, a specific Best Buy store or those stores that match a set of search parameters.
 
-Some examples on how to query for store information:
+Attribute | Description
+--------- | -----------
+**address** | Street address
+**address2** | Street address 2 provides additional street address information for the Best Buy store in the result set
+**city** | City name
+**country** | Country name
+**distance** | Store distance from specified location in miles; attribute is not queryable; use with lat and long or postal code
+**fullPostalCode** | 9-digit postal code if available for store location
+**lat** | Latitude
+**lng** | Longitude
+**location** | Details about location of a store; primarily used for identifying Best Buy Express stores
+**longName** | Full store name
+**name** | Store name
+**phone** | Store phone number; phone number for Express stores goes to Best Buy Customer Service
+**postalCode** | 5-digit postal code
+**region** | State, territory
+**storeId** | Store number
+**storeType** | Indicates the type of store<li> There are three types of Best Buy stores: "Big Box", "Mobile" and "Express"<li>"Big Box" value represents large showroom stores featuring HDTVs, computers, gaming, appliances, cell phones, tablets, Geek Squad services and more<li>"Mobile" value represents specialty shops focused on smartphones, tablets, accessories, services and plans<li>"Express" value represents vending machine-style, self-checkout stores offering audio goods and accessories, found in airports, on college campuses and more
+**tradeIn** | Indicates the type of trade-ins accepted at stores<li>Possible trade in values include: "trade-in - no-receipt", "trade-in - no receipt (biometric)", "trade-in - best buy receipt required", "trade-in - no receipt (2 ids required)", "no trade-ins accepted", "trade-in - no receipt (biometric with 2 ids)", "trade-in - no receipt for video games. best buy receipt for other items"<li>For more information about trade-in policies, please visit the local store page
 
-- <a href="#storesExample1">Store information for all stores</a>
-- <a href="#storesExample2">Store information for a single store using a store identifier</a>
-- <a href="#storesExample3">All stores within a city</a>
-- <a href="#storesExample4">All stores within a postal code</a>
-- <a href="#storesExample5">Stores closest to a specified geo-location</a>
-- <a href="#storesExample6">Stores within a radius from a specific location</a>
+###Request/Response Examples:
 
-#### Attributes
+```json
+"http://api.bestbuy.com/v1/stores?format=json&apiKey=YourAPIKey"
+```
 
-{#include csv:tables/storeinfo}
+```json
+  {
+      "storeId": 1118,
+      "storeType": "BigBox",
+      "tradeIn": "No Trade-Ins accepted",
+      "name": "Hato Rey",
+      "longName": "Best Buy - Hato Rey",
+      "address": "230 Calle Federico Costa Hato Rey",
+      "address2": "",
+      "city": "San Juan",
+      "region": "PR",
+      "fullPostalCode": "00918",
+      "country": "US",
+      "lat": 18.42684,
+      "lng": -66.07188,
+      "hours": "Mon: 10-9; Tue: 10-9; Wed: 10-9; Thurs: 10-9; Fri: 10-9; Sat: 10-9; Sun: 11-7",
+      "hoursAmPm": "Mon: 10am-9pm; Tue: 10am-9pm; Wed: 10am-9pm; Thurs: 10am-9pm; Fri: 10am-9pm; Sat: 10am-9pm; Sun: 11am-7pm",
+      "gmtOffset": -5,
+      "services": [
+        {
+          "service": "Windows Store"
+        },
+        {
+          "service": "Geek Squad Services"
+        },
+        {
+          "service": "Best Buy Mobile"
+        },
+        {
+          "service": "Best Buy For Business"
+        },
+        {
+          "service": "Apple Shop"
+        },
+        {
+          "service": "Electronics Recycling"
+        },
+        {
+          "service": "Car & GPS Installation Services"
+        }
+      ],
+      "phone": "787-764-4900",
+      "postalCode": "00918"
+    }
+```
 
-<span class="h3">Request/Response Examples</span>
-<a class="anchor" id="storesExample1"></a>
-#### Store information for all stores
-_The query below will return store information for all stores._
-[Return to Information](#documentation/stores-api-information)
+###Store information for all stores
 
-{#include code:responses/all}
+This query returns store information for all stores.
 
-<a class="anchor" id="storesExample2"></a>
-#### Store information for a single store using a store identifier
-_The query below will return store information of a store with the `storeId` attribute specified in the input._
-[Return to Information](#documentation/stores-api-information)
+<div></div>
 
-{#include code:responses/id}
+```json
+"http://api.bestbuy.com/v1/stores(storeId=281)?format=json&apiKey=YourAPIKey"
+```
 
-<a class="anchor" id="storesExample3"></a>
-#### All stores within a city
-_The query below returns stores information for all the stores in the `city` specified as the input._
-[Return to Information](#documentation/stores-api-information)
+```json
+  {
+      "storeId": 281,
+      "name": "Richfield",
+      "longName": "Best Buy - Richfield",
+      "address": "1000 West 78th St.",
+      "address2": "",
+      "city": "Richfield",
+      "region": "MN",
+      "fullPostalCode": "55423",
+      "country": "US",
+      "lat": 44.863312,
+      "lng": -93.292557
+    }
+```
 
-{#include code:responses/storecity}
+### Store information for a single store using a store identifier
 
-<a class="anchor" id="storesExample4"></a>
-#### All stores within a zipcode
-_The query below retrieves stores information for all the stores at the `postalCode` specified as the input._
-[Return to Information](#documentation/stores-api-information)
+This query returns store information of a store with the `storeId` attribute specified in the input.
 
-{#include code:responses/zipcode}
+<div></div>
+
+```json
+"http://api.bestbuy.com/v1/stores(city=San Juan)?format=json&apiKey=YourAPIKey"
+```
+
+```json
+  {
+      "storeId": 1118,
+      "name": "Hato Rey",
+      "longName": "Best Buy - Hato Rey",
+      "address": "230 Calle Federico Costa Hato Rey",
+      "address2": "",
+      "city": "San Juan"
+    }
+```
+
+### All stores within a city
+
+This query returns stores information for all the stores in the `city` specified as the input.
+
+<div></div>
+
+```json
+"http://api.bestbuy.com/v1/stores(postalCode=55423)?format=json&apiKey=YourAPIKey"
+```
+
+```json
+{ "storeId": 2387,
+      "name": "Best Buy Mobile - Richfield",
+      "longName": "Best Buy Mobile - Richfield",
+      "address": "6601 Nicollet Ave S",
+      "address2": "",
+      "city": "Richfield",
+      "region": "MN",
+      "fullPostalCode": "55423"
+}
+```
+
+### All stores within a zipcode
+
+This query retrieves stores information for all the stores in the `postalCode` specified as the input.
 
 ##Area Function
-The Stores API includes a special function that enables you to locate stores near a specified location.
-- `area(location,distance)`
 
-To search based on a location please use the `postalCode` attribute or a `lat`-`long` pair. When postal code is used the reference point in the postal code (zipcode) area is determined by a standard mapping service. If no distance is specified in the function, radius is defaulted to 10 miles. The `location` will be populated with the distance from the specified postal code or lat/long to the store in miles.
+The Stores API includes a special function `area(location,distance)` enabling you to locate stores near a specified location.
 
+Use the `postalCode` attribute or a `lat`-`long` pair to search based on a location. When postal code is used the reference point in the postal code (zipcode) area is determined by a standard mapping service. If no distance is specified in the function, radius is defaulted to 10 miles. The `location` will be populated with the distance from the specified postal code or lat/long to the store in miles.
 
-<span class="h3">Request/Response Example</span>
-<a class="anchor" id="storesExample5"></a>
-#### Stores closest to a specified geo-location
-_The query below returns stores within 10 miles of ZIP code 55423 (Richfield, MN)_
+###Request/Response Examples:
+
+<div></div>
+
+```json
+"http://api.bestbuy.com/v1/stores(area(55423,10))?format=json&apiKey=YourAPIKey&show=storeId,name"
+```
+
+```json
+{
+  "stores":[
+    {
+      "storeId": 2387,
+      "name": "Best Buy Mobile - Richfield"
+    },
+    {
+      "storeId": 281,
+      "name": "Richfield"
+    },
+    {
+      "storeId": 1000,
+      "name": "Mall of America"
+    }
+    ]
+ }
+ ```
+
+### Stores closest to a specified geo-location
+
+This query returns stores within 10 miles of ZIP code 55423 (Richfield, MN).
 
 _Note_: _You may notice the stores returned are stated to be just over 10 miles from the ZIP code. This is due to the way return distance is calculated. The search area is defined as a square, bounded by location point +/- distance identified in request. All stores in that square are returned. Return distance is calculated linearly from the location point (creates a circle). Stores near the corner of the square might be listed as farther than the query distance specified._
-[Return to Information](#documentation/stores-api-information) or [Return to Area Function](#documentation/stores-api-area-function)
 
-{#include code:responses/areaFunction}
+<div></div>
 
-<a class="anchor" id="storesExample6"></a>
-#### Stores within a radius from a specific location
-_The query below returns stores within 1000 miles of Barrow, Alaska (71.3 N, 156.8 W)_
-[Return to Information](#documentation/stores-api-information) or [Return to Area Function](#documentation/stores-api-area-function)
+```json
+"http://api.bestbuy.com/v1/stores(area(71.3,-156.8,1000))?format=json&show=storeId,name,distance&apiKey=YourAPIKey"
+```
 
-{#include code:responses/longlatArea}
+```json
+{
+  "stores": [
+    {
+      "storeId": 1760,
+      "name": "Northern Anchorage",
+      "distance": 722.49
+    },
+    {
+      "storeId": 539,
+      "name": "Anchorage",
+      "distance": 727.56
+    }
+  ],
+  "warnings": "Distances are in terms of miles (default)"
+}
+```
+
+### Stores within a radius from a specific location
+
+This query returns stores within 1000 miles of Barrow, Alaska (71.3 N, 156.8 W).
 
 ## Hours
 The Hours attributes provide the days and times each Best Buy store is open for the following two weeks. We start our weeks on Sunday and provide hours in both a 12-hour and 24-hour clock. The times displayed are for the local time zones of the Best Buy store being returned. The Detailed Hours attributes provide the most accurate information of when stores will be opened or closed. This can be helpful during holidays as store hours may vary during this time. 
 
 *Hint: Detailed hours are filtered out from the search results by default. Query with `show=all` or `show=detailedHours` to see in the search results.*
 
-How to query for store hours:
-- <a href="#storeshrsExample1">Store hours for a single store using a store identifier</a>
+Attribute | Description
+--------- | -----------
+**detailedHours.day** | Days of the week store will be open
+**detailedHours.date** | Dates store will be open
+**detailedHours.open** | Time store will open (24-hour clock)
+**detailedHours.close** | Time store will close (24-hour clock)
+**gmtOffset** | Time difference from GMT
+**hours** | Regular Best Buy store hours Monday through Friday for the calendar year; displayed in local time zone
+**hoursAmPm** | Regular Best Buy store hours Monday through Friday for the calendar year with am and pm identifiers; displayed in local time zone
 
-<span class="h4">Attributes</span>
+###Request/Response Example:
 
-{#include csv:tables/hours}
+<div></div>
 
-<span class="h3">Request/Response Example</span>
-<a class="anchor" id="storeshrsExample1"></a>
-####Store hours for a single store using a store identifier
-_The below query will return general store hours and detailed store hours for a requested store._
+```json
+"http://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=hours,hoursAmPm,gmtOffset,detailedHours"
+```
 
-[Return to Hours description](#documentation/stores-api-hours)
+```json
+{
+  "stores": [
+    {
+      "hours": "Mon: 10-9; Tue: 10-9; Wed: 10-9; Thurs: 10-9; Fri: 10-9; Sat: 10-9; Sun: 11-7",
+      "hoursAmPm": "Mon: 10am-9pm; Tue: 10am-9pm; Wed: 10am-9pm; Thurs: 10am-9pm; Fri: 10am-9pm; Sat: 10am-9pm; Sun: 11am-7pm",
+      "gmtOffset": -5,
+      "detailedHours": [
+        {
+          "day": "Sunday",
+          "date": "2014-05-04",
+          "open": "11:00",
+          "close": "19:00"
+        },
+        {
+          "day": "Monday",
+          "date": "2014-05-05",
+          "open": "10:00",
+          "close": "21:00"
+        }
+        {
+          "day": "Tuesday",
+          "date": "2014-05-06",
+          "open": "10:00",
+          "close": "21:00"
+        }
+```
 
-{#include code:responses/detailedHours}
+###Store hours for a single store using a store identifier
+
+This query returns general store hours and detailed store hours for a requested store.
+
 
 ## Services Offered
 The Stores API includes information related to the services offered at each of the Best Buy stores. `services` is a collection of different services offered at a specified store.
 
-<span class="h4">Attributes</span>
+Attribute | Description
+--------- | -----------
+**services.service** | Collection of services offered at each Best Buy store
 
-{#include csv:tables/services}
+###Request/Response Example:
 
-<span class="h3">Request/Response Example</span>
+<div></div>
 
-The query below will return all the services offered at the store specified in the input.
+```json
+"http://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=services"
+```
 
-{#include code:responses/servicesOffered}
+```json
+  {
+  "services": [
+        {
+          "service": "Windows Store"
+        },
+        {
+          "service": "Geek Squad Services"
+        },
+        {
+          "service": "Best Buy Mobile"
+        },
+        {
+          "service": "Best Buy For Business"
+        },
+        {
+          "service": "Apple Shop"
+        },
+        {
+          "service": "Electronics Recycling"
+        },
+        {
+          "service": "Car & GPS Installation Services"
+        }
+```
 
+This query returns all services offered at the store specified in the input.
 
 ## In-Store Availability
 The Stores API, in conjunction with the Products API, allows you to search stores for a product and identify if it is available. In-store availability searches will return only those stores that have a given product in stock. Stores not returned do not have that product in stock. When completing an in-store availability query you should limit the stores that are a part of the query.
@@ -123,23 +332,73 @@ Availability in stores is calculated using counts and previous-day sales to dete
 
 _HINT: The Products API attribute `inStoreAvailability` will tell you if a product is sold in stores but not if it's available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store._
 
-<span class="h3">Request/Response Examples</span>
+###Request/Response Examples:
 
-The examples below search Express stores for particular products and identify if the products are in stock. These queries can be based on a storeType or this parameter can be omitted:
-- <a href="#storesAvailability1">Express store that has a list of SKUs available</a>
-- <a href="#storesAvailability2">Express stores within a ten mile radius using a lat/long that have a SKU available</a>
+<div></div>
 
-<a class="anchor" id="storesAvailability1"></a>
-#### Express store that has a list of SKUs available
-_The query below will return if a specific Express store has a list of SKUs available_
-[Return to In-Store Availability](#documentation/stores-api-in-store-availability)
+```json
+"http://api.bestbuy.com/v1/stores(storeId=8042)+products(sku%20in%20(6461052,5909042))?apiKey=YourAPIKey&format=json&show=storeId,storeType,name,city,region,products.name,products.sku,products"
+```
 
-{#include code:responses/oneInStoreAvail}
+```json
+  {
+      "storeId": 8042,
+      "storeType": "Express",
+      "name": "LGA - LaGuardia Airport",
+      "city": "Flushing",
+      "region": "NY",
+      "products": [
+        {
+          "name": "Skullcandy - Ink'd 2 Earbud Headphones - Black",
+          "sku": 6461052
+        },
+        {
+          "name": "Skullcandy - TiTAN Earbud Headphones",
+          "sku": 5909042
+        }
+        ]
+```
 
-<a class="anchor" id="storesAvailability2"></a>
-#### Express stores within a ten mile radius using a lat/long that have a SKU available
-_The query below will return all Express stores within a ten mile radius based on lat/long that have a specific SKU available._
-[Return to In-Store Availability](#documentation/stores-api-in-store-availability)
 
-{#include code:responses/inStoreAvailabilityTwo}
+###Express store that has a list of SKUs available
 
+This query indicates if a specific Express store has a list of SKUs available.
+
+<div></div>
+
+```json
+"http://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,10)&storeType=Express)+products(sku=6461052)?apiKey=YourAPIKey&format=json&show=storeId,storeType,city,region,name,products.name,products.sku,products"
+```
+
+```json
+    {
+      "storeId": 8108,
+      "storeType": "Express",
+      "city": "Minneapolis",
+      "region": "MN",
+      "name": "MSP - Minneapolis Saint Paul International Airport",
+      "products": [
+        {
+          "name": "Skullcandy - Ink'd 2 Earbud Headphones - Black",
+          "sku": 6461052
+        }
+      ]
+    }
+    {
+      "storeId": 8915,
+      "storeType": "Express",
+      "city": "Minneapolis",
+      "region": "MN",
+      "name": "Minneapolis Convention Center",
+      "products": [
+        {
+          "name": "Skullcandy - Ink'd 2 Earbud Headphones - Black",
+          "sku": 6461052
+        }
+      ]
+    }
+```
+
+### Express stores within a ten mile radius using a lat/long that have a SKU available
+
+This query returns all Express stores within a ten mile radius based on lat/long that have a specific SKU available.
