@@ -32,7 +32,7 @@ Mock Code | Response
 ### Example
 
 ```text
-http://api.bestbuy.com/beta/products/mock500/alsoViewed?apiKey=YourAPIKey
+https://api.bestbuy.com/beta/products/mock500/alsoViewed?apiKey=YourAPIKey
 ```
 
 ```json

@@ -23,7 +23,7 @@ Attribute *names* are case sensitive; attribute *values* are not.
 ### Search by a single attribute
 
 ```text
-http://api.bestbuy.com/v1/stores(region=ut)?format=json&show=storeId,city,region&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/stores(region=ut)?format=json&show=storeId,city,region&apiKey=YourAPIKey
 ```
 
 ```json
@@ -57,7 +57,7 @@ Our Products, Stores, Reviews and Categories APIs can be searched by nearly all 
 ### Search by all attributes (AND);
 
 ```text
-http://api.bestbuy.com/v1/products(manufacturer=canon&salePrice<1000)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(manufacturer=canon&salePrice<1000)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json
@@ -91,7 +91,7 @@ If you need to search for the values of more than one attribute and **all** of t
 ### Search by any attributes (OR)
 
 ```text
-http://api.bestbuy.com/v1/products(wifiReady=true|wifiBuiltIn=true)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(wifiReady=true|wifiBuiltIn=true)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json
@@ -125,11 +125,11 @@ If you want items with **any** of the specified attributes, combine them with a 
 ### Complex Searches
 
 ```text
-http://api.bestbuy.com/v1/products(platform=psp&(salePrice<=15|(salePrice<=20&tradeInValue>=10)))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(platform=psp&(salePrice<=15|(salePrice<=20&tradeInValue>=10)))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json
-[ 
+[
   {
     "sku": 7049721,
     "name": "Ape Escape: On the Loose Greatest Hits - PSP",
@@ -165,7 +165,7 @@ The search terms for this example can be combined as:
 ### Search by date range
 
 ```text
-http://api.bestbuy.com/v1/products(releaseDate>=2014-02-01&releaseDate<=2014-02-28)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(releaseDate>=2014-02-01&releaseDate<=2014-02-28)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json
@@ -198,7 +198,7 @@ If you want to find all products that were released February 2014, use this quer
 ### Search by date relative to today
 
 ```text
-http://api.bestbuy.com/v1/products(releaseDate>today)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(releaseDate>today)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json
@@ -232,7 +232,7 @@ You can also use the value `today` to represent the current day. If you want to 
 ### Search for multiple attribute values
 
 ```text
-http://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&color in(white,bisque,stainless-steel))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&color in(white,bisque,stainless-steel))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json
@@ -266,7 +266,7 @@ If you want multiple values of a single attribute, you can specify them individu
 ### Wildcards - Value is present
 
 ```text
-http://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json
@@ -311,7 +311,7 @@ Some attributes apply only to specific items. Even then, because much of this at
 ### Wildcards - Value is NOT present
 
 ```text
-http://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb!=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb!=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json
@@ -357,7 +357,7 @@ Because `active` is a boolean attribute, `active=*` will return products for whi
 ### Wildcards - String
 
 ```text
-http://api.bestbuy.com/v1/products(name=classic*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(name=classic*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json
@@ -396,7 +396,7 @@ When used as part of a string search, the wildcard performs two functions. First
 ### Keyword Search Function
 
 ```text
-http://api.bestbuy.com/v1/products(search=oven&search=stainless&search=steel)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(search=oven&search=stainless&search=steel)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json

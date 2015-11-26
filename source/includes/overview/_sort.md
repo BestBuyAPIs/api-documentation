@@ -11,7 +11,7 @@ You can specify the way in which you'd like to have the results sorted by one or
 ### Sort by a single attribute
 
 ```text
-http://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&show=sku,name,salePrice&sort=salePrice.desc&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&show=sku,name,salePrice&sort=salePrice.desc&apiKey=YourAPIKey
 ```
 
 ```json
@@ -45,7 +45,7 @@ The example to the right demonstrates how to sort the results from most to least
 ### Sort on non-displayed attribute
 
 ```text
-http://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&show=sku,name,salePrice&sort=salesRankMediumTerm.asc&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&show=sku,name,salePrice&sort=salesRankMediumTerm.asc&apiKey=YourAPIKey
 ```
 
 ```json
@@ -79,7 +79,7 @@ You can sort by an attribute you are not displaying. For example, to list all fl
 ### Sort by multiple attributes
 
 ```text
-http://api.bestbuy.com/v1/products(type=game)?format=json&show=sku,name,salePrice,tradeInValue&sort=tradeInValue.desc,platform.asc&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(type=game)?format=json&show=sku,name,salePrice,tradeInValue&sort=tradeInValue.desc,platform.asc&apiKey=YourAPIKey
 ```
 
 ```json

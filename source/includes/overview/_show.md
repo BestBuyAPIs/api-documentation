@@ -15,7 +15,7 @@ For example, if you are only interested in the product's `sku`, `name` and `sale
 ### Products Response `show=sku,name,salePrice`
 
 ```text
-http://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
 ```json
@@ -39,7 +39,7 @@ For example, the Stores API does not return the `detailedHours` attribute by def
 ### Stores Response - Default Attributes Only
 
 ```text
-http://api.bestbuy.com/v1/stores/2387.json?apiKey=YourAPIKey
+https://api.bestbuy.com/v1/stores/2387.json?apiKey=YourAPIKey
 ```
 
 ```json
@@ -78,7 +78,7 @@ http://api.bestbuy.com/v1/stores/2387.json?apiKey=YourAPIKey
 ### Stores Response `show=all`
 
 ```text
-http://api.bestbuy.com/v1/stores/2387.json?show=all&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/stores/2387.json?show=all&apiKey=YourAPIKey
 ```
 
 ```json

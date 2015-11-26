@@ -8,7 +8,7 @@ Here is an explanation of the meta data when more than one page is available
 
 Name | Description | Additional Details
 -----|-------------|-------------------
-**canonicalURL** | the non-server part of the query | 
+**canonicalURL** | the non-server part of the query |
 **currentPage** | the page being returned | referred to as "page.current" for the Recommendations and Buying Options APIs
 **from** | the index of the first item returned on the current page | not available on the Recommendations and Buying Options APIs
 **size** | the number of results returned per page | only available on the Recommendations and Buying Options APIs
@@ -19,7 +19,7 @@ Name | Description | Additional Details
 ### Example response header for Products, Stores, Reviews and Category APIs
 
 ```text
-http://api.bestbuy.com/v1/products(type=Movie)?format=json&show=sku,name,salePrice&pageSize=3&page=1000&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products(type=Movie)?format=json&show=sku,name,salePrice&pageSize=3&page=1000&apiKey=YourAPIKey
 ```
 
 ```json
@@ -53,7 +53,7 @@ http://api.bestbuy.com/v1/products(type=Movie)?format=json&show=sku,name,salePri
 ### Example response header for the Recommendations and Buying Options APIs
 
 ```text
-http://api.bestbuy.com/beta/products/openBox?apiKey=YourAPIKey&page=2&pageSize=15
+https://api.bestbuy.com/beta/products/openBox?apiKey=YourAPIKey&page=2&pageSize=15
 ```
 
 ```json
@@ -63,7 +63,7 @@ http://api.bestbuy.com/beta/products/openBox?apiKey=YourAPIKey&page=2&pageSize=1
       "count": 2040
     },
     "context": {
-      "canonicalUrl": "http://api.bestbuy.com/beta/products/openBox?apiKey=YourAPIKey&page=2&pageSize=15"
+      "canonicalUrl": "https://api.bestbuy.com/beta/products/openBox?apiKey=YourAPIKey&page=2&pageSize=15"
     },
     "page": {
       "current": 1,

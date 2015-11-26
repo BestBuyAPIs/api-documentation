@@ -37,7 +37,7 @@ Attribute | Description
 ###Request/Response Examples:
 
 ```json
-"http://api.bestbuy.com/v1/stores?format=json&apiKey=YourAPIKey"
+"https://api.bestbuy.com/v1/stores?format=json&apiKey=YourAPIKey"
 ```
 
 ```json
@@ -93,7 +93,7 @@ This query returns store information for all stores.
 <div></div>
 
 ```json
-"http://api.bestbuy.com/v1/stores(storeId=281)?format=json&apiKey=YourAPIKey"
+"https://api.bestbuy.com/v1/stores(storeId=281)?format=json&apiKey=YourAPIKey"
 ```
 
 ```json
@@ -119,7 +119,7 @@ This query returns store information of a store with the `storeId` attribute spe
 <div></div>
 
 ```json
-"http://api.bestbuy.com/v1/stores(city=San Juan)?format=json&apiKey=YourAPIKey"
+"https://api.bestbuy.com/v1/stores(city=San Juan)?format=json&apiKey=YourAPIKey"
 ```
 
 ```json
@@ -140,7 +140,7 @@ This query returns stores information for all the stores in the `city` specified
 <div></div>
 
 ```json
-"http://api.bestbuy.com/v1/stores(postalCode=55423)?format=json&apiKey=YourAPIKey"
+"https://api.bestbuy.com/v1/stores(postalCode=55423)?format=json&apiKey=YourAPIKey"
 ```
 
 ```json
@@ -170,7 +170,7 @@ Use the `postalCode` attribute or a `lat`-`long` pair to search based on a locat
 <div></div>
 
 ```json
-"http://api.bestbuy.com/v1/stores(area(55423,10))?format=json&apiKey=YourAPIKey&show=storeId,name"
+"https://api.bestbuy.com/v1/stores(area(55423,10))?format=json&apiKey=YourAPIKey&show=storeId,name"
 ```
 
 ```json
@@ -201,7 +201,7 @@ _Note_: _You may notice the stores returned are stated to be just over 10 miles 
 <div></div>
 
 ```json
-"http://api.bestbuy.com/v1/stores(area(71.3,-156.8,1000))?format=json&show=storeId,name,distance&apiKey=YourAPIKey"
+"https://api.bestbuy.com/v1/stores(area(71.3,-156.8,1000))?format=json&show=storeId,name,distance&apiKey=YourAPIKey"
 ```
 
 ```json
@@ -227,7 +227,7 @@ _Note_: _You may notice the stores returned are stated to be just over 10 miles 
 This query returns stores within 1000 miles of Barrow, Alaska (71.3 N, 156.8 W).
 
 ## Hours
-The Hours attributes provide the days and times each Best Buy store is open for the following two weeks. We start our weeks on Sunday and provide hours in both a 12-hour and 24-hour clock. The times displayed are for the local time zones of the Best Buy store being returned. The Detailed Hours attributes provide the most accurate information of when stores will be opened or closed. This can be helpful during holidays as store hours may vary during this time. 
+The Hours attributes provide the days and times each Best Buy store is open for the following two weeks. We start our weeks on Sunday and provide hours in both a 12-hour and 24-hour clock. The times displayed are for the local time zones of the Best Buy store being returned. The Detailed Hours attributes provide the most accurate information of when stores will be opened or closed. This can be helpful during holidays as store hours may vary during this time.
 
 *Hint: Detailed hours are filtered out from the search results by default. Query with `show=all` or `show=detailedHours` to see in the search results.*
 
@@ -246,7 +246,7 @@ Attribute | Description
 <div></div>
 
 ```json
-"http://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=hours,hoursAmPm,gmtOffset,detailedHours"
+"https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=hours,hoursAmPm,gmtOffset,detailedHours"
 ```
 
 ```json
@@ -294,7 +294,7 @@ Attribute | Description
 <div></div>
 
 ```json
-"http://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=services"
+"https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=services"
 ```
 
 ```json
@@ -337,7 +337,7 @@ _HINT: The Products API attribute `inStoreAvailability` will tell you if a produ
 <div></div>
 
 ```json
-"http://api.bestbuy.com/v1/stores(storeId=8042)+products(sku%20in%20(6461052,5909042))?apiKey=YourAPIKey&format=json&show=storeId,storeType,name,city,region,products.name,products.sku,products"
+"https://api.bestbuy.com/v1/stores(storeId=8042)+products(sku%20in%20(6461052,5909042))?apiKey=YourAPIKey&format=json&show=storeId,storeType,name,city,region,products.name,products.sku,products"
 ```
 
 ```json
@@ -367,7 +367,7 @@ This query indicates if a specific Express store has a list of SKUs available.
 <div></div>
 
 ```json
-"http://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,10)&storeType=Express)+products(sku=6461052)?apiKey=YourAPIKey&format=json&show=storeId,storeType,city,region,name,products.name,products.sku,products"
+"https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,10)&storeType=Express)+products(sku=6461052)?apiKey=YourAPIKey&format=json&show=storeId,storeType,city,region,name,products.name,products.sku,products"
 ```
 
 ```json
