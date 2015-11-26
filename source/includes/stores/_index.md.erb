@@ -6,88 +6,90 @@ title: Stores API
 
 # Stores API
 ```shell
-curl "https://api.bestbuy.com/v1/stores?format=json&apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/v1/stores?format=json&show=city,longName&pageSize=2&apiKey=YourAPIKey"
 ```
 
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
-bby.stores('',{show:'id'}).then(function(data){
+bby.stores('',{show:'city,longName',pageSize:2}).then(function(data){
   console.log(data);
 });
 ```
 
+> Returns the city and store name of 2 stores
+
 ```json-doc
-  {
-      "storeId": 1118,
-      "storeType": "BigBox",
-      "tradeIn": "No Trade-Ins accepted",
-      "name": "Hato Rey",
-      "longName": "Best Buy - Hato Rey",
-      "address": "230 Calle Federico Costa Hato Rey",
-      "address2": "",
+{
+  "from": 1,
+  "to": 2,
+  "total": 1587,
+  "currentPage": 1,
+  "totalPages": 794,
+  "stores": [
+    {
       "city": "San Juan",
-      "region": "PR",
-      "fullPostalCode": "00918",
-      "country": "US",
-      "lat": 18.42684,
-      "lng": -66.07188,
-      "hours": "Mon: 10-9; Tue: 10-9; Wed: 10-9; Thurs: 10-9; Fri: 10-9; Sat: 10-9; Sun: 11-7",
-      "hoursAmPm": "Mon: 10am-9pm; Tue: 10am-9pm; Wed: 10am-9pm; Thurs: 10am-9pm; Fri: 10am-9pm; Sat: 10am-9pm; Sun: 11am-7pm",
-      "gmtOffset": -5,
-      "services": [
-        {
-          "service": "Windows Store"
-        },
-        {
-          "service": "Geek Squad Services"
-        },
-        {
-          "service": "Best Buy Mobile"
-        },
-        {
-          "service": "Best Buy For Business"
-        },
-        {
-          "service": "Apple Shop"
-        },
-        {
-          "service": "Electronics Recycling"
-        },
-        {
-          "service": "Car & GPS Installation Services"
-        }
-      ],
-      "phone": "787-764-4900",
-      "postalCode": "00918"
+      "longName": "Best Buy - Hato Rey"
+    },
+    {
+      "city": "Bayamon",
+      "longName": "Best Buy - Rio Hondo Mall"
     }
+  ]
+}
 ```
 
 The Best Buy Stores API provides store information for all Best Buy stores in the United States and Puerto Rico. This information includes address, location, hours and services offered.
 
 In addition, store availability of a product can be determined by querying the Products API together with the Stores API. Refer to In Store Availability for more information on these type of queries.
 
+<div></div>
+
 ## Common Attributes
 
 ```shell
-curl "https://api.bestbuy.com/v1/stores(postalCode=55423)?format=json&apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/v1/stores(postalCode=55423)?format=json&show=storeId,storeType,name,city,region&apiKey=YourAPIKey"
 ```
 
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
-bby.stores('postalCode=55423').then(function(data){
+bby.stores('postalCode=55423', {show: 'storeId,storeType,name,city,region'}).then(function(data){
   console.log(data);
 });
 ```
 
+> Returns all stores at the ZIP code 55423 (Richfield, MN)
+
+
 ```json-doc
-{ "storeId": 2387,
+{
+  "from": 1,
+  "to": 3,
+  "total": 3,
+  "currentPage": 1,
+  "totalPages": 1,
+  "stores": [
+    {
+      "storeId": 2387,
+      "storeType": "Mobile",
       "name": "Best Buy Mobile - Richfield",
-      "longName": "Best Buy Mobile - Richfield",
-      "address": "6601 Nicollet Ave S",
-      "address2": "",
       "city": "Richfield",
-      "region": "MN",
-      "fullPostalCode": "55423"
+      "region": "MN"
+    },
+    {
+      "storeId": 281,
+      "storeType": "BigBox",
+      "name": "Richfield",
+      "city": "Richfield",
+      "region": "MN"
+    },
+    {
+      "storeId": 8001,
+      "storeType": "Express",
+      "name": "Best Buy HQ",
+      "city": "Richfield",
+      "region": "MN"
+    }
+  ]
 }
 ```
 
@@ -117,35 +119,38 @@ Attribute | Description
 ##Area Function
 
 ```shell
-curl "https://api.bestbuy.com/v1/stores(area(55423,10))?format=json&apiKey=YourAPIKey&show=storeId,name"
+curl "https://api.bestbuy.com/v1/stores(area(55423,10))?format=json&show=storeId,storeType,name&pageSize=2&apiKey=YourAPIKey"
 ```
 
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
-bby.stores('area(55423,10)',{show:'storeId,name'}).then(function(data){
+bby.stores('area(55423,10)',{show:'storeId,storeType,name', pageSize: 2}).then(function(data){
   console.log(data);
 });
 ```
 
-> This query returns stores within 10 miles of ZIP code 55423 (Richfield, MN).
+> Returns stores within 10 miles of ZIP code 55423 (Richfield, MN)
 
 ```json-doc
 {
-  "stores":[
+  "from": 1,
+  "to": 2,
+  "total": 22,
+  "currentPage": 1,
+  "totalPages": 11,
+  "stores": [
     {
       "storeId": 2387,
+      "storeType": "Mobile",
       "name": "Best Buy Mobile - Richfield"
     },
     {
       "storeId": 281,
+      "storeType": "BigBox",
       "name": "Richfield"
-    },
-    {
-      "storeId": 1000,
-      "name": "Mall of America"
     }
-    ]
- }
+  ]
+}
 ```
 
 The Stores API includes a special function `area(location,distance)` enabling you to locate stores near a specified location.
@@ -158,7 +163,7 @@ _Note_: _You may notice the stores returned are stated to be just over 10 miles 
 ## Hours
 
 ```shell
-curl "https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=hours,hoursAmPm,gmtOffset,detailedHours"
+curl "https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&show=hours,hoursAmPm,gmtOffset,detailedHours&apiKey=YourAPIKey"
 ```
 
 ```javascript
@@ -170,6 +175,8 @@ bby.stores('storeId=1118',{show:'hours,hoursAmPm,gmtOffset,detailedHours'})
    });
 ```
 
+> Shows all hours that store #1118 (San Juan, PR) is open
+
 ```json-doc
 {
   "from": 1,
@@ -177,10 +184,6 @@ bby.stores('storeId=1118',{show:'hours,hoursAmPm,gmtOffset,detailedHours'})
   "total": 1,
   "currentPage": 1,
   "totalPages": 1,
-  "queryTime": "0.002",
-  "totalTime": "0.006",
-  "partial": false,
-  "canonicalUrl": "/v1/stores(storeId=1118)?show=hours,hoursAmPm,gmtOffset,detailedHours&format=json&apiKey=YourAPIKey",
   "stores": [
     {
       "hours": "Mon: 10-9; Tue: 10-9; Wed: 10-9; Fri: 12:01-10; Sat: 9-10; Sun: 11-8",
@@ -224,9 +227,8 @@ Attribute | Description
 
 ## Services Offered
 ```shell
-curl "https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=services"
+curl "https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&show=services&apiKey=YourAPIKey"
 ```
-
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
 bby.stores('storeId=1118',{show:'services'}).then(function(data){
@@ -234,6 +236,7 @@ bby.stores('storeId=1118',{show:'services'}).then(function(data){
   console.log(require('util').inspect(data, false, null));
 });
 ```
+> Shows all services available at store #1118 (San Juan, PR)
 
 ```json-doc
 {
@@ -242,10 +245,6 @@ bby.stores('storeId=1118',{show:'services'}).then(function(data){
   "total": 1,
   "currentPage": 1,
   "totalPages": 1,
-  "queryTime": "0.003",
-  "totalTime": "0.007",
-  "partial": false,
-  "canonicalUrl": "/v1/stores(storeId=1118)?show=services&format=json&apiKey=YourAPIKey",
   "stores": [
     {
       "services": [
@@ -296,13 +295,13 @@ Attribute | Description
 ## In-Store Availability
 
 ```shell
-curl "https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,3)&storeType=Express)+products(sku=5038019)?apiKey=YourAPIKey&format=json&show=storeId,storeType,city,region,name,products.name,products.sku,products&pageSize=1"
+curl "https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,3)&storeType=Express)+products(sku=5038019)?format=json&show=storeId,storeType,city,region,name,products.name,products.sku,products&pageSize=1&apiKey=YourAPIKey"
 ```
 
 ```javascript
 //Not yet implemented
 ```
-> This example shows Express stores within 3 miles of 44.882942,-93.2775 (Richfield, MN) that carry SKU 5038019 (Skullcandy earbuds).
+> Shows Express stores within 3 miles of 44.882942,-93.2775 (Richfield, MN) that carry SKU 5038019 (Insignia 5-Way Stereo Splitter).
 
 ```json-doc
 {
@@ -311,10 +310,6 @@ curl "https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,3)&storeType=Exp
   "total": 3,
   "currentPage": 1,
   "totalPages": 3,
-  "queryTime": "0.007",
-  "totalTime": "0.017",
-  "partial": false,
-  "canonicalUrl": "...",
   "stores": [
     {
       "storeId": 8001,
@@ -329,8 +324,7 @@ curl "https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,3)&storeType=Exp
         }
       ]
     }
-  ],
-  "warnings": "Distances are in terms of miles (default)"
+  ]
 }
 ```
 The Stores API, in conjunction with the Products API, allows you to search stores for a product and identify if it is available. In-store availability searches will return only those stores that have a given product in stock. Stores not returned do not have that product in stock. When completing an in-store availability query you should limit the stores that are a part of the query.
