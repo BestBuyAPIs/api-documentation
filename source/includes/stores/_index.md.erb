@@ -10,7 +10,7 @@ The Best Buy Stores API provides store information for all Best Buy stores in th
 
 In addition, store availability of a product can be determined by querying the Products API together with the Stores API. Refer to In Store Availability for more information on these type of queries.
 
-## Information
+## Common Attributes
 
  The Stores API enables you to retrieve the basic store information for all Best Buy stores, a specific Best Buy store or those stores that match a set of search parameters.
 
@@ -36,8 +36,15 @@ Attribute | Description
 
 ###Request/Response Examples:
 
-```json
-"https://api.bestbuy.com/v1/stores?format=json&apiKey=YourAPIKey"
+```shell
+curl "https://api.bestbuy.com/v1/stores?format=json&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.categories('',{show:'id'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json
@@ -92,8 +99,15 @@ This query returns store information for all stores.
 
 <div></div>
 
-```json
-"https://api.bestbuy.com/v1/stores(storeId=281)?format=json&apiKey=YourAPIKey"
+```shell
+curl "https://api.bestbuy.com/v1/stores(storeId=281)?format=json&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.categories('',{show:'id'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json
@@ -118,8 +132,15 @@ This query returns store information of a store with the `storeId` attribute spe
 
 <div></div>
 
-```json
-"https://api.bestbuy.com/v1/stores(city=San Juan)?format=json&apiKey=YourAPIKey"
+```shell
+curl "https://api.bestbuy.com/v1/stores(city=San Juan)?format=json&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.categories('',{show:'id'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json
@@ -139,8 +160,15 @@ This query returns stores information for all the stores in the `city` specified
 
 <div></div>
 
-```json
-"https://api.bestbuy.com/v1/stores(postalCode=55423)?format=json&apiKey=YourAPIKey"
+```shell
+curl "https://api.bestbuy.com/v1/stores(postalCode=55423)?format=json&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.categories('',{show:'id'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json
@@ -169,8 +197,15 @@ Use the `postalCode` attribute or a `lat`-`long` pair to search based on a locat
 
 <div></div>
 
-```json
-"https://api.bestbuy.com/v1/stores(area(55423,10))?format=json&apiKey=YourAPIKey&show=storeId,name"
+```shell
+curl "https://api.bestbuy.com/v1/stores(area(55423,10))?format=json&apiKey=YourAPIKey&show=storeId,name"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.categories('',{show:'id'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json
@@ -200,8 +235,15 @@ _Note_: _You may notice the stores returned are stated to be just over 10 miles 
 
 <div></div>
 
-```json
-"https://api.bestbuy.com/v1/stores(area(71.3,-156.8,1000))?format=json&show=storeId,name,distance&apiKey=YourAPIKey"
+```shell
+curl "https://api.bestbuy.com/v1/stores(area(71.3,-156.8,1000))?format=json&show=storeId,name,distance&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.categories('',{show:'id'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json
@@ -245,8 +287,15 @@ Attribute | Description
 
 <div></div>
 
-```json
-"https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=hours,hoursAmPm,gmtOffset,detailedHours"
+```shell
+curl "https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=hours,hoursAmPm,gmtOffset,detailedHours"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.categories('',{show:'id'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json
@@ -293,8 +342,15 @@ Attribute | Description
 
 <div></div>
 
-```json
-"https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=services"
+```shell
+curl "https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=services"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.categories('',{show:'id'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json
@@ -326,49 +382,15 @@ Attribute | Description
 This query returns all services offered at the store specified in the input.
 
 ## In-Store Availability
-The Stores API, in conjunction with the Products API, allows you to search stores for a product and identify if it is available. In-store availability searches will return only those stores that have a given product in stock. Stores not returned do not have that product in stock. When completing an in-store availability query you should limit the stores that are a part of the query.
 
-Availability in stores is calculated using counts and previous-day sales to determine if the product is likely to be available, might be available or is unlikely to be available.  The algorithm errs on the side of caution, and anything that is not available defaults to "not available".
-
-_HINT: The Products API attribute `inStoreAvailability` will tell you if a product is sold in stores but not if it's available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store._
-
-###Request/Response Examples:
-
-<div></div>
-
-```json
-"https://api.bestbuy.com/v1/stores(storeId=8042)+products(sku%20in%20(6461052,5909042))?apiKey=YourAPIKey&format=json&show=storeId,storeType,name,city,region,products.name,products.sku,products"
+```shell
+curl "https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,10)&storeType=Express)+products(sku=6461052)?apiKey=YourAPIKey&format=json&show=storeId,storeType,city,region,name,products.name,products.sku,products"
 ```
 
-```json
-  {
-      "storeId": 8042,
-      "storeType": "Express",
-      "name": "LGA - LaGuardia Airport",
-      "city": "Flushing",
-      "region": "NY",
-      "products": [
-        {
-          "name": "Skullcandy - Ink'd 2 Earbud Headphones - Black",
-          "sku": 6461052
-        },
-        {
-          "name": "Skullcandy - TiTAN Earbud Headphones",
-          "sku": 5909042
-        }
-        ]
+```javascript
+//Not yet implemented
 ```
-
-
-###Express store that has a list of SKUs available
-
-This query indicates if a specific Express store has a list of SKUs available.
-
-<div></div>
-
-```json
-"https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,10)&storeType=Express)+products(sku=6461052)?apiKey=YourAPIKey&format=json&show=storeId,storeType,city,region,name,products.name,products.sku,products"
-```
+> This example shows Express stores within 10 miles of 44.882942,-93.2775 (Richfield, MN) that carry SKU 6461052 (Skullcandy earbuds).
 
 ```json
     {
@@ -398,7 +420,8 @@ This query indicates if a specific Express store has a list of SKUs available.
       ]
     }
 ```
+The Stores API, in conjunction with the Products API, allows you to search stores for a product and identify if it is available. In-store availability searches will return only those stores that have a given product in stock. Stores not returned do not have that product in stock. When completing an in-store availability query you should limit the stores that are a part of the query.
 
-### Express stores within a ten mile radius using a lat/long that have a SKU available
+Availability in stores is calculated using counts and previous-day sales to determine if the product is likely to be available, might be available or is unlikely to be available.  The algorithm errs on the side of caution, and anything that is not available defaults to "not available".
 
-This query returns all Express stores within a ten mile radius based on lat/long that have a specific SKU available.
+_HINT: The Products API attribute `inStoreAvailability` will tell you if a product is sold in stores but not if it's available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store._
