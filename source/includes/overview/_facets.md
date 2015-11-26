@@ -6,7 +6,7 @@
 https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&show=sku,name,salePrice&facet=manufacturer,5&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "products": [
   ],

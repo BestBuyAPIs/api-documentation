@@ -22,7 +22,7 @@ Name | Description | Additional Details
 https://api.bestbuy.com/v1/products(type=Movie)?format=json&show=sku,name,salePrice&pageSize=3&page=1000&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "from": 2998,
   "to": 3000,
@@ -56,7 +56,7 @@ https://api.bestbuy.com/v1/products(type=Movie)?format=json&show=sku,name,salePr
 https://api.bestbuy.com/beta/products/openBox?apiKey=YourAPIKey&page=2&pageSize=15
 ```
 
-```json
+```json-doc
 {
   "metadata": {
     "resultSet": {

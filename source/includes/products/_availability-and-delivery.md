@@ -24,7 +24,7 @@ The Shipping and Delivery attributes provide details about the cost of shipping 
 ```text
 Example: shippingLevelsOfService
 ```
-```json
+```json-doc
 {
   "shippingLevelsOfService":[
     {

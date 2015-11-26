@@ -22,11 +22,11 @@ Attribute *names* are case sensitive; attribute *values* are not.
 
 ### Search by a single attribute
 
-```text
-https://api.bestbuy.com/v1/stores(region=ut)?format=json&show=storeId,city,region&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/stores(region=ut)?format=json&show=storeId,city,region&apiKey=YourAPIKey"
 ```
 
-```json
+```json-doc
 {
   "from": 1,
   "to": 10,
@@ -60,7 +60,7 @@ Our Products, Stores, Reviews and Categories APIs can be searched by nearly all 
 https://api.bestbuy.com/v1/products(manufacturer=canon&salePrice<1000)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "from": 1,
   "to": 10,
@@ -94,7 +94,7 @@ If you need to search for the values of more than one attribute and **all** of t
 https://api.bestbuy.com/v1/products(wifiReady=true|wifiBuiltIn=true)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "from": 1,
   "to": 10,
@@ -128,7 +128,7 @@ If you want items with **any** of the specified attributes, combine them with a 
 https://api.bestbuy.com/v1/products(platform=psp&(salePrice<=15|(salePrice<=20&tradeInValue>=10)))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 [
   {
     "sku": 7049721,
@@ -168,7 +168,7 @@ The search terms for this example can be combined as:
 https://api.bestbuy.com/v1/products(releaseDate>=2014-02-01&releaseDate<=2014-02-28)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "from": 1,
   "to": 10,
@@ -201,7 +201,7 @@ If you want to find all products that were released February 2014, use this quer
 https://api.bestbuy.com/v1/products(releaseDate>today)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "from": 1,
   "to": 10,
@@ -235,7 +235,7 @@ You can also use the value `today` to represent the current day. If you want to 
 https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&color in(white,bisque,stainless-steel))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "from": 1,
   "to": 10,
@@ -269,7 +269,7 @@ If you want multiple values of a single attribute, you can specify them individu
 https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "from": 1,
   "to": 10,
@@ -314,7 +314,7 @@ Some attributes apply only to specific items. Even then, because much of this at
 https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb!=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "from": 1,
   "to": 10,
@@ -360,7 +360,7 @@ Because `active` is a boolean attribute, `active=*` will return products for whi
 https://api.bestbuy.com/v1/products(name=classic*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "from": 1,
   "to": 10,
@@ -399,7 +399,7 @@ When used as part of a string search, the wildcard performs two functions. First
 https://api.bestbuy.com/v1/products(search=oven&search=stainless&search=steel)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
 "products": [
     {

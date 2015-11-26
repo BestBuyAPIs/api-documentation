@@ -14,11 +14,11 @@ For example, if you are only interested in the product's `sku`, `name` and `sale
 
 ### Products Response `show=sku,name,salePrice`
 
-```text
-https://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&apiKey=YourAPIKey"
 ```
 
-```json
+```json-doc
 {
   "sku": 8880044,
   "name": "Batman Begins (Blu-ray Disc)",
@@ -42,7 +42,7 @@ For example, the Stores API does not return the `detailedHours` attribute by def
 https://api.bestbuy.com/v1/stores/2387.json?apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "storeId": 2387,
   "name": "Best Buy Mobile - Richfield",
@@ -81,7 +81,7 @@ https://api.bestbuy.com/v1/stores/2387.json?apiKey=YourAPIKey
 https://api.bestbuy.com/v1/stores/2387.json?show=all&apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {
   "storeId": 2387,
   "name": "Best Buy Mobile - Richfield",
