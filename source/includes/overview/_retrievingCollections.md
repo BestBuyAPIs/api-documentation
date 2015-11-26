@@ -6,10 +6,10 @@ To retrieve more than one item at a time (e.g. all Products in our catalog), use
 
 Description | Query | Result
 ------------|-------|-------
-**retrieve all products** | http://api.bestbuy.com/v1/products?apiKey=YourAPIKey | returns a collection of products
-**retrieve all stores** | http://api.bestbuy.com/v1/stores?apiKey=YourAPIKey | returns a collection of stores
-**retrieve all reviews** | http://api.bestbuy.com/v1/reviews?apiKey=YourAPIKey | returns a collection of reviews
-**retrieve all categories** | http://api.bestbuy.com/v1/categories?apiKey=YourAPIKey | returns a collection of categories
+**retrieve all products** | https://api.bestbuy.com/v1/products?apiKey=YourAPIKey | returns a collection of products
+**retrieve all stores** | https://api.bestbuy.com/v1/stores?apiKey=YourAPIKey | returns a collection of stores
+**retrieve all reviews** | https://api.bestbuy.com/v1/reviews?apiKey=YourAPIKey | returns a collection of reviews
+**retrieve all categories** | https://api.bestbuy.com/v1/categories?apiKey=YourAPIKey | returns a collection of categories
 
 Other sections in this documentation explain how to modify these queries to retrieve only the information that you need.
 
@@ -38,7 +38,7 @@ Name | Description
 ### Example Collection Header
 
 ```text
-http://api.bestbuy.com/v1/products?format=json&apiKey=YourAPIKey
+https://api.bestbuy.com/v1/products?format=json&apiKey=YourAPIKey
 ```
 
 ```json
