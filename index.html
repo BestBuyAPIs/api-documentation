@@ -20,6 +20,11 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-6257094-15', 'auto');
     ga('send', 'pageview');
+    $(document).ready(function() {
+      $('.tocify-item a').on('click', function(){
+        ga('send', 'pageview', {'page': location.pathname + location.search  + location.hash});
+      });
+    });
     </script>
 
       <script>
@@ -50,12 +55,20 @@
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
+      <div class="key-replace">
+        <input type="text" class="key-replace" placeholder="Your API Key (optional)">
+      </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
       <div id="toc">
       </div>
+        <ul class="toc-footer">
+            <li><a href='https://developer.bestbuy.com/' target='_blank'>Sign up for a Best Buy API Key</a></li>
+            <li><a href='https://github.com/BestBuyAPIs/api-documentation' target='_blank'>Contribute to Documentation</a></li>
+            <li><a href='https://github.com/tripit/slate' target='_blank'>Powered by Slate</a></li>
+        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
