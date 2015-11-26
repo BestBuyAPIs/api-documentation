@@ -2,7 +2,7 @@
 ```text
 https://api.bestbuy.com/v1/products(longDescription=iPhone*|sku=7619002)?show=sku,name&pageSize=15&page=5&apiKey=YourAPIKey&format=json
 ```
-```json
+```json-doc
 {
   "from": 61,
   "to": 75,
@@ -42,7 +42,7 @@ In the example below we are searching the `longDescription` for iPhone&#42;. We 
 ```text
 https://api.bestbuy.com/v1/products(customerReviewAverage>=4&customerReviewCount>100)?show=customerReviewAverage,customerReviewCount,name,sku&format=json&apiKey=YourAPIKey
 ```
-```json
+```json-doc
 {
  "products": [
     {
@@ -69,7 +69,7 @@ In this example, we are searching for all products that have a customer review a
 ```text
 https://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPIKey
 ```
-```json
+```json-doc
 {
  "products": [
     {
@@ -100,7 +100,7 @@ To search for products based on list of attribute values, we recommend using the
 ```text
 https://api.bestbuy.com/v1/products((search=touchscreen&search=apple)&salePrice<500&categoryPath.id=pcmcat209000050006)?show=name,sku,salePrice&format=json&apiKey=YourAPIKey
 ```
-```json
+```json-doc
 {
  "products": [
     {

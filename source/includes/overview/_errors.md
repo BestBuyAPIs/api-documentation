@@ -35,6 +35,6 @@ Mock Code | Response
 https://api.bestbuy.com/beta/products/mock500/alsoViewed?apiKey=YourAPIKey
 ```
 
-```json
+```json-doc
 {"errorMessage":"An unexpected error kept us from completing your request","status":500}
 ```

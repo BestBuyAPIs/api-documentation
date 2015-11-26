@@ -37,11 +37,11 @@ Name | Description
 
 ### Example Collection Header
 
-```text
-https://api.bestbuy.com/v1/products?format=json&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products?format=json&apiKey=YourAPIKey"
 ```
 
-```json
+```json-doc
 {
   "from": 1,
   "to": 10,
