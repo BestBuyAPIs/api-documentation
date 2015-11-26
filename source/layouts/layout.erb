@@ -105,7 +105,7 @@ under the License.
       <div class="content">
         <%= yield %>
         <% current_page.data.includes && current_page.data.includes.each do |include| %>
-          <%= partial "includes/#{include}" %>
+          <%= partial "includes/#{include}/index" %>
         <% end %>
       </div>
       <div class="dark-box">
