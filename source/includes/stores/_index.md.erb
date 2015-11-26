@@ -269,23 +269,6 @@ bby.categories('',{show:'id'}).then(function(data){
 This query returns stores within 1000 miles of Barrow, Alaska (71.3 N, 156.8 W).
 
 ## Hours
-The Hours attributes provide the days and times each Best Buy store is open for the following two weeks. We start our weeks on Sunday and provide hours in both a 12-hour and 24-hour clock. The times displayed are for the local time zones of the Best Buy store being returned. The Detailed Hours attributes provide the most accurate information of when stores will be opened or closed. This can be helpful during holidays as store hours may vary during this time.
-
-*Hint: Detailed hours are filtered out from the search results by default. Query with `show=all` or `show=detailedHours` to see in the search results.*
-
-Attribute | Description
---------- | -----------
-**detailedHours.day** | Days of the week store will be open
-**detailedHours.date** | Dates store will be open
-**detailedHours.open** | Time store will open (24-hour clock)
-**detailedHours.close** | Time store will close (24-hour clock)
-**gmtOffset** | Time difference from GMT
-**hours** | Regular Best Buy store hours Monday through Friday for the calendar year; displayed in local time zone
-**hoursAmPm** | Regular Best Buy store hours Monday through Friday for the calendar year with am and pm identifiers; displayed in local time zone
-
-###Request/Response Example:
-
-<div></div>
 
 ```shell
 curl "https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=hours,hoursAmPm,gmtOffset,detailedHours"
@@ -293,9 +276,11 @@ curl "https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPI
 
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
-bby.categories('',{show:'id'}).then(function(data){
-  console.log(data);
-});
+bby.stores('storeId=1118',{show:'hours,hoursAmPm,gmtOffset,detailedHours'})
+   .then(function(data){
+     // The util package is loaded to print the complete object structure
+     console.log(require('util').inspect(data, false, null));
+   });
 ```
 
 ```json
@@ -326,60 +311,70 @@ bby.categories('',{show:'id'}).then(function(data){
         }
 ```
 
-###Store hours for a single store using a store identifier
+The Hours attributes provide the days and times each Best Buy store is open for the following two weeks. We start our weeks on Sunday and provide hours in both a 12-hour and 24-hour clock. The times displayed are for the local time zones of the Best Buy store being returned. The Detailed Hours attributes provide the most accurate information of when stores will be opened or closed. This can be helpful during holidays as store hours may vary during this time.
 
-This query returns general store hours and detailed store hours for a requested store.
-
-
-## Services Offered
-The Stores API includes information related to the services offered at each of the Best Buy stores. `services` is a collection of different services offered at a specified store.
+*Hint: Detailed hours are filtered out from the search results by default. Query with `show=all` or `show=detailedHours` to see in the search results.*
 
 Attribute | Description
 --------- | -----------
-**services.service** | Collection of services offered at each Best Buy store
+**detailedHours.day** | Days of the week store will be open
+**detailedHours.date** | Dates store will be open
+**detailedHours.open** | Time store will open (24-hour clock)
+**detailedHours.close** | Time store will close (24-hour clock)
+**gmtOffset** | Time difference from GMT
+**hours** | Regular Best Buy store hours Monday through Friday for the calendar year; displayed in local time zone
+**hoursAmPm** | Regular Best Buy store hours Monday through Friday for the calendar year with am and pm identifiers; displayed in local time zone
 
-###Request/Response Example:
 
-<div></div>
 
+## Services Offered
 ```shell
 curl "https://api.bestbuy.com/v1/stores(storeId=1118)?format=json&apiKey=YourAPIKey&show=services"
 ```
 
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
-bby.categories('',{show:'id'}).then(function(data){
-  console.log(data);
+bby.stores('storeId=1118',{show:'services'}).then(function(data){
+  // The util package is loaded to print the complete object structure
+  console.log(require('util').inspect(data, false, null));
 });
 ```
 
 ```json
-  {
+{
   "services": [
-        {
-          "service": "Windows Store"
-        },
-        {
-          "service": "Geek Squad Services"
-        },
-        {
-          "service": "Best Buy Mobile"
-        },
-        {
-          "service": "Best Buy For Business"
-        },
-        {
-          "service": "Apple Shop"
-        },
-        {
-          "service": "Electronics Recycling"
-        },
-        {
-          "service": "Car & GPS Installation Services"
-        }
+    {
+      "service": "Windows Store"
+    },
+    {
+      "service": "Geek Squad Services"
+    },
+    {
+      "service": "Best Buy Mobile"
+    },
+    {
+      "service": "Best Buy For Business"
+    },
+    {
+      "service": "Apple Shop"
+    },
+    {
+      "service": "Electronics Recycling"
+    },
+    {
+      "service": "Car & GPS Installation Services"
+    }
+  ]
+}
 ```
 
-This query returns all services offered at the store specified in the input.
+The Stores API includes information related to the services offered at each of the Best Buy stores. `services` is a collection of different services offered at a specified store.
+
+Attribute | Description
+--------- | -----------
+**services.service** | Collection of services offered at each Best Buy store
+
+
 
 ## In-Store Availability
 
