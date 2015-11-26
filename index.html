@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
   <head>
-
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -1921,91 +1920,255 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <p>The Best Buy Stores API provides store information for all Best Buy stores in the United States and Puerto Rico. This information includes address, location, hours and services offered.</p>
 
-<p>In addition, store availability of a product can be determined by querying the Products API together with the Stores API. Refer to <a href="#documentation/stores-api-in-store-availability">In Store Availability</a> for more information on these type of queries.</p>
+<p>In addition, store availability of a product can be determined by querying the Products API together with the Stores API. Refer to In Store Availability for more information on these type of queries.</p>
 
 <h2 id="information">Information</h2>
 
 <p>The Stores API enables you to retrieve the basic store information for all Best Buy stores, a specific Best Buy store or those stores that match a set of search parameters.</p>
 
-<p>Some examples on how to query for store information:</p>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>address</strong></td>
+<td>Street address</td>
+</tr>
+<tr>
+<td><strong>address2</strong></td>
+<td>Street address 2 provides additional street address information for the Best Buy store in the result set</td>
+</tr>
+<tr>
+<td><strong>city</strong></td>
+<td>City name</td>
+</tr>
+<tr>
+<td><strong>country</strong></td>
+<td>Country name</td>
+</tr>
+<tr>
+<td><strong>distance</strong></td>
+<td>Store distance from specified location in miles; attribute is not queryable; use with lat and long or postal code</td>
+</tr>
+<tr>
+<td><strong>fullPostalCode</strong></td>
+<td>9-digit postal code if available for store location</td>
+</tr>
+<tr>
+<td><strong>lat</strong></td>
+<td>Latitude</td>
+</tr>
+<tr>
+<td><strong>lng</strong></td>
+<td>Longitude</td>
+</tr>
+<tr>
+<td><strong>location</strong></td>
+<td>Details about location of a store; primarily used for identifying Best Buy Express stores</td>
+</tr>
+<tr>
+<td><strong>longName</strong></td>
+<td>Full store name</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>Store name</td>
+</tr>
+<tr>
+<td><strong>phone</strong></td>
+<td>Store phone number; phone number for Express stores goes to Best Buy Customer Service</td>
+</tr>
+<tr>
+<td><strong>postalCode</strong></td>
+<td>5-digit postal code</td>
+</tr>
+<tr>
+<td><strong>region</strong></td>
+<td>State, territory</td>
+</tr>
+<tr>
+<td><strong>storeId</strong></td>
+<td>Store number</td>
+</tr>
+<tr>
+<td><strong>storeType</strong></td>
+<td>Indicates the type of store<li> There are three types of Best Buy stores: &ldquo;Big Box&rdquo;, &ldquo;Mobile&rdquo; and &ldquo;Express&rdquo;<li>&ldquo;Big Box&rdquo; value represents large showroom stores featuring HDTVs, computers, gaming, appliances, cell phones, tablets, Geek Squad services and more<li>&ldquo;Mobile&rdquo; value represents specialty shops focused on smartphones, tablets, accessories, services and plans<li>&ldquo;Express&rdquo; value represents vending machine-style, self-checkout stores offering audio goods and accessories, found in airports, on college campuses and more</td>
+</tr>
+<tr>
+<td><strong>tradeIn</strong></td>
+<td>Indicates the type of trade-ins accepted at stores<li>Possible trade in values include: &ldquo;trade-in - no-receipt&rdquo;, &ldquo;trade-in - no receipt (biometric)&rdquo;, &ldquo;trade-in - best buy receipt required&rdquo;, &ldquo;trade-in - no receipt (2 ids required)&rdquo;, &ldquo;no trade-ins accepted&rdquo;, &ldquo;trade-in - no receipt (biometric with 2 ids)&rdquo;, &ldquo;trade-in - no receipt for video games. best buy receipt for other items&rdquo;<li>For more information about trade-in policies, please visit the local store page</td>
+</tr>
+</tbody></table>
 
-<ul>
-<li><a href="#storesExample1">Store information for all stores</a></li>
-<li><a href="#storesExample2">Store information for a single store using a store identifier</a></li>
-<li><a href="#storesExample3">All stores within a city</a></li>
-<li><a href="#storesExample4">All stores within a postal code</a></li>
-<li><a href="#storesExample5">Stores closest to a specified geo-location</a></li>
-<li><a href="#storesExample6">Stores within a radius from a specific location</a></li>
-</ul>
+<h3 id="request-response-examples">Request/Response Examples:</h3>
+<pre class="highlight json"><code><span class="s2">"http://api.bestbuy.com/v1/stores?format=json&amp;apiKey=YourAPIKey"</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1118</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BigBox"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tradeIn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No Trade-Ins accepted"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hato Rey"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy - Hato Rey"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"230 Calle Federico Costa Hato Rey"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Juan"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PR"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"fullPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00918"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.42684</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">-66.07188</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon: 10-9; Tue: 10-9; Wed: 10-9; Thurs: 10-9; Fri: 10-9; Sat: 10-9; Sun: 11-7"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hoursAmPm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon: 10am-9pm; Tue: 10am-9pm; Wed: 10am-9pm; Thurs: 10am-9pm; Fri: 10am-9pm; Sat: 10am-9pm; Sun: 11am-7pm"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"gmtOffset"</span><span class="p">:</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Windows Store"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Geek Squad Services"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy For Business"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Shop"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Electronics Recycling"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Car &amp; GPS Installation Services"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"787-764-4900"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00918"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<h4 id="attributes">Attributes</h4>
+<h3 id="store-information-for-all-stores">Store information for all stores</h3>
 
-<p>{#include csv:tables/storeinfo}</p>
+<p>This query returns store information for all stores.</p>
 
-<p><span class="h3">Request/Response Examples</span>
-<a class="anchor" id="storesExample1"></a></p>
+<div></div>
+<pre class="highlight json"><code><span class="s2">"http://api.bestbuy.com/v1/stores(storeId=281)?format=json&amp;apiKey=YourAPIKey"</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">281</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richfield"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy - Richfield"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000 West 78th St."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richfield"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"fullPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55423"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.863312</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">-93.292557</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<h4 id="store-information-for-all-stores">Store information for all stores</h4>
+<h3 id="store-information-for-a-single-store-using-a-store-identifier">Store information for a single store using a store identifier</h3>
 
-<p><em>The query below will return store information for all stores.</em>
-<a href="#documentation/stores-api-information">Return to Information</a></p>
+<p>This query returns store information of a store with the <code class="prettyprint">storeId</code> attribute specified in the input.</p>
 
-<p>{#include code:responses/all}</p>
+<div></div>
+<pre class="highlight json"><code><span class="s2">"http://api.bestbuy.com/v1/stores(city=San Juan)?format=json&amp;apiKey=YourAPIKey"</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1118</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hato Rey"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy - Hato Rey"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"230 Calle Federico Costa Hato Rey"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Juan"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p><a class="anchor" id="storesExample2"></a></p>
+<h3 id="all-stores-within-a-city">All stores within a city</h3>
 
-<h4 id="store-information-for-a-single-store-using-a-store-identifier">Store information for a single store using a store identifier</h4>
+<p>This query returns stores information for all the stores in the <code class="prettyprint">city</code> specified as the input.</p>
 
-<p><em>The query below will return store information of a store with the <code class="prettyprint">storeId</code> attribute specified in the input.</em>
-<a href="#documentation/stores-api-information">Return to Information</a></p>
+<div></div>
+<pre class="highlight json"><code><span class="s2">"http://api.bestbuy.com/v1/stores(postalCode=55423)?format=json&amp;apiKey=YourAPIKey"</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2387</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile - Richfield"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile - Richfield"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6601 Nicollet Ave S"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richfield"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"fullPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55423"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p>{#include code:responses/id}</p>
+<h3 id="all-stores-within-a-zipcode">All stores within a zipcode</h3>
 
-<p><a class="anchor" id="storesExample3"></a></p>
-
-<h4 id="all-stores-within-a-city">All stores within a city</h4>
-
-<p><em>The query below returns stores information for all the stores in the <code class="prettyprint">city</code> specified as the input.</em>
-<a href="#documentation/stores-api-information">Return to Information</a></p>
-
-<p>{#include code:responses/storecity}</p>
-
-<p><a class="anchor" id="storesExample4"></a></p>
-
-<h4 id="all-stores-within-a-zipcode">All stores within a zipcode</h4>
-
-<p><em>The query below retrieves stores information for all the stores at the <code class="prettyprint">postalCode</code> specified as the input.</em>
-<a href="#documentation/stores-api-information">Return to Information</a></p>
-
-<p>{#include code:responses/zipcode}</p>
+<p>This query retrieves stores information for all the stores in the <code class="prettyprint">postalCode</code> specified as the input.</p>
 
 <h2 id="area-function">Area Function</h2>
 
-<p>The Stores API includes a special function that enables you to locate stores near a specified location.
-- <code class="prettyprint">area(location,distance)</code></p>
+<p>The Stores API includes a special function <code class="prettyprint">area(location,distance)</code> enabling you to locate stores near a specified location.</p>
 
-<p>To search based on a location please use the <code class="prettyprint">postalCode</code> attribute or a <code class="prettyprint">lat</code>-<code class="prettyprint">long</code> pair. When postal code is used the reference point in the postal code (zipcode) area is determined by a standard mapping service. If no distance is specified in the function, radius is defaulted to 10 miles. The <code class="prettyprint">location</code> will be populated with the distance from the specified postal code or lat/long to the store in miles.</p>
+<p>Use the <code class="prettyprint">postalCode</code> attribute or a <code class="prettyprint">lat</code>-<code class="prettyprint">long</code> pair to search based on a location. When postal code is used the reference point in the postal code (zipcode) area is determined by a standard mapping service. If no distance is specified in the function, radius is defaulted to 10 miles. The <code class="prettyprint">location</code> will be populated with the distance from the specified postal code or lat/long to the store in miles.</p>
 
-<p><span class="h3">Request/Response Example</span>
-<a class="anchor" id="storesExample5"></a></p>
+<h3 id="request-response-examples">Request/Response Examples:</h3>
 
-<h4 id="stores-closest-to-a-specified-geo-location">Stores closest to a specified geo-location</h4>
+<div></div>
+<pre class="highlight json"><code><span class="s2">"http://api.bestbuy.com/v1/stores(area(55423,10))?format=json&amp;apiKey=YourAPIKey&amp;show=storeId,name"</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"stores"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2387</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile - Richfield"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">281</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richfield"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mall of America"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p><em>The query below returns stores within 10 miles of ZIP code 55423 (Richfield, MN)</em></p>
+<h3 id="stores-closest-to-a-specified-geo-location">Stores closest to a specified geo-location</h3>
 
-<p><em>Note</em>: <em>You may notice the stores returned are stated to be just over 10 miles from the ZIP code. This is due to the way return distance is calculated. The search area is defined as a square, bounded by location point +/- distance identified in request. All stores in that square are returned. Return distance is calculated linearly from the location point (creates a circle). Stores near the corner of the square might be listed as farther than the query distance specified.</em>
-<a href="#documentation/stores-api-information">Return to Information</a> or <a href="#documentation/stores-api-area-function">Return to Area Function</a></p>
+<p>This query returns stores within 10 miles of ZIP code 55423 (Richfield, MN).</p>
 
-<p>{#include code:responses/areaFunction}</p>
+<p><em>Note</em>: <em>You may notice the stores returned are stated to be just over 10 miles from the ZIP code. This is due to the way return distance is calculated. The search area is defined as a square, bounded by location point +/- distance identified in request. All stores in that square are returned. Return distance is calculated linearly from the location point (creates a circle). Stores near the corner of the square might be listed as farther than the query distance specified.</em></p>
 
-<p><a class="anchor" id="storesExample6"></a></p>
+<div></div>
+<pre class="highlight json"><code><span class="s2">"http://api.bestbuy.com/v1/stores(area(71.3,-156.8,1000))?format=json&amp;show=storeId,name,distance&amp;apiKey=YourAPIKey"</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1760</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Northern Anchorage"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">722.49</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">539</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anchorage"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">727.56</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Distances are in terms of miles (default)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<h4 id="stores-within-a-radius-from-a-specific-location">Stores within a radius from a specific location</h4>
+<h3 id="stores-within-a-radius-from-a-specific-location">Stores within a radius from a specific location</h3>
 
-<p><em>The query below returns stores within 1000 miles of Barrow, Alaska (71.3 N, 156.8 W)</em>
-<a href="#documentation/stores-api-information">Return to Information</a> or <a href="#documentation/stores-api-area-function">Return to Area Function</a></p>
-
-<p>{#include code:responses/longlatArea}</p>
+<p>This query returns stores within 1000 miles of Barrow, Alaska (71.3 N, 156.8 W).</p>
 
 <h2 id="hours">Hours</h2>
 
@@ -2013,37 +2176,125 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <p><em>Hint: Detailed hours are filtered out from the search results by default. Query with <code class="prettyprint">show=all</code> or <code class="prettyprint">show=detailedHours</code> to see in the search results.</em></p>
 
-<p>How to query for store hours:
-- <a href="#storeshrsExample1">Store hours for a single store using a store identifier</a></p>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>detailedHours.day</strong></td>
+<td>Days of the week store will be open</td>
+</tr>
+<tr>
+<td><strong>detailedHours.date</strong></td>
+<td>Dates store will be open</td>
+</tr>
+<tr>
+<td><strong>detailedHours.open</strong></td>
+<td>Time store will open (24-hour clock)</td>
+</tr>
+<tr>
+<td><strong>detailedHours.close</strong></td>
+<td>Time store will close (24-hour clock)</td>
+</tr>
+<tr>
+<td><strong>gmtOffset</strong></td>
+<td>Time difference from GMT</td>
+</tr>
+<tr>
+<td><strong>hours</strong></td>
+<td>Regular Best Buy store hours Monday through Friday for the calendar year; displayed in local time zone</td>
+</tr>
+<tr>
+<td><strong>hoursAmPm</strong></td>
+<td>Regular Best Buy store hours Monday through Friday for the calendar year with am and pm identifiers; displayed in local time zone</td>
+</tr>
+</tbody></table>
 
-<p><span class="h4">Attributes</span></p>
+<h3 id="request-response-example">Request/Response Example:</h3>
 
-<p>{#include csv:tables/hours}</p>
+<div></div>
+<pre class="highlight json"><code><span class="s2">"http://api.bestbuy.com/v1/stores(storeId=1118)?format=json&amp;apiKey=YourAPIKey&amp;show=hours,hoursAmPm,gmtOffset,detailedHours"</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon: 10-9; Tue: 10-9; Wed: 10-9; Thurs: 10-9; Fri: 10-9; Sat: 10-9; Sun: 11-7"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hoursAmPm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon: 10am-9pm; Tue: 10am-9pm; Wed: 10am-9pm; Thurs: 10am-9pm; Fri: 10am-9pm; Sat: 10am-9pm; Sun: 11am-7pm"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"gmtOffset"</span><span class="p">:</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"detailedHours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sunday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-05-04"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-05-05"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tuesday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-05-06"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p><span class="h3">Request/Response Example</span>
-<a class="anchor" id="storeshrsExample1"></a></p>
+<h3 id="store-hours-for-a-single-store-using-a-store-identifier">Store hours for a single store using a store identifier</h3>
 
-<h4 id="store-hours-for-a-single-store-using-a-store-identifier">Store hours for a single store using a store identifier</h4>
-
-<p><em>The below query will return general store hours and detailed store hours for a requested store.</em></p>
-
-<p><a href="#documentation/stores-api-hours">Return to Hours description</a></p>
-
-<p>{#include code:responses/detailedHours}</p>
+<p>This query returns general store hours and detailed store hours for a requested store.</p>
 
 <h2 id="services-offered">Services Offered</h2>
 
 <p>The Stores API includes information related to the services offered at each of the Best Buy stores. <code class="prettyprint">services</code> is a collection of different services offered at a specified store.</p>
 
-<p><span class="h4">Attributes</span></p>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>services.service</strong></td>
+<td>Collection of services offered at each Best Buy store</td>
+</tr>
+</tbody></table>
 
-<p>{#include csv:tables/services}</p>
+<h3 id="request-response-example">Request/Response Example:</h3>
 
-<p><span class="h3">Request/Response Example</span></p>
+<div></div>
+<pre class="highlight json"><code><span class="s2">"http://api.bestbuy.com/v1/stores(storeId=1118)?format=json&amp;apiKey=YourAPIKey&amp;show=services"</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Windows Store"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Geek Squad Services"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy For Business"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Shop"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Electronics Recycling"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Car &amp; GPS Installation Services"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p>The query below will return all the services offered at the store specified in the input.</p>
-
-<p>{#include code:responses/servicesOffered}</p>
+<p>This query returns all services offered at the store specified in the input.</p>
 
 <h2 id="in-store-availability">In-Store Availability</h2>
 
@@ -2053,29 +2304,67 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <p><em>HINT: The Products API attribute <code class="prettyprint">inStoreAvailability</code> will tell you if a product is sold in stores but not if it&rsquo;s available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store.</em></p>
 
-<p><span class="h3">Request/Response Examples</span></p>
+<h3 id="request-response-examples">Request/Response Examples:</h3>
 
-<p>The examples below search Express stores for particular products and identify if the products are in stock. These queries can be based on a storeType or this parameter can be omitted:
-- <a href="#storesAvailability1">Express store that has a list of SKUs available</a>
-- <a href="#storesAvailability2">Express stores within a ten mile radius using a lat/long that have a SKU available</a></p>
+<div></div>
+<pre class="highlight json"><code><span class="s2">"http://api.bestbuy.com/v1/stores(storeId=8042)+products(sku%20in%20(6461052,5909042))?apiKey=YourAPIKey&amp;format=json&amp;show=storeId,storeType,name,city,region,products.name,products.sku,products"</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8042</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Express"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGA - LaGuardia Airport"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flushing"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NY"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Skullcandy - Ink'd 2 Earbud Headphones - Black"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6461052</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Skullcandy - TiTAN Earbud Headphones"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">5909042</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+</span></code></pre>
 
-<p><a class="anchor" id="storesAvailability1"></a></p>
+<h3 id="express-store-that-has-a-list-of-skus-available">Express store that has a list of SKUs available</h3>
 
-<h4 id="express-store-that-has-a-list-of-skus-available">Express store that has a list of SKUs available</h4>
+<p>This query indicates if a specific Express store has a list of SKUs available.</p>
 
-<p><em>The query below will return if a specific Express store has a list of SKUs available</em>
-<a href="#documentation/stores-api-in-store-availability">Return to In-Store Availability</a></p>
+<div></div>
+<pre class="highlight json"><code><span class="s2">"http://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,10)&amp;storeType=Express)+products(sku=6461052)?apiKey=YourAPIKey&amp;format=json&amp;show=storeId,storeType,city,region,name,products.name,products.sku,products"</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8108</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Express"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Minneapolis"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSP - Minneapolis Saint Paul International Airport"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Skullcandy - Ink'd 2 Earbud Headphones - Black"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6461052</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8915</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Express"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Minneapolis"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MN"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Minneapolis Convention Center"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Skullcandy - Ink'd 2 Earbud Headphones - Black"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6461052</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p>{#include code:responses/oneInStoreAvail}</p>
+<h3 id="express-stores-within-a-ten-mile-radius-using-a-lat-long-that-have-a-sku-available">Express stores within a ten mile radius using a lat/long that have a SKU available</h3>
 
-<p><a class="anchor" id="storesAvailability2"></a></p>
-
-<h4 id="express-stores-within-a-ten-mile-radius-using-a-lat-long-that-have-a-sku-available">Express stores within a ten mile radius using a lat/long that have a SKU available</h4>
-
-<p><em>The query below will return all Express stores within a ten mile radius based on lat/long that have a specific SKU available.</em>
-<a href="#documentation/stores-api-in-store-availability">Return to In-Store Availability</a></p>
-
-<p>{#include code:responses/inStoreAvailabilityTwo}</p>
+<p>This query returns all Express stores within a ten mile radius based on lat/long that have a specific SKU available.</p>
 
       </div>
       <div class="dark-box">
