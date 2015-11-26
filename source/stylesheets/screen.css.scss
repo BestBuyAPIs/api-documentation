@@ -107,7 +107,7 @@ html, body {
     }
   }
 
-  
+
 
   // This is the logo at the top of the ToC
   &>.logo-holder img {
@@ -116,7 +116,7 @@ html, body {
     max-width: 100%;
   }
 
-  &>.search {
+  &>.search, &>.key-replace {
     position: relative;
 
     input {
@@ -132,12 +132,19 @@ html, body {
       border-radius: 0; /* ios has a default border radius */
     }
 
-    &:before {
+    &.search:before {
       position: absolute;
       top: 17px;
       left: $nav-padding;
       color: $nav-text;
       @extend %icon-search;
+    }
+    &.key-replace:before {
+      position: absolute;
+      top: 17px;
+      left: $nav-padding;
+      color: $nav-text;
+      @extend %icon-key;
     }
   }
 
@@ -240,7 +247,7 @@ html, body {
 
 
     li {
-      font-size: 1.5em;
+      font-size: 0.8em;
       line-height: 1.7;
       text-decoration: none;
     }
