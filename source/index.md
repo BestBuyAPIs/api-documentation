@@ -1,5 +1,5 @@
 ---
-title: Best Buy Developer
+title: Best Buy Developer API Documentation
 
 language_tabs:
   - shell
