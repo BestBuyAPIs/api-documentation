@@ -12,9 +12,11 @@ toc_footers:
 
 includes:
   - overview
+  - search
   - categories
   - products
   - stores
+  - commerce
 
 search: true
 ---

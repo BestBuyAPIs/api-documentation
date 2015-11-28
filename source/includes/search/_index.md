@@ -1,4 +1,4 @@
-## Search
+# Search
 *Applies to: Products API &#149; Stores API &#149; Reviews API &#149; Categories API*
 
 Search consists of one or more terms that generally include an attribute, operator and value. Terms are combined with ampersands `&` or pipes `|`. Searches are implemented as part of an HTTP GET request to the deisred Best Buy API. `term1&term2` - specifies term1 AND term2 `term1|term2` - specifies term1 OR term2.
@@ -6,8 +6,7 @@ Search consists of one or more terms that generally include an attribute, operat
 Attribute *names* are case sensitive; attribute *values* are not.
 
 
-
-**Available Operators**
+## Available Operators
 
 
 + `=` - attribute **equals** a specified value
@@ -20,7 +19,7 @@ Attribute *names* are case sensitive; attribute *values* are not.
 
 
 
-### Search by a single attribute
+## Search by a single attribute
 
 ```shell
 curl "https://api.bestbuy.com/v1/stores(region=ut)?format=json&show=storeId,city,region&apiKey=YourAPIKey"
@@ -54,7 +53,7 @@ Our Products, Stores, Reviews and Categories APIs can be searched by nearly all 
 
 <div></div>
 
-### Search by all attributes (AND);
+## Search by all attributes (AND)
 
 ```text
 https://api.bestbuy.com/v1/products(manufacturer=canon&salePrice<1000)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
@@ -88,7 +87,7 @@ If you need to search for the values of more than one attribute and **all** of t
 
 <div></div>
 
-### Search by any attributes (OR)
+## Search by any attributes (OR)
 
 ```text
 https://api.bestbuy.com/v1/products(wifiReady=true|wifiBuiltIn=true)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
@@ -122,7 +121,7 @@ If you want items with **any** of the specified attributes, combine them with a 
 
 <div></div>
 
-### Complex Searches
+## Complex Searches
 
 ```text
 https://api.bestbuy.com/v1/products(platform=psp&(salePrice<=15|(salePrice<=20&tradeInValue>=10)))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
@@ -162,7 +161,7 @@ The search terms for this example can be combined as:
 
 <div></div>
 
-### Search by date range
+## Search by date range
 
 ```text
 https://api.bestbuy.com/v1/products(releaseDate>=2014-02-01&releaseDate<=2014-02-28)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
@@ -195,7 +194,7 @@ If you want to find all products that were released February 2014, use this quer
 
 <div></div>
 
-### Search by date relative to today
+## Search by date relative to today
 
 ```text
 https://api.bestbuy.com/v1/products(releaseDate>today)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
@@ -229,7 +228,7 @@ You can also use the value `today` to represent the current day. If you want to 
 
 <div></div>
 
-### Search for multiple attribute values
+## Search for multiple attribute values
 
 ```text
 https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&color in(white,bisque,stainless-steel))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
@@ -308,7 +307,7 @@ Some attributes apply only to specific items. Even then, because much of this at
 
 <div></div>
 
-### Wildcards - Value is NOT present
+## Wildcards - Value is NOT present
 
 ```text
 https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb!=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
@@ -342,7 +341,7 @@ This will return results in which there is no value present. In the following ex
 
 <div></div>
 
-### Filtered product attribute
+## Filtered product attribute
 
 Certain attributes, such as `active=true`, `digital=false`, `preowned=false` or `marketplace=false` inherently filter results.
 
@@ -354,7 +353,7 @@ Because `active` is a boolean attribute, `active=*` will return products for whi
 
 <div></div>
 
-### Wildcards - String
+## Wildcards - String
 
 ```text
 https://api.bestbuy.com/v1/products(name=classic*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
@@ -386,14 +385,14 @@ https://api.bestbuy.com/v1/products(name=classic*)?format=json&show=sku,name,sal
 
 When used as part of a string search, the wildcard performs two functions. First, it tokenizes the string, breaking it into words. Second, it operates as a standard wildcard, matching any set of characters in the tokenized string. The following example illustrates both functions. When searching for a string value, you may want to search for variations on a specific word. For example, if you want to find CDs whose titles include the words Classic, Classics or Classical you would use the following query:
 
-### Limitations
+## Limitations
 
 + You cannot use a wildcard to begin a string search (e.g. <code>(name=*top)</code>); this type of search is extremely resource intensive and doing so will result in a <code>400</code> error.
 + Wildcard with data is valid for strings only. When used alone, the wildcard can represent any data type. When used with other characters, the wildcard can only represent string data. For example, to find Canon products with customer reviews of 4.x, you cannot use <code>(manufacturer=canon&customerReviewAverage=4.*)</code> as the search string. You would have to use a search string like this: <code>(manufacturer=canon&customerReviewAverage>4&customerReviewAverage<5)</code>.
 
 <div></div>
 
-### Keyword Search Function
+## Keyword Search Function
 
 ```text
 https://api.bestbuy.com/v1/products(search=oven&search=stainless&search=steel)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
