@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Best Buy Developer</title>
+    <title>Best Buy Developer API Documentation</title>
 
     <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
     <link href="stylesheets/fakeloader.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="https://developer.bestbuy.com/images/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="javascripts/fakeloader.js"></script>
       <script src="javascripts/all.js" type="text/javascript"></script>
@@ -80,418 +81,6 @@
 
 <p>If this is your first time using our APIs, please check out our Getting Started guide. If you already have your API key, our Search and Response Formats can help you refine your search results.</p>
 
-<h2 id="search">Search</h2>
-
-<p><em>Applies to: Products API &#149; Stores API &#149; Reviews API &#149; Categories API</em></p>
-
-<p>Search consists of one or more terms that generally include an attribute, operator and value. Terms are combined with ampersands <code class="prettyprint">&amp;</code> or pipes <code class="prettyprint">|</code>. Searches are implemented as part of an HTTP GET request to the deisred Best Buy API. <code class="prettyprint">term1&amp;term2</code> - specifies term1 AND term2 <code class="prettyprint">term1|term2</code> - specifies term1 OR term2.</p>
-
-<p>Attribute <em>names</em> are case sensitive; attribute <em>values</em> are not.</p>
-
-<p><strong>Available Operators</strong></p>
-
-<ul>
-<li><code class="prettyprint">=</code> - attribute <strong>equals</strong> a specified value</li>
-<li><code class="prettyprint">=!</code>- attribute <strong>does not equal</strong> a specified value</li>
-<li><code class="prettyprint">&gt;</code> - attribute <strong>greater than</strong> a specified value</li>
-<li><code class="prettyprint">&lt;</code> - attribute <strong>less than</strong> a specified value</li>
-<li><code class="prettyprint">&gt;=&lt;</code> - attribute <strong>greater than or equal to</strong> a specified value</li>
-<li><code class="prettyprint">&lt;=</code> - attribute <strong>less than or equal to</strong> a specified value</li>
-<li><code class="prettyprint">in</code> - search based on a <strong>list</strong> of attribute values</li>
-</ul>
-
-<h3 id="search-by-a-single-attribute">Search by a single attribute</h3>
-
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/stores(region=ut)?format=json&amp;show=storeId,city,region&amp;apiKey=YourAPIKey"</span>
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.002"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/stores(region=\"ut\")?format=json&amp;show=storeId,city,region&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1402</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"American Fork"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UT"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">773</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Orem"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UT"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Our Products, Stores, Reviews and Categories APIs can be searched by nearly all available attributes. For example, to find only the stores located in Utah, you can use the query shown to the right.</p>
-
-<div></div>
-
-<h3 id="search-by-all-attributes-and">Search by all attributes (AND);</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(manufacturer=canon&amp;salePrice&lt;1000)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">210</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.095"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.115"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(manufacturer=\"canon\"&amp;salePrice&lt;1000)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6101087</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canon - 1.9x Tele Converter Lens"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">99.99</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">8795075</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canon - 100-Pack 4\" x 6\" Glossy Photo Paper"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">17.49</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>If you need to search for the values of more than one attribute and <strong>all</strong> of the attributes must be present, combine them with an ampersand <code class="prettyprint">&amp;</code>.</p>
-
-<div></div>
-
-<h3 id="search-by-any-attributes-or">Search by any attributes (OR)</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(wifiReady=true|wifiBuiltIn=true)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.005"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.030"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(wifiReady=true|wifiBuiltIn=true)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">1012749</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acer - Aspire 11.6 inch Tablet with 120GB Memory"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">661.98</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">4255007</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acer - B1-720 7\" Android Tablet - 16GB - Iron Gray"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">128.98</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>If you want items with <strong>any</strong> of the specified attributes, combine them with a pipe <code class="prettyprint">|</code></p>
-
-<div></div>
-
-<h3 id="complex-searches">Complex Searches</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(platform=psp&amp;(salePrice&lt;=15|(salePrice&lt;=20&amp;tradeInValue&gt;=10)))?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">7049721</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ape Escape: On the Loose Greatest Hits - PSP"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.99</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"tradeInValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PSP"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">9335436</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chessmaster: The Art of Learning - PSP"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"tradeInValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PSP"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">1450486</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Megamind: The Blue Defender - PSP"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.99</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"tradeInValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PSP"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>Complex searches can be performed by combining AND <code class="prettyprint">&amp;</code> and OR <code class="prettyprint">|</code> operations with parantheses. For example: let&rsquo;s say that you&rsquo;re looking for a Play Station Portable video game <code class="prettyprint">(platform=psp)</code>. You don&rsquo;t want to spend more than $15 <code class="prettyprint">(salePrice&lt;=15)</code>. However, because you will trade in the game when you&rsquo;re done, you could spend up to $20 <code class="prettyprint">(saleProce&lt;=20)</code> - but only if the game&rsquo;s trade-in value is more than $10 <code class="prettyprint">(tradeInValue&gt;10)</code>.</p>
-
-<p>The search terms for this example can be combined as:</p>
-
-<p><code class="prettyprint">platform=psp &amp; (salePrice&lt;=15 | (salePrice&lt;=20 &amp; tradeInValue&gt;10))</code></p>
-
-<div></div>
-
-<h3 id="search-by-date-range">Search by date range</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(releaseDate&gt;=2014-02-01&amp;releaseDate&lt;=2014-02-28)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4407</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">441</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.064"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.226"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(releaseDate&gt;=2014-02-01&amp;releaseDate&lt;=2014-02-28)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">24311154</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#lovestrock-CD"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">22.99</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">23374755</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(Untitled) - CD"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">39.99</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>If you want to find all products that were released February 2014, use this query:</p>
-
-<div></div>
-
-<h3 id="search-by-date-relative-to-today">Search by date relative to today</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(releaseDate&gt;today)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">7688</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">769</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.032"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(releaseDate&gt;today)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">24987148</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$Ellebrity (DVD)"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.99</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6121399</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp; Then You Shoot Your Cousin - CD"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.99</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>You can also use the value <code class="prettyprint">today</code> to represent the current day. If you want to see all the products that were released today, use this query:</p>
-
-<div></div>
-
-<h3 id="search-for-multiple-attribute-values">Search for multiple attribute values</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&amp;color in(white,bisque,stainless-steel))?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.033"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(categoryPath.id=abcat0901005&amp;color in(\"white\",\"bisque\",\"stainless-steel\"))?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">1614013</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amana - 25.4 Cu. Ft. Side-by-Side Refrigerator with Thru-the-Door Ice and Water - Stainless-Steel"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1099.99</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609858</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amana - 25.4 Cu. Ft. Side-by-Side Refrigerator with Thru-the-Door Ice and Water - White"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">999.99</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>If you want multiple values of a single attribute, you can specify them individually. For example, if you want to see white, bisque, or stainless-steel side-by-side refrigerators, use this query:</p>
-
-<div></div>
-
-<h3 id="wildcards-value-is-present">Wildcards - Value is present</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&amp;driveCapacityGb=*)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">381</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.008"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.039"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(categoryPath.id=abcat0502000&amp;driveCapacityGb=*)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">4591017</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acer - 11.6\" Touch-Screen Chromebook - Intel Celeron - 2GB Memory - 32GB Solid State Drive - Moonstone White"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">299.00</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">5009309</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acer - 14\" Touch-Screen Laptop - Intel Core i5 - 6GB Memory - 500GB HDD + 20GB Solid State Drive - Silver"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">740.98</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>You can use the asterisk <code class="prettyprint">*</code> as a wildcard character. The wildcard can be used to:</p>
-
-<ul>
-<li>indicate the presence of attribute values</li>
-<li>request all values for filtered attributes</li>
-<li>tokenize the string and represent additional characters</li>
-</ul>
-
-<p>Some attributes apply only to specific items. Even then, because much of this attribute information comes from the manufacturer, not all items of a given type will have values set for that attribute. You can use the wildcard to specify items that have data for a specific attribute.</p>
-
-<ul>
-<li><code>attribute=*</code> - requests items for which the attribute has values</li>
-<li><code>attribute!=*</code> - requests items for which the attribute has no value</li>
-</ul>
-
-<div></div>
-
-<h3 id="wildcards-value-is-not-present">Wildcards - Value is NOT present</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&amp;driveCapacityGb!=*)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.270"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(categoryPath.id=abcat0502000&amp;driveCapacityGb!=*)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6941496</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple® - MacBook Pro with Retina display - 13.3\" Display - 4GB Memory - 128GB Flash Storage"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1299.99</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6293168</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple® - MacBook Pro with Retina display - 13.3\" Display - 8GB Memory - 256GB Flash Storage"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1499.99</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This will return results in which there is no value present. In the following example, with the addition of the <code>!</code>, the return result has shifted from Solid State Drive.</p>
-
-<div></div>
-
-<h3 id="filtered-product-attribute">Filtered product attribute</h3>
-
-<p>Certain attributes, such as <code class="prettyprint">active=true</code>, <code class="prettyprint">digital=false</code>, <code class="prettyprint">preowned=false</code> or <code class="prettyprint">marketplace=false</code> inherently filter results.</p>
-
-<p>If your search string is <code class="prettyprint">sku=*</code>, you will only return active products, not all products. This is the same as specifying <code class="prettyprint">sku=*active=true</code>. If you want a list of all active and inactive products, you can specify <code class="prettyprint">sku=*&amp;active=*</code>.</p>
-
-<p>Because <code class="prettyprint">active</code> is a boolean attribute, <code class="prettyprint">active=*</code> will return products for which <code class="prettyprint">active</code> is either true or false. It&rsquo;s the same as <code class="prettyprint">sku=*&amp;(active=true|active=false)</code>.</p>
-
-<p><em>If your search string goes to sku.xml or sku.json these filters are ignored.</em></p>
-
-<div></div>
-
-<h3 id="wildcards-string">Wildcards - String</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(name=classic*)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">6112</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">612</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.030"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(name=\"classic*\")?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">4606206</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#1 Classical Album - Various - CD"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.99</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">24772085</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Classic Album &amp;.. - CD"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">22.99</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>When used as part of a string search, the wildcard performs two functions. First, it tokenizes the string, breaking it into words. Second, it operates as a standard wildcard, matching any set of characters in the tokenized string. The following example illustrates both functions. When searching for a string value, you may want to search for variations on a specific word. For example, if you want to find CDs whose titles include the words Classic, Classics or Classical you would use the following query:</p>
-
-<h3 id="limitations">Limitations</h3>
-
-<ul>
-<li>You cannot use a wildcard to begin a string search (e.g. <code>(name=*top)</code>); this type of search is extremely resource intensive and doing so will result in a <code>400</code> error.</li>
-<li>Wildcard with data is valid for strings only. When used alone, the wildcard can represent any data type. When used with other characters, the wildcard can only represent string data. For example, to find Canon products with customer reviews of 4.x, you cannot use <code>(manufacturer=canon&amp;customerReviewAverage=4.*)</code> as the search string. You would have to use a search string like this: <code>(manufacturer=canon&amp;customerReviewAverage&gt;4&amp;customerReviewAverage<5)</code>.</li>
-</ul>
-
-<div></div>
-
-<h3 id="keyword-search-function">Keyword Search Function</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(search=oven&amp;search=stainless&amp;search=steel)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-</span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6916066</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amana - 30 Self-Cleaning Freestanding Electric Range - Stainless-Steel"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">584.99</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">2267329</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Applica - 4-Slice Toaster Oven - Stainless Steel"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">39.99</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p><em>Applies to: Products API</em></p>
-
-<p>Our <strong>Keyword Search</strong> function <code class="prettyprint">(search=searchterm)</code> allows you to search text accross several common attributes. To search for a term that includes a space, include an <code class="prettyprint">&amp;</code> ampersand between the words or it will be treated as an <code class="prettyprint">|</code> or. The <strong>Keyword Search</strong> includes the following attributes:</p>
-
-<ul>
-<li><code>name</code></li>
-<li><code>manufacturer</code></li>
-<li><code>shortDescription</code></li>
-<li><code>longDescription</code></li>
-<li><code>features.feature</code></li>
-<li><code>details.value</code></li>
-</ul>
-
-<p>Here is an example that looks for &lsquo;stainless steel ovens&rsquo;:</p>
-
 <h2 id="response-format">Response Format</h2>
 
 <p>Responses can be returned in either <strong>JSON</strong> or <strong>XML</strong>.</p>
@@ -508,30 +97,30 @@
 
 <h3 id="jsonp">JSONP</h3>
 
-<pre class="highlight javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-    <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-    <span class="na">url</span><span class="p">:</span> <span class="s1">'//api.bestbuy.com/v1/products(name=Batman*)'</span><span class="p">,</span>
-    <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">format</span><span class="p">:</span> <span class="s1">'json'</span><span class="p">,</span>
-        <span class="na">apiKey</span><span class="p">:</span> <span class="nx">APIKEY</span>
-    <span class="p">},</span>
-    <span class="na">cache</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// necessary because our API rejects queries with unrecognized query parameters, such as the underscore injected when this isn't included</span>
-    <span class="na">dataType</span><span class="p">:</span> <span class="s1">'jsonp'</span>
-<span class="p">}).</span><span class="nx">always</span><span class="p">(</span>
-    <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">products</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">output</span> <span class="o">=</span> <span class="s2">"Products:\n"</span><span class="p">;</span>
-            <span class="nx">result</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">product</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">output</span> <span class="o">+=</span> <span class="s2">"\t* "</span> <span class="o">+</span> <span class="nx">product</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">"\n"</span><span class="p">;</span>
-            <span class="p">});</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">output</span> <span class="o">=</span> <span class="s2">"Unable to access products (see browser console for more information)"</span><span class="p">;</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">);</span>
+<pre class="highlight plaintext"><code>$.ajax({
+    method: 'GET',
+    url: '//api.bestbuy.com/v1/products(name=Batman*)',
+    data: {
+        format: 'json',
+        apiKey: APIKEY
+    },
+    cache: true, // necessary because our API rejects queries with unrecognized query parameters, such as the underscore injected when this isn't included
+    dataType: 'jsonp'
+}).always(
+    function(result) {
+        var output = "";
+        if (!result.error &amp;&amp; result.products) {
+            output = "Products:\n";
+            result.products.forEach(function(product) {
+                output += "\t* " + product.name + "\n";
+            });
+        } else {
+            output = "Unable to access products (see browser console for more information)";
+            console.log(result);
+        }
+        alert(output);
+    }
+);
 </code></pre>
 
 <p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API</em></p>
@@ -540,24 +129,20 @@
 
 <p>Shown to the right is a javascript example, leveraging jQuery&rsquo;s JSONP support, that displays product names by the sample query from the Basic Search section.</p>
 
-<h2 id="show">Show</h2>
-
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
-
-<p>The Show attribute allows you to control which attributes are returned. You can return specific attributes by following the syntax in <strong>Show Only</strong> description. To return all attributes follow the syntax in the <strong>Show All</strong> description.</p>
-
-<h3 id="show-only">Show Only</h3>
-
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
-
-<p>If you tried the example query in the Getting Started section, you probably noticed that our Products API returns a lot of attributes for each product. For convenience, we provide a <code class="prettyprint">show</code> query parameter that allows you to specify just the attributes that you want returned in the response.</p>
-
-<p>For example, if you are only interested in the product&rsquo;s <code class="prettyprint">sku</code>, <code class="prettyprint">name</code> and <code class="prettyprint">salePrice</code>, you can list these attributes in the show parameter.</p>
-
-<h3 id="products-response-show-sku-name-saleprice">Products Response <code class="prettyprint">show=sku,name,salePrice</code></h3>
+<h2 id="returned-attributes">Returned Attributes</h2>
 
 <pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
 </code></pre>
+
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="mi">8880044</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+
+<blockquote>
+<p>Only returns the <code class="prettyprint">sku</code>, <code class="prettyprint">name</code> and <code class="prettyprint">salePrice</code> attributes for products.</p>
+</blockquote>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">8880044</span><span class="p">,</span><span class="w">
@@ -566,144 +151,34 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<div></div>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
+
+<p>The <strong><code class="prettyprint">show</code></strong> attribute allows you to control which attributes are returned. You can return specific attributes by following the syntax below. To return all attributes, use <code class="prettyprint">show=all</code>.</p>
+
+<p>If you tried the example query in the Getting Started section, you probably noticed that our Products API returns a lot of attributes for each product. For convenience, we provide a <code class="prettyprint">show</code> query parameter that allows you to specify just the attributes that you want returned in the response.</p>
 
 <h3 id="show-all">Show All</h3>
 
 <p><em>Applies to: Products API &#8226; Stores API</em></p>
 
-<p>In order to make the API responses more manageable, we don&rsquo;t return all available attributes for those items that contain many (e.g. &lt;Products and Stores). In the event that you want to use one of these hidden attributes, you can set <code class="prettyprint">show=all</code> in the query parameters for the API</p>
+<p>In order to make the API responses more manageable, we don&rsquo;t return all available attributes for those items that contain many (e.g. Products and Stores). In the event that you want to get all of these hidden attributes, you can set <code class="prettyprint">show=all</code> in the query parameters for the API</p>
 
-<p>For example, the Stores API does not return the <code class="prettyprint">detailedHours</code> attribute by default. By setting <code class="prettyprint">show=all</code> you will receive <code class="prettyprint">detailedHours</code> in the response. Both the default response and the response containing <code class="prettyprint">detailedHours</code> are provided below for store 2387.</p>
-
-<h3 id="stores-response-default-attributes-only">Stores Response - Default Attributes Only</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/stores/2387.json?apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2387</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile - Richfield"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"longName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile - Richfield"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6601 Nicollet Ave S"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richfield"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MN"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fullPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55423"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.882942</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">-93.2775</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon: 11-8; Tue: 11-8; Wed: 11-8; Thurs: 11-8; Fri: 11-8; Sat: 11-7; Sun: 11-6"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"hoursAmPm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon: 11am-8pm; Tue: 11am-8pm; Wed: 11am-8pm; Thurs: 11am-8pm; Fri: 11am-8pm; Sat: 11am-7pm; Sun: 11am-6pm"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"gmtOffset"</span><span class="p">:</span><span class="w"> </span><span class="mi">-6</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile Specialty Store"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Electronics Recycling"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung Experience Shop"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"612-866-0957"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55423"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<div></div>
-
-<h3 id="stores-response-show-all">Stores Response <code class="prettyprint">show=all</code></h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/stores/2387.json?show=all&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2387</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile - Richfield"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"longName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile - Richfield"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6601 Nicollet Ave S"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richfield"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MN"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fullPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55423"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.882942</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">-93.2775</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon: 11-8; Tue: 11-8; Wed: 11-8; Thurs: 11-8; Fri: 11-8; Sat: 11-7; Sun: 11-6"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"hoursAmPm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon: 11am-8pm; Tue: 11am-8pm; Wed: 11am-8pm; Thurs: 11am-8pm; Fri: 11am-8pm; Sat: 11am-7pm; Sun: 11am-6pm"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"gmtOffset"</span><span class="p">:</span><span class="w"> </span><span class="mi">-6</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile Specialty Store"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Electronics Recycling"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung Experience Shop"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"612-866-0957"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55423"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"detailedHours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sunday"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-04-27"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18:00"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Notice that the <code class="prettyprint">detailedHours</code> are included at the bottom of the response in this example.</p>
+<p>For example, the Stores API does not return the <code class="prettyprint">detailedHours</code> attribute by default. By setting <code class="prettyprint">show=all</code> you will receive <code class="prettyprint">detailedHours</code> in the response.</p>
 
 <h2 id="sort">Sort</h2>
 
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
-
-<p>You can specify the way in which you&rsquo;d like to have the results sorted by one or more attribute value(s).</p>
-
-<ul>
-<li><code class="prettyprint">sort=attribute.asc</code> - Sort the results in ascending order of the specified attribute</li>
-<li><code class="prettyprint">sort=attribute.dsc</code> - Sort the results in descending order of the specified attribute</li>
-<li><code class="prettyprint">sort=attribute.desc</code> - Sort the results in descending order of the specified attribute</li>
-</ul>
-
-<h3 id="sort-by-a-single-attribute">Sort by a single attribute</h3>
-
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(categoryPath.name="</span>All Flat-Panel TVs<span class="s2">")?format=json&amp;show=sku,name,salePrice&amp;sort=salePrice.desc&amp;apiKey=YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&amp;show=sku,name,salePrice&amp;sort=salesRankMediumTerm.asc&amp;apiKey=YourAPIKey'</span>
 </code></pre>
 
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">307</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.004"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.031"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(categoryPath.name=All Flat-Panel TVs)?show=sku,name,salePrice&amp;sort=salePrice.desc&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">8908129</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung - S9 - 85\" Class (84-1/2\" Diag.) - LED - 4K Ultra HD TV (2160p) - 120Hz - Smart - 3D - HDTV"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">39999.98</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">7558048</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sony - BRAVIA 84\" Class (84\" Diag.) - LED - 4K Ultra HD TV (2160p) - 120Hz - Smart - 3D - HDTV"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">24998.98</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>The example to the right demonstrates how to sort the results from most to least expensive.</p>
-
-<div></div>
-
-<h3 id="sort-on-non-displayed-attribute">Sort on non-displayed attribute</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&amp;show=sku,name,salePrice&amp;sort=salesRankMediumTerm.asc&amp;apiKey=YourAPIKey
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'categoryPath.name="All Flat-Panel TVs"'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">,</span><span class="na">sort</span><span class="p">:</span><span class="s1">'salesRankMediumTerm.asc'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
+
+<blockquote>
+<p>Lists all flat-panel TVs with prices and sorts by the best-selling products over the last week.</p>
+</blockquote>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -728,39 +203,17 @@
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>You can sort by an attribute you are not displaying. For example, to list all flat-panel TVs with prices, but have the list sorted by the best-selling products over the last week, use:</p>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
 
-<div></div>
+<p>You can specify the way in which you&rsquo;d like to have the results sorted by one or more attribute value(s).</p>
+
+<ul>
+<li><code class="prettyprint">sort=attribute.asc</code> - Sort the results in ascending order of the specified attribute</li>
+<li><code class="prettyprint">sort=attribute.dsc</code> - Sort the results in descending order of the specified attribute</li>
+<li><code class="prettyprint">sort=attribute.desc</code> - Sort the results in descending order of the specified attribute</li>
+</ul>
 
 <h3 id="sort-by-multiple-attributes">Sort by multiple attributes</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(type=game)?format=json&amp;show=sku,name,salePrice,tradeInValue&amp;sort=tradeInValue.desc,platform.asc&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1864</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.067"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(type=\"game\")?show=sku,name,salePrice,tradeInValue&amp;sort=tradeInValue.desc,platform&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">8677151</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infamous: Second Son - PlayStation 4"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">59.99</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"tradeInValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">36.00</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">2393007</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Titanfall - Xbox 360"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.99</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"tradeInValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">36.00</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
 
 <p>To sort by multiple attributes, separate the sort terms with commas. The results will initially be sorted by the first attribute in the direction specified. Then, the results within each set will be sorted by the second attribute.</p>
 
@@ -768,20 +221,24 @@
 <li><code class="prettyprint">sort=attribute1.asc,attribute2.dsc</code> - Sort by attribute 1 in ascending order, then by attribute 2 in descending order</li>
 </ul>
 
-<p>For example, to find which games have the highest trade-in values and sort by platform, use the following query:</p>
-
-<div></div>
-
 <h3 id="child-attribute-sort-limitation">Child attribute sort limitation</h3>
 
 <p>The text after the period in the sort parameter is interpreted as the sort direction. Therefore, you cannot sort by a child attribute, as it inherently includes a period in its name.</p>
 
 <h2 id="facets">Facets</h2>
 
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&amp;show=sku,name,salePrice&amp;facet=manufacturer,5&amp;apiKey=YourAPIKey
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&amp;show=sku,name,salePrice&amp;facet=manufacturer,5&amp;apiKey=YourAPIKey'</span>
 </code></pre>
+
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'categoryPath.name="All Flat-Panel TVs"'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">,</span><span class="na">facet</span><span class="p">:</span><span class="s1">'manufacturer,5'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+
+<blockquote>
+<p>Show the 5 manufacturers for which we have the most flat-panel TVs.</p>
+</blockquote>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -798,9 +255,47 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>You can retrieve summary information about the items that are returned by your query by using the <code class="prettyprint">facets</code> query parameter. For example, to show the 5 manufacturers for which we have the most flat-panel TVs, you can use the following query:</p>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
+
+<p>You can retrieve summary information about the items that are returned by your query by using the <code class="prettyprint">facets</code> query parameter.</p>
 
 <h2 id="pagination">Pagination</h2>
+
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(type=Movie)?format=json&amp;show=sku,name,salePrice&amp;pageSize=3&amp;page=10&amp;apiKey=YourAPIKey'</span>
+</code></pre>
+
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'type=Movie'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">,</span><span class="na">page</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="na">pageSize</span><span class="p">:</span><span class="mi">3</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+
+<blockquote>
+<p>In this example we ask for the 10th page of results and for each page to contain just 3 products.</p>
+</blockquote>
+
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">101727</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">33909</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.039"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.048"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(type=\"Movie\")?show=sku,name,salePrice&amp;format=json&amp;pageSize=3&amp;page=10&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">17215997</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AC/DC: Rock Power (DVD)"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">23003222</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AC/DC: Rocks Detroit (DVD)"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.99</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API</em></p>
 
@@ -851,68 +346,6 @@
 <td>referred to as &ldquo;page.total&rdquo; for the Recommendations and Buying Options APIs</td>
 </tr>
 </tbody></table>
-
-<h3 id="example-response-header-for-products-stores-reviews-and-category-apis">Example response header for Products, Stores, Reviews and Category APIs</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(type=Movie)?format=json&amp;show=sku,name,salePrice&amp;pageSize=3&amp;page=1000&amp;apiKey=YourAPIKey
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">2998</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">101727</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">33909</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.039"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.048"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(type=\"Movie\")?show=sku,name,salePrice&amp;format=json&amp;pageSize=3&amp;page=1000&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">17215997</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AC/DC: Rock Power (DVD)"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.99</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">23003222</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AC/DC: Rocks Detroit (DVD)"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.99</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p><em>In this example we ask for the 1000th page of results and for each page to contain just 3 products.</em></p>
-
-<div></div>
-
-<h3 id="example-response-header-for-the-recommendations-and-buying-options-apis">Example response header for the Recommendations and Buying Options APIs</h3>
-
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/beta/products/openBox?apiKey=YourAPIKey&amp;page=2&amp;pageSize=15
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"resultSet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2040</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/beta/products/openBox?apiKey=YourAPIKey&amp;page=2&amp;pageSize=15"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"customerReviews"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"averageScore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.4"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">260</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google Chrome 64-bitTechnical details: Intel&amp;#174; Celeron&amp;#174; processor; 11.6\" display; 2GB memory; 16GB eMMC flash memorySpecial features: Bluetooth; HDMI outputNote: DVD/CD drive not included"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-</span></code></pre>
 
 <h2 id="retrieving-collections">Retrieving Collections</h2>
 
@@ -1010,27 +443,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="example-collection-header">Example Collection Header</h3>
-
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products?format=json&amp;apiKey=YourAPIKey"</span>
-</code></pre>
-
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">724145</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">72415</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.183"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.195"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products?format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span></code></pre>
-
-<h2 id="errors-and-mock-data">Errors and Mock Data</h2>
-
-<h3 id="errors">Errors</h3>
+<h2 id="errors">Errors</h2>
 
 <p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API</em></p>
 
@@ -1052,7 +465,7 @@
 </tr>
 <tr>
 <td><strong>403</strong></td>
-<td>The allocated call limit is exceeded.</td>
+<td>The API key is not valid, or the allocated call limit has been exceeded.</td>
 </tr>
 <tr>
 <td><strong>404</strong></td>
@@ -1068,41 +481,430 @@
 </tr>
 </tbody></table>
 
-<h3 id="mock-data">Mock Data</h3>
+          <h1 id="search-techniques">Search Techniques</h1>
 
-<p><em>Applies to: Recommendations API</em></p>
+<p><em>Applies to: Products API &#149; Stores API &#149; Reviews API &#149; Categories API</em></p>
 
-<p>Best Buy allows you to submit mock data for the Recommendations API Also Viewed and Similar Products endpoints. These endpoints accept mock data and return appropriate responses.</p>
+<p>Search consists of one or more terms that generally include an attribute, operator and value. Terms are combined with ampersands <code class="prettyprint">&amp;</code> or pipes <code class="prettyprint">|</code>. Searches are implemented as part of an HTTP GET request to the deisred Best Buy API. <code class="prettyprint">term1&amp;term2</code> - specifies term1 AND term2 <code class="prettyprint">term1|term2</code> - specifies term1 OR term2.</p>
 
-<p>Mock codes supported:</p>
+<p>Attribute <em>names</em> are case sensitive; attribute <em>values</em> are not.</p>
 
-<table><thead>
-<tr>
-<th>Mock Code</th>
-<th>Response</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>mock500</strong></td>
-<td>{&ldquo;errorMessage&rdquo;:&ldquo;An unexpected error kept us from completing your request&rdquo;,&ldquo;status&rdquo;:500}</td>
-</tr>
-<tr>
-<td><strong>mock418</strong></td>
-<td>{&ldquo;errorMessage&rdquo;:&ldquo;I am a teapot, short and stout&rdquo;,&ldquo;status&rdquo;:418}</td>
-</tr>
-<tr>
-<td><strong>mockEmpty</strong></td>
-<td>{&ldquo;results&rdquo;: []}</td>
-</tr>
-</tbody></table>
+<h2 id="available-operators">Available Operators</h2>
 
-<h3 id="example">Example</h3>
+<ul>
+<li><code class="prettyprint">=</code> - attribute <strong>equals</strong> a specified value</li>
+<li><code class="prettyprint">=!</code>- attribute <strong>does not equal</strong> a specified value</li>
+<li><code class="prettyprint">&gt;</code> - attribute <strong>greater than</strong> a specified value</li>
+<li><code class="prettyprint">&lt;</code> - attribute <strong>less than</strong> a specified value</li>
+<li><code class="prettyprint">&gt;=&lt;</code> - attribute <strong>greater than or equal to</strong> a specified value</li>
+<li><code class="prettyprint">&lt;=</code> - attribute <strong>less than or equal to</strong> a specified value</li>
+<li><code class="prettyprint">in</code> - search based on a <strong>list</strong> of attribute values</li>
+</ul>
 
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/beta/products/mock500/alsoViewed?apiKey=YourAPIKey
+<h2 id="search-by-a-single-attribute">Search by a single attribute</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/stores(region=ut)?format=json&amp;show=storeId,city,region&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">stores</span><span class="p">(</span><span class="s1">'region=ut'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'storeId,city,region'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.002"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/stores(region=\"ut\")?format=json&amp;show=storeId,city,region&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1402</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"American Fork"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UT"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">773</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Orem"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UT"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Our Products, Stores, Reviews and Categories APIs can be searched by nearly all available attributes. For example, to find only the stores located in Utah, you can use the query shown to the right.</p>
+
+<h2 id="search-by-all-attributes-and">Search by all attributes (AND)</h2>
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(manufacturer=canon&amp;salePrice&lt;1000)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey'</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'manufacturer=canon&amp;salePrice&lt;1000'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">210</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.095"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.115"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(manufacturer=\"canon\"&amp;salePrice&lt;1000)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6101087</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canon - 1.9x Tele Converter Lens"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">99.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">8795075</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canon - 100-Pack 4\" x 6\" Glossy Photo Paper"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">17.49</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>If you need to search for the values of more than one attribute and <strong>all</strong> of the attributes must be present, combine them with an ampersand <code class="prettyprint">&amp;</code>.</p>
+
+<h2 id="search-by-any-attributes-or">Search by any attributes (OR)</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(wifiReady=true|wifiBuiltIn=true)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'wifiReady=true|wifiBuiltIn=true'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.005"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.030"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(wifiReady=true|wifiBuiltIn=true)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">1012749</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acer - Aspire 11.6 inch Tablet with 120GB Memory"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">661.98</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">4255007</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acer - B1-720 7\" Android Tablet - 16GB - Iron Gray"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">128.98</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>If you want items with <strong>any</strong> of the specified attributes, combine them with a pipe <code class="prettyprint">|</code></p>
+
+<h2 id="complex-searches">Complex Searches</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(platform=psp&amp;(salePrice&lt;=15|(salePrice&lt;=20&amp;tradeInValue&gt;=10)))?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'platform=psp&amp;(salePrice&lt;=15|(salePrice&lt;=20&amp;tradeInValue&gt;=10))'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">7049721</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ape Escape: On the Loose Greatest Hits - PSP"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tradeInValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PSP"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">9335436</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chessmaster: The Art of Learning - PSP"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tradeInValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PSP"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">1450486</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Megamind: The Blue Defender - PSP"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tradeInValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PSP"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Complex searches can be performed by combining AND <code class="prettyprint">&amp;</code> and OR <code class="prettyprint">|</code> operations with parantheses. For example: let&rsquo;s say that you&rsquo;re looking for a Play Station Portable video game <code class="prettyprint">(platform=psp)</code>. You don&rsquo;t want to spend more than $15 <code class="prettyprint">(salePrice&lt;=15)</code>. However, because you will trade in the game when you&rsquo;re done, you could spend up to $20 <code class="prettyprint">(saleProce&lt;=20)</code> - but only if the game&rsquo;s trade-in value is more than $10 <code class="prettyprint">(tradeInValue&gt;10)</code>.</p>
+
+<p>The search terms for this example can be combined as:</p>
+
+<p><code class="prettyprint">platform=psp &amp; (salePrice&lt;=15 | (salePrice&lt;=20 &amp; tradeInValue&gt;10))</code></p>
+
+<h2 id="search-by-date-range">Search by date range</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(releaseDate&gt;=2014-02-01&amp;releaseDate&lt;=2014-02-28)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'releaseDate&gt;=2014-02-01&amp;releaseDate&lt;=2014-02-28'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4407</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">441</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.064"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.226"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(releaseDate&gt;=2014-02-01&amp;releaseDate&lt;=2014-02-28)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">24311154</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#lovestrock-CD"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">22.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">23374755</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(Untitled) - CD"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">39.99</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>If you want to find all products that were released February 2014, use this query:</p>
+
+<h2 id="search-by-date-relative-to-today">Search by date relative to today</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(releaseDate&gt;today)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'releaseDate&gt;today'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">7688</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">769</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.032"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(releaseDate&gt;today)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">24987148</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$Ellebrity (DVD)"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6121399</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp; Then You Shoot Your Cousin - CD"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.99</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>You can also use the value <code class="prettyprint">today</code> to represent the current day. If you want to see all the products that were released today, use this query.</p>
+
+<h2 id="search-for-multiple-attribute-values">Search for multiple attribute values</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&amp;color in(white,bisque,stainless-steel))?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'categoryPath.id=abcat0901005&amp;color in(white,bisque,stainless-steel)'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.033"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(categoryPath.id=abcat0901005&amp;color in(\"white\",\"bisque\",\"stainless-steel\"))?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">1614013</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amana - 25.4 Cu. Ft. Side-by-Side Refrigerator with Thru-the-Door Ice and Water - Stainless-Steel"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1099.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609858</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amana - 25.4 Cu. Ft. Side-by-Side Refrigerator with Thru-the-Door Ice and Water - White"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">999.99</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>If you want multiple values of a single attribute, you can specify them individually. For example, if you want to see white, bisque, or stainless-steel side-by-side refrigerators, use this query.</p>
+
+<h2 id="wildcards-value-is-present">Wildcards - Value is present</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&amp;driveCapacityGb=*)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'categoryPath.id=abcat0502000&amp;driveCapacityGb=*'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">381</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.008"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.039"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(categoryPath.id=abcat0502000&amp;driveCapacityGb=*)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">4591017</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acer - 11.6\" Touch-Screen Chromebook - Intel Celeron - 2GB Memory - 32GB Solid State Drive - Moonstone White"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">299.00</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">5009309</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acer - 14\" Touch-Screen Laptop - Intel Core i5 - 6GB Memory - 500GB HDD + 20GB Solid State Drive - Silver"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">740.98</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>You can use the asterisk <code class="prettyprint">*</code> as a wildcard character. The wildcard can be used to:</p>
+
+<ul>
+<li>indicate the presence of attribute values</li>
+<li>request all values for filtered attributes</li>
+<li>tokenize the string and represent additional characters</li>
+</ul>
+
+<p>Some attributes apply only to specific items. Even then, because much of this attribute information comes from the manufacturer, not all items of a given type will have values set for that attribute. You can use the wildcard to specify items that have data for a specific attribute.</p>
+
+<ul>
+<li><code>attribute=*</code> - requests items for which the attribute has values</li>
+<li><code>attribute!=*</code> - requests items for which the attribute has no value</li>
+</ul>
+
+<h2 id="wildcards-value-is-not-present">Wildcards - Value is NOT present</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&amp;driveCapacityGb!=*)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'categoryPath.id=abcat0502000&amp;driveCapacityGb!=*'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.270"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(categoryPath.id=abcat0502000&amp;driveCapacityGb!=*)?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6941496</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple® - MacBook Pro with Retina display - 13.3\" Display - 4GB Memory - 128GB Flash Storage"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1299.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6293168</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple® - MacBook Pro with Retina display - 13.3\" Display - 8GB Memory - 256GB Flash Storage"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1499.99</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This will return results in which there is no value present. In the following example, with the addition of the <code>!</code>, the return result has shifted from Solid State Drive.</p>
+
+<h2 id="filtered-product-attribute">Filtered product attribute</h2>
+
+<p>Certain attributes, such as <code class="prettyprint">active=true</code>, <code class="prettyprint">digital=false</code>, <code class="prettyprint">preowned=false</code> or <code class="prettyprint">marketplace=false</code> inherently filter results.</p>
+
+<p>If your search string is <code class="prettyprint">sku=*</code>, you will only return active products, not all products. This is the same as specifying <code class="prettyprint">sku=*active=true</code>. If you want a list of all active and inactive products, you can specify <code class="prettyprint">sku=*&amp;active=*</code>.</p>
+
+<p>Because <code class="prettyprint">active</code> is a boolean attribute, <code class="prettyprint">active=*</code> will return products for which <code class="prettyprint">active</code> is either true or false. It&rsquo;s the same as <code class="prettyprint">sku=*&amp;(active=true|active=false)</code>.</p>
+
+<p><em>If your search string goes to sku.xml or sku.json these filters are ignored.</em></p>
+
+<h2 id="wildcards-string">Wildcards - String</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(name=classic*)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'name=classic*'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">6112</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">612</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.030"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(name=\"classic*\")?show=sku,name,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">4606206</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#1 Classical Album - Various - CD"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">24772085</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Classic Album &amp;.. - CD"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">22.99</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>When used as part of a string search, the wildcard performs two functions. First, it tokenizes the string, breaking it into words. Second, it operates as a standard wildcard, matching any set of characters in the tokenized string. The following example illustrates both functions. When searching for a string value, you may want to search for variations on a specific word. For example, if you want to find CDs whose titles include the words Classic, Classics or Classical you would use the following query:</p>
+
+<h2 id="limitations">Limitations</h2>
+
+<ul>
+<li>You cannot use a wildcard to begin a string search (e.g. <code>(name=*top)</code>); this type of search is extremely resource intensive and doing so will result in a <code>400</code> error.</li>
+<li>Wildcard with data is valid for strings only. When used alone, the wildcard can represent any data type. When used with other characters, the wildcard can only represent string data. For example, to find Canon products with customer reviews of 4.x, you cannot use <code>(manufacturer=canon&amp;customerReviewAverage=4.*)</code> as the search string. You would have to use a search string like this: <code>(manufacturer=canon&amp;customerReviewAverage&gt;4&amp;customerReviewAverage<5)</code>.</li>
+</ul>
+
+<h2 id="keyword-search-function">Keyword Search Function</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(search=oven&amp;search=stainless&amp;search=steel)?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'search=oven&amp;search=stainless&amp;search=steel'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="s2">"An unexpected error kept us from completing your request"</span><span class="p">,</span><span class="nt">"status"</span><span class="p">:</span><span class="mi">500</span><span class="p">}</span><span class="w">
+<blockquote>
+<p>This example looks for &lsquo;stainless steel ovens&rsquo;.</p>
+</blockquote>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6916066</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amana - 30 Self-Cleaning Freestanding Electric Range - Stainless-Steel"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">584.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">2267329</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Applica - 4-Slice Toaster Oven - Stainless Steel"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">39.99</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p><em>Applies to: Products API</em></p>
+
+<p>Our <strong>Keyword Search</strong> function <code class="prettyprint">(search=searchterm)</code> allows you to search text accross several common attributes. To search for a term that includes a space, include an <code class="prettyprint">&amp;</code> ampersand between the words or it will be treated as an <code class="prettyprint">|</code> or. The <strong>Keyword Search</strong> includes the following attributes:</p>
+
+<ul>
+<li><code>name</code></li>
+<li><code>manufacturer</code></li>
+<li><code>shortDescription</code></li>
+<li><code>longDescription</code></li>
+<li><code>features.feature</code></li>
+<li><code>details.value</code></li>
+</ul>
 
           <h1 id="categories-api">Categories API</h1>
 
@@ -1245,7 +1047,13 @@
 
 <h2 id="how-to-search-using-39-or-39">How To: Search Using &lsquo;or&rsquo;</h2>
 
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(longDescription=iPhone*|sku=7619002)?show=sku,name&amp;pageSize=15&amp;page=5&amp;apiKey=YourAPIKey&amp;format=json
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(longDescription=iPhone*|sku=7619002)?show=sku,name&amp;pageSize=15&amp;page=5&amp;apiKey=YourAPIKey&amp;format=json'</span>
+</code></pre>
+
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'longDescription=iPhone*|sku=7619002'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name'</span><span class="p">,</span><span class="na">pageSize</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="na">page</span><span class="p">:</span><span class="mi">5</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
@@ -1285,7 +1093,13 @@
 
 <h2 id="how-to-search-on-reviews">How To: Search on Reviews</h2>
 
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(customerReviewAverage&gt;=4&amp;customerReviewCount&gt;100)?show=customerReviewAverage,customerReviewCount,name,sku&amp;format=json&amp;apiKey=YourAPIKey
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(customerReviewAverage&gt;=4&amp;customerReviewCount&gt;100)?show=customerReviewAverage,customerReviewCount,name,sku&amp;format=json&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'customerReviewAverage&gt;=4&amp;customerReviewCount&gt;100'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'customerReviewAverage,customerReviewCount,name,sku'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
@@ -1312,7 +1126,13 @@
 
 <h2 id="how-to-search-using-39-in-39">How To: Search Using &lsquo;in&rsquo;</h2>
 
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPIKey
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPIKey"</span>
+</code></pre>
+
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'sku in(43900,2088495,7150065)'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
@@ -1343,7 +1163,13 @@
 
 <h2 id="how-to-use-keyword-search">How To: Use Keyword Search</h2>
 
-<pre class="highlight plaintext"><code>https://api.bestbuy.com/v1/products((search=touchscreen&amp;search=apple)&amp;salePrice&lt;500&amp;categoryPath.id=pcmcat209000050006)?show=name,sku,salePrice&amp;format=json&amp;apiKey=YourAPIKey
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products((search=touchscreen&amp;search=apple)&amp;salePrice&lt;500&amp;categoryPath.id=pcmcat209000050006)?show=name,sku,salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span>
+</code></pre>
+
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'(search=touchscreen&amp;search=apple)&amp;salePrice&lt;500&amp;categoryPath.id=pcmcat209000050006'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'name,sku,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
@@ -1532,8 +1358,9 @@
 
 <p>The Shipping and Delivery attributes provide details about the cost of shipping or delivery of a product. A product can be shippable or deliverable, but not both.</p>
 
-<pre class="highlight plaintext"><code>Example: shippingLevelsOfService
-</code></pre>
+<blockquote>
+<p>Sample <code class="prettyprint">shippingLevelsOfService</code> response</p>
+</blockquote>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"shippingLevelsOfService"</span><span class="p">:[</span><span class="w">
@@ -2322,6 +2149,46 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 <p>Availability in stores is calculated using counts and previous-day sales to determine if the product is likely to be available, might be available or is unlikely to be available.  The algorithm errs on the side of caution, and anything that is not available defaults to &ldquo;not available&rdquo;.</p>
 
 <p><em>HINT: The Products API attribute <code class="prettyprint">inStoreAvailability</code> will tell you if a product is sold in stores but not if it&rsquo;s available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store.</em></p>
+
+          <h1 id="commerce-api">Commerce API</h1>
+
+<p>The Best Buy Commerce API allows our partners to introduce a seamless cart experience to their customers, exposing the ability to select various fulfillment options including <em>Store Pickup</em> at one of our 1,400+ locations, <em>Ship To Home</em> and <em>Home Delivery</em>. If you have not yet been issued a Commerce API key, please contact <a href="mailto:developer@bestbuy.com">developer@bestbuy.com</a>.</p>
+
+<p>Within the Commerce APIs, partners can use:</p>
+
+<ul>
+<li><strong>Commerce API</strong> - provides the ability to integrate your e-commerce solution with Best Buy&rsquo;s online experience.</li>
+<li><strong>Express Checkout</strong> - a very simple integration including a Best Buy cart widget that can be included on your site.</li>
+</ul>
+
+<h2 id="functionality">Functionality</h2>
+
+<p>Full documentation supplied once you have a CAPI Key.</p>
+
+<ul>
+<li>Basic Commerce API Functionality
+
+<ul>
+<li>Look up product availability, delivery dates, shipping costs prior to order submission</li>
+<li>Create orders including <em>Store Pick Up</em>, <em>Ship to Home</em> and <em>Home Delivery</em></li>
+<li>Look up order information</li>
+<li>Modify/Cancel an Order</li>
+</ul></li>
+<li>Express Checkout
+
+<ul>
+<li>Sell product through Best Buy&rsquo;s ecommerce solution using a Best Buy branded cart widget</li>
+<li>Supports both <em>Ship to Home</em> and <em>Store Pick Up</em> use cases</li>
+<li>Widget handles all PCI and PII security requirements</li>
+<li>Can be used in conjunction with Commerce API service</li>
+</ul></li>
+</ul>
+
+<h2 id="getting-a-commerce-api-key">Getting a Commerce API Key</h2>
+
+<p>In order to use the Commerce API you will need an invite to the program and a corresponding API key. Please reach out to <a href="mailto:developer@bestbuy.com">developer@bestbuy.com</a> to request an invite.</p>
+
+<p><em>Current CAPI Partners can access reporting and documentation <a href="https://capi-developer.bestbuy.com/saml_login?returnto=capi-page%252Flanding-page">here</a>.</em></p>
 
       </div>
       <div class="dark-box">
