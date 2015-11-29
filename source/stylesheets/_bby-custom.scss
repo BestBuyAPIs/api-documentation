@@ -1,0 +1,6 @@
+//We assume the only things in tables will be attribute lists, and the only thing in bold
+//will be attributes. This gives all the attributes the feeling of being "code", within
+//having as heavy a presentation as the literal <code> syntax
+table tbody td strong {
+  font-family: monospace;
+}
