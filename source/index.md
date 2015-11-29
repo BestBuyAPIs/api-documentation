@@ -13,8 +13,11 @@ toc_footers:
 includes:
   - overview
   - search
-  - categories
   - products
+  - openbox
+  - categories
+  - reviews
+  - recommendations
   - stores
   - commerce
 

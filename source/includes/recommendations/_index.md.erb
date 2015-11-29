@@ -1,10 +1,24 @@
 # Recommendations API
 
-Welcome to our Recommendations API (BETA). We are enhancing our product offerings by enabling you to pull our Trending, Most Viewed and Also Viewed products based on customer behavior at **BESTBUY.COM**. We have also provided functionality to look up similar products based on a SKU.
+The Recommendations API offers Trending, Most Viewed and Also Viewed information about **Best Buy** products based on customer behavior at **BESTBUY.COM**. We have also provided functionality to look up similar products based on a SKU.
 
-<strong>Common Attributes:</strong>
+## Shared Attributes
 
-Attributes | Description
----------- | -----------
-**SKU** | <li>Used to find all recommended items based on a known SKU</li>
-**Price** | <li>Used in conjunction with SKU or Title to return prices for a specific range of items</li>
+Attribute | Description
+--------- | -----------
+**customerReviews.averageScore** | An average of all the ratings submitted for a product by reviewers
+**customerReviews.count** | Total number of reviews collected
+**description.short** | Brief description of a product
+**images.standard** | URL of the BESTBUY.COM product detail page image
+**links.addToCart** | URL that will direct the customer to BESTBUY.COM with the item in their cart
+**links.product** | Link to the specific sku in the Products API
+**links.web** | Link to the BESTBUY.COM product detail page
+**names.title** | Name of the product
+**prices.current** | Current selling price
+**prices.regular** | Regular selling price
+**sku** | Unique identifier for products sold by Best Buy
+
+<%= partial "includes/recommendations/trending" %>
+<%= partial "includes/recommendations/most-viewed" %>
+<%= partial "includes/recommendations/also-viewed" %>
+<%= partial "includes/recommendations/similar" %>

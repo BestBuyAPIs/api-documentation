@@ -1,0 +1,36 @@
+# Buying Options (Open Box) API
+
+The Buying Options API helps you access some of our best deals. This is where you'll find information about ship-from-store eligible Open Box products including availability, condition and special pricing, with more to come as we build out this API further. Our Open Box endpoints provide access to several categories of Best Buy merchandise, similar to the "Buying Options" tab on **BESTBUY.COM** product detail pages. We typically have multiple Open Box products for a single SKU. When a customer purchases an Open Box product on **BESTBUY.COM** we ship from the closest Best Buy store based on the customer shipping address. To assist in selecting the correct Open Box product we assign a condition of "excellent or certified" to the product in every Open Box offer.
+
++ "excellent" - products that look brand new in appearance, with no physical flaws, scratches or scuffs and include all original parts and accessories
++ "certified" - products that have passed the Geek Squad Certification process.
+
+We have split Open Box into multiple endpoints:
+
++ The **Open Box Single SKU** endpoint lets you query for a specific product using the product identifier (SKU) for any available Open Box offers.
++ The **Open Box by list of SKUs** endpoint lets you query for a list of products using product identifier (SKU) for any available Open Box offers.
++ The **Open Box by Category** endpoint lets you query for a set of products based on their categories.
+
+_All responses returned will be in a json format. In addition, we only return results for available product. We check for newly available product every five minutes. If you are an affiliate partner please see the [Affiliate FAQ](https://developer.bestbuy.com/affiliate-program#affiliateFaq) for instructions on proper use._
+
+## Common Attributes
+
+Attribute | Description
+--------- | -----------
+**customerReviews.averageScore** | Provides an average of all the ratings submitted for a product by reviewers. The customer can rate the product on a scale of 1-5 where 5 is the highest. Ratings may be returned using decimals
+**customerReviews.count** | The total number of reviews collected
+**descriptions.short** | A brief description of a product
+**images.standard** | URL of BESTBUY.COM product detail page image
+**links.product** | Link to the specific product in the Products API using a product identifier (SKU)
+**links.web** | Link to the BESTBUY.COM product detail page using the Buying Options tab
+**names.title** | Name of the product
+**offers.condition** | The condition attribute will either be "excellent" (products that look brand new in appearance,with no physical flaws, scratches or scuffs and include all original parts and accessories) or "certified" (products that have passed the Geek Squad Certification process)
+**offers.prices.current,** | "Open box" product's current selling price
+**offers.prices.regular** | "Open box" product's regular selling price
+**prices.current** | "New" product's current selling price
+**prices.regular** | "New" product's regular selling price
+**sku** | Unique identifier for products sold by Best Buy
+
+<%= partial "includes/openbox/single-sku" %>
+<%= partial "includes/openbox/multiple-skus" %>
+<%= partial "includes/openbox/category" %>
