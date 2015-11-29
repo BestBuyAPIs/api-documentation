@@ -332,3 +332,14 @@ The Stores API, in conjunction with the Products API, allows you to search store
 Availability in stores is calculated using counts and previous-day sales to determine if the product is likely to be available, might be available or is unlikely to be available.  The algorithm errs on the side of caution, and anything that is not available defaults to "not available".
 
 _HINT: The Products API attribute `inStoreAvailability` will tell you if a product is sold in stores but not if it's available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store._
+
+## Stores Bulk Download
+
+There are two files generated for all available store information:
+
++ `https://api.bestbuy.com/v1/stores.xml.zip?apiKey=YourAPIKey` - XML format
++ `https://api.bestbuy.com/v1/stores.json.zip?apiKey=YourAPIKey` - JSON format
+
+There is one file generated for all available stores for **Best Buy** products:
+
++ `https://api.bestbuy.com/v1/storeAvailability.tsv.zip?apiKey=YourAPIKey` - TSV (tab seperated values) format

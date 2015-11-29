@@ -57,7 +57,7 @@ Both real-time calls and bulk download calls are available for Reviews data. The
 
 The Reviews data include the review ID, author info, reviewer rating for a product, comments submitted and the time of submission for each review.
 
-### Common Attributes
+## Common Attributes
 
 Attribute | Description
 --------- | -----------
@@ -68,3 +68,10 @@ Attribute | Description
 **sku** | SKU identifier for a product
 **submissionTime** | The date and time the review was submitted
 **title** | The title of the review given by the reviewer
+
+
+## Reviews Bulk Download
+There are two files generated for all reviews:
+
++ `https://api.bestbuy.com/v1/reviews.xml.zip?apiKey=YourAPIKey` - XML format
++ `https://api.bestbuy.com/v1/reviews.json.zip?apiKey=YourAPIKey` - JSON format

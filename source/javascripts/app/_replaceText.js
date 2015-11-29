@@ -3,7 +3,7 @@
 $(document).ready(function () {
   'use strict';
   var oldKey           = 'YourAPIKey';
-  var targetedElements = 'pre.highlight code span.s1, pre.highlight code span.s2';
+  var targetedElements = 'pre.highlight code span.s1, pre.highlight code span.s2, code.prettyprint';
 
   $('input.key-replace').on('keyup', function(e){
     if (e.keyCode == 13) {
