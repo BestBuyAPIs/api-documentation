@@ -1,7 +1,15 @@
 ## How To: Search Using 'or'
-```text
-https://api.bestbuy.com/v1/products(longDescription=iPhone*|sku=7619002)?show=sku,name&pageSize=15&page=5&apiKey=YourAPIKey&format=json
+```shell
+curl 'https://api.bestbuy.com/v1/products(longDescription=iPhone*|sku=7619002)?show=sku,name&pageSize=15&page=5&apiKey=YourAPIKey&format=json'
 ```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('longDescription=iPhone*|sku=7619002',{show:'sku,name',pageSize:15,page:5}).then(function(data){
+  console.log(data);
+});
+```
+
 ```json-doc
 {
   "from": 61,
@@ -39,8 +47,14 @@ There are several description attributes by which you can search, including `lon
 In the example below we are searching the `longDescription` for iPhone&#42;. We have appended iPhone with a wildcard `*` so we can search for iPhones with any suffix. We are also looking for any products that have a SKU with a value of **7619002** - note the **or** `|`. Finally, in our example we have updated the number of results that can be returned per page to **15**. Our search will return page **5** of the total **184** pages. Additional information on how to specify the number of results that should be returned per page and which page to return can be found in our Pagination section.
 
 ## How To: Search on Reviews
-```text
-https://api.bestbuy.com/v1/products(customerReviewAverage>=4&customerReviewCount>100)?show=customerReviewAverage,customerReviewCount,name,sku&format=json&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products(customerReviewAverage>=4&customerReviewCount>100)?show=customerReviewAverage,customerReviewCount,name,sku&format=json&apiKey=YourAPIKey"
+```
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('customerReviewAverage>=4&customerReviewCount>100',{show:'customerReviewAverage,customerReviewCount,name,sku'}).then(function(data){
+  console.log(data);
+});
 ```
 ```json-doc
 {
@@ -66,8 +80,14 @@ To search based on review criteria you can use the `customerReviewAverage` and/o
 In this example, we are searching for all products that have a customer review average greater than four and a customer review count greater than 100. In addition, we are limiting the product information returned to customer review average, customer review count, name and sku, and forcing a format of json (default is xml when using the Products API).
 
 ## How To: Search Using 'in'
-```text
-https://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPIKey"
+```
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('sku in(43900,2088495,7150065)').then(function(data){
+  console.log(data);
+});
 ```
 ```json-doc
 {
@@ -97,8 +117,14 @@ https://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAP
 To search for products based on list of attribute values, we recommend using the `in` operator. Most attributes can be used with the `in` operator. The most common attribute used is **SKU**. Using the 'in' operator helps to avoid Query Per Second errors (QPS). Additional information is available in our <a href="http://developer.bestbuy.com/legal#operationalPolicy" target="_blank">Rate Limit</a> section.
 
 ## How To: Use Keyword Search
-```text
-https://api.bestbuy.com/v1/products((search=touchscreen&search=apple)&salePrice<500&categoryPath.id=pcmcat209000050006)?show=name,sku,salePrice&format=json&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products((search=touchscreen&search=apple)&salePrice<500&categoryPath.id=pcmcat209000050006)?show=name,sku,salePrice&format=json&apiKey=YourAPIKey"
+```
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('(search=touchscreen&search=apple)&salePrice<500&categoryPath.id=pcmcat209000050006',{show:'name,sku,salePrice'}).then(function(data){
+  console.log(data);
+});
 ```
 ```json-doc
 {

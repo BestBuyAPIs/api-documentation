@@ -1,10 +1,17 @@
 ## Facets
 
-*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
-
-```text
-https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&show=sku,name,salePrice&facet=manufacturer,5&apiKey=YourAPIKey
+```shell
+curl 'https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&show=sku,name,salePrice&facet=manufacturer,5&apiKey=YourAPIKey'
 ```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('categoryPath.name="All Flat-Panel TVs"',{show:'sku,name,salePrice',facet:'manufacturer,5'}).then(function(data){
+  console.log(data);
+});
+```
+
+> Show the 5 manufacturers for which we have the most flat-panel TVs.
 
 ```json-doc
 {
@@ -22,4 +29,6 @@ https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?form
 }
 ```
 
-You can retrieve summary information about the items that are returned by your query by using the `facets` query parameter. For example, to show the 5 manufacturers for which we have the most flat-panel TVs, you can use the following query:
+*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
+
+You can retrieve summary information about the items that are returned by your query by using the `facets` query parameter.
