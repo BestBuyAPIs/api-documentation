@@ -1,4 +1,4 @@
-# Search
+# Search Techniques
 *Applies to: Products API &#149; Stores API &#149; Reviews API &#149; Categories API*
 
 Search consists of one or more terms that generally include an attribute, operator and value. Terms are combined with ampersands `&` or pipes `|`. Searches are implemented as part of an HTTP GET request to the deisred Best Buy API. `term1&term2` - specifies term1 AND term2 `term1|term2` - specifies term1 OR term2.
@@ -7,7 +7,6 @@ Attribute *names* are case sensitive; attribute *values* are not.
 
 
 ## Available Operators
-
 
 + `=` - attribute **equals** a specified value
 + `=!`- attribute **does not equal** a specified value
@@ -23,6 +22,13 @@ Attribute *names* are case sensitive; attribute *values* are not.
 
 ```shell
 curl "https://api.bestbuy.com/v1/stores(region=ut)?format=json&show=storeId,city,region&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.stores('region=ut',{show:'storeId,city,region'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json-doc
@@ -51,12 +57,17 @@ curl "https://api.bestbuy.com/v1/stores(region=ut)?format=json&show=storeId,city
 
 Our Products, Stores, Reviews and Categories APIs can be searched by nearly all available attributes. For example, to find only the stores located in Utah, you can use the query shown to the right.
 
-<div></div>
-
 ## Search by all attributes (AND)
 
-```text
-https://api.bestbuy.com/v1/products(manufacturer=canon&salePrice<1000)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+```shell
+curl 'https://api.bestbuy.com/v1/products(manufacturer=canon&salePrice<1000)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey'
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('manufacturer=canon&salePrice<1000',{show:'sku,name,salePrice'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json-doc
@@ -85,12 +96,17 @@ https://api.bestbuy.com/v1/products(manufacturer=canon&salePrice<1000)?format=js
 
 If you need to search for the values of more than one attribute and **all** of the attributes must be present, combine them with an ampersand `&`.
 
-<div></div>
-
 ## Search by any attributes (OR)
 
-```text
-https://api.bestbuy.com/v1/products(wifiReady=true|wifiBuiltIn=true)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products(wifiReady=true|wifiBuiltIn=true)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('wifiReady=true|wifiBuiltIn=true',{show:'sku,name,salePrice'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json-doc
@@ -119,12 +135,17 @@ https://api.bestbuy.com/v1/products(wifiReady=true|wifiBuiltIn=true)?format=json
 
 If you want items with **any** of the specified attributes, combine them with a pipe `|`
 
-<div></div>
-
 ## Complex Searches
 
-```text
-https://api.bestbuy.com/v1/products(platform=psp&(salePrice<=15|(salePrice<=20&tradeInValue>=10)))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products(platform=psp&(salePrice<=15|(salePrice<=20&tradeInValue>=10)))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('platform=psp&(salePrice<=15|(salePrice<=20&tradeInValue>=10))',{show:'sku,name,salePrice'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json-doc
@@ -159,12 +180,17 @@ The search terms for this example can be combined as:
 
 `platform=psp & (salePrice<=15 | (salePrice<=20 & tradeInValue>10))`
 
-<div></div>
-
 ## Search by date range
 
-```text
-https://api.bestbuy.com/v1/products(releaseDate>=2014-02-01&releaseDate<=2014-02-28)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products(releaseDate>=2014-02-01&releaseDate<=2014-02-28)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('releaseDate>=2014-02-01&releaseDate<=2014-02-28',{show:'sku,name,salePrice'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json-doc
@@ -192,12 +218,17 @@ https://api.bestbuy.com/v1/products(releaseDate>=2014-02-01&releaseDate<=2014-02
 ```
 If you want to find all products that were released February 2014, use this query:
 
-<div></div>
-
 ## Search by date relative to today
 
-```text
-https://api.bestbuy.com/v1/products(releaseDate>today)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products(releaseDate>today)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('releaseDate>today',{show:'sku,name,salePrice'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json-doc
@@ -224,14 +255,19 @@ https://api.bestbuy.com/v1/products(releaseDate>today)?format=json&show=sku,name
     }
 ```
 
-You can also use the value `today` to represent the current day. If you want to see all the products that were released today, use this query:
-
-<div></div>
+You can also use the value `today` to represent the current day. If you want to see all the products that were released today, use this query.
 
 ## Search for multiple attribute values
 
-```text
-https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&color in(white,bisque,stainless-steel))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&color in(white,bisque,stainless-steel))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('categoryPath.id=abcat0901005&color in(white,bisque,stainless-steel)',{show:'sku,name,salePrice'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json-doc
@@ -258,14 +294,19 @@ https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&color in(white,
     }
 ```
 
-If you want multiple values of a single attribute, you can specify them individually. For example, if you want to see white, bisque, or stainless-steel side-by-side refrigerators, use this query:
+If you want multiple values of a single attribute, you can specify them individually. For example, if you want to see white, bisque, or stainless-steel side-by-side refrigerators, use this query.
 
-<div></div>
+## Wildcards - Value is present
 
-### Wildcards - Value is present
+```shell
+curl "https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+```
 
-```text
-https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('categoryPath.id=abcat0502000&driveCapacityGb=*',{show:'sku,name,salePrice'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json-doc
@@ -304,13 +345,17 @@ Some attributes apply only to specific items. Even then, because much of this at
 + <code>attribute=*</code> - requests items for which the attribute has values
 + <code>attribute!=*</code> - requests items for which the attribute has no value
 
-
-<div></div>
-
 ## Wildcards - Value is NOT present
 
-```text
-https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb!=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb!=*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('categoryPath.id=abcat0502000&driveCapacityGb!=*',{show:'sku,name,salePrice'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json-doc
@@ -339,8 +384,6 @@ https://api.bestbuy.com/v1/products(categoryPath.id=abcat0502000&driveCapacityGb
 
 This will return results in which there is no value present. In the following example, with the addition of the <code>!</code>, the return result has shifted from Solid State Drive.
 
-<div></div>
-
 ## Filtered product attribute
 
 Certain attributes, such as `active=true`, `digital=false`, `preowned=false` or `marketplace=false` inherently filter results.
@@ -351,12 +394,17 @@ Because `active` is a boolean attribute, `active=*` will return products for whi
 
 *If your search string goes to sku.xml or sku.json these filters are ignored.*
 
-<div></div>
-
 ## Wildcards - String
 
-```text
-https://api.bestbuy.com/v1/products(name=classic*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products(name=classic*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('name=classic*',{show:'sku,name,salePrice'}).then(function(data){
+  console.log(data);
+});
 ```
 
 ```json-doc
@@ -390,13 +438,20 @@ When used as part of a string search, the wildcard performs two functions. First
 + You cannot use a wildcard to begin a string search (e.g. <code>(name=*top)</code>); this type of search is extremely resource intensive and doing so will result in a <code>400</code> error.
 + Wildcard with data is valid for strings only. When used alone, the wildcard can represent any data type. When used with other characters, the wildcard can only represent string data. For example, to find Canon products with customer reviews of 4.x, you cannot use <code>(manufacturer=canon&customerReviewAverage=4.*)</code> as the search string. You would have to use a search string like this: <code>(manufacturer=canon&customerReviewAverage>4&customerReviewAverage<5)</code>.
 
-<div></div>
-
 ## Keyword Search Function
 
-```text
-https://api.bestbuy.com/v1/products(search=oven&search=stainless&search=steel)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey
+```shell
+curl "https://api.bestbuy.com/v1/products(search=oven&search=stainless&search=steel)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
 ```
+
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('search=oven&search=stainless&search=steel',{show:'sku,name,salePrice'}).then(function(data){
+  console.log(data);
+});
+```
+
+> This example looks for 'stainless steel ovens'.
 
 ```json-doc
 {
@@ -423,5 +478,3 @@ Our **Keyword Search** function `(search=searchterm)` allows you to search text 
 + <code>longDescription</code>
 + <code>features.feature</code>
 + <code>details.value</code>
-
-Here is an example that looks for 'stainless steel ovens':

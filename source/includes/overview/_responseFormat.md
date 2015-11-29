@@ -14,7 +14,7 @@ When using any of the endpoints in the Recommendations API the response format r
 
 ### JSONP
 
-```javascript
+```
 $.ajax({
     method: 'GET',
     url: '//api.bestbuy.com/v1/products(name=Batman*)',

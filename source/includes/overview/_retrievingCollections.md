@@ -34,23 +34,3 @@ Name | Description
 **totalTime** | the time required to parse, search, format and return results
 **canonicalURL** | the non-server part of the query URL
 **partial** | flag indicating whether or not the query returned only partial results (in the event of a timeout)
-
-### Example Collection Header
-
-```shell
-curl "https://api.bestbuy.com/v1/products?format=json&apiKey=YourAPIKey"
-```
-
-```json-doc
-{
-  "from": 1,
-  "to": 10,
-  "total": 724145,
-  "currentPage": 1,
-  "totalPages": 72415,
-  "queryTime": "0.183",
-  "totalTime": "0.195",
-  "partial": false,
-  "canonicalUrl": "/v1/products?format=json&apiKey=YourAPIKey",
-  "products": [
-```

@@ -21,9 +21,8 @@ Attribute | Description
 ## Shipping and Delivery
 The Shipping and Delivery attributes provide details about the cost of shipping or delivery of a product. A product can be shippable or deliverable, but not both.
 
-```text
-Example: shippingLevelsOfService
-```
+> Sample `shippingLevelsOfService` response
+
 ```json-doc
 {
   "shippingLevelsOfService":[
