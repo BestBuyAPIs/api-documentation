@@ -524,6 +524,6 @@ bby.products('customerReviewAverage>=4&customerReviewCount>100',{show:'customerR
 }
 ```
 
-To search based on review criteria you can use the `customerReviewAverage` and/or the `customerReviewCount` attributes. You can also limit the product information returned using our `show` functionality. *HINT: You can specify additional attributes in your search or to be included in the response document for most attributes in the Products API.*
+To search for products based on customer review criteria, you can use the `customerReviewAverage` and/or the `customerReviewCount` attributes. You can also limit the product information returned using our `show` functionality. *HINT: You can specify additional attributes in your search or to be included in the response document for most attributes in the Products API.*
 
 In this example, we are searching for all products that have a customer review average greater than four and a customer review count greater than 100. In addition, we are limiting the product information returned to customer review average, customer review count, name and sku, and forcing a format of json (default is xml when using the Products API).
