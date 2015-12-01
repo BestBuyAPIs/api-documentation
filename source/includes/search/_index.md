@@ -133,6 +133,8 @@ bby.products('wifiReady=true|wifiBuiltIn=true',{show:'sku,name,salePrice'}).then
     }
 ```
 
+
+
 If you want items with **any** of the specified attributes, combine them with a pipe `|`
 
 ## Complex Searches
@@ -384,59 +386,73 @@ bby.products('categoryPath.id=abcat0502000&driveCapacityGb!=*',{show:'sku,name,s
 
 This will return results in which there is no value present. In the following example, with the addition of the <code>!</code>, the return result has shifted from Solid State Drive.
 
-## Filtered product attribute
-
-Certain attributes, such as `active=true`, `digital=false`, `preowned=false` or `marketplace=false` inherently filter results.
-
-If your search string is `sku=*`, you will only return active products, not all products. This is the same as specifying `sku=*active=true`. If you want a list of all active and inactive products, you can specify `sku=*&active=*`.
-
-Because `active` is a boolean attribute, `active=*` will return products for which `active` is either true or false. It's the same as `sku=*&(active=true|active=false)`.
-
-*If your search string goes to sku.xml or sku.json these filters are ignored.*
 
 ## Wildcards - String
 
 ```shell
-curl "https://api.bestbuy.com/v1/products(name=classic*)?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+curl 'https://api.bestbuy.com/v1/products(longDescription=iPhone*|sku=7619002)?show=sku,name&pageSize=15&page=5&apiKey=YourAPIKey&format=json'
 ```
 
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
-bby.products('name=classic*',{show:'sku,name,salePrice'}).then(function(data){
+bby.products('longDescription=iPhone*|sku=7619002',{show:'sku,name',pageSize:15,page:5}).then(function(data){
   console.log(data);
 });
 ```
 
 ```json-doc
 {
-  "from": 1,
-  "to": 10,
-  "total": 6112,
-  "currentPage": 1,
-  "totalPages": 612,
-  "queryTime": "0.007",
-  "totalTime": "0.030",
+  "from": 61,
+  "to": 75,
+  "total": 2753,
+  "currentPage": 5,
+  "totalPages": 184,
+  "queryTime": "0.010",
+  "totalTime": "0.045",
   "partial": false,
-  "canonicalUrl": "/v1/products(name=\"classic*\")?show=sku,name,salePrice&format=json&apiKey=YourAPIKey",
+  "canonicalUrl": "/v1/products(longDescription=\"iPhone*\"|sku=7619002)?show=sku,name&page=5&format=json&apiKey=YourAPIKey",
   "products": [
     {
-      "sku": 4606206,
-      "name": "#1 Classical Album - Various - CD",
-      "salePrice": 14.99
+      "sku": 1752654,
+      "name": "Apple - iPhone 4s 8GB Cell Phone - White (AT&T)"
     },
     {
-      "sku": 24772085,
-      "name": "1 Classic Album &.. - CD",
-      "salePrice": 22.99
+      "sku": 1761045,
+      "name": "Apple - iPhone 4s 8GB Cell Phone - White (Verizon Wireless)"
+    },
+    {
+      "sku": 1729354,
+      "name": "Apple - iPhone 5c 16GB  Cell Phone - Green (AT&T)"
+    },
+    {
+      "sku": 1752291,
+      "name": "Apple - iPhone 5c 16GB Cell Phone - Blue (AT&T)"
     }
+  ]
+}
 ```
 
-When used as part of a string search, the wildcard performs two functions. First, it tokenizes the string, breaking it into words. Second, it operates as a standard wildcard, matching any set of characters in the tokenized string. The following example illustrates both functions. When searching for a string value, you may want to search for variations on a specific word. For example, if you want to find CDs whose titles include the words Classic, Classics or Classical you would use the following query:
+When used as part of a string search, the wildcard performs two functions. First, it tokenizes the string, breaking it into words. Second, it operates as a standard wildcard, matching any set of characters in the tokenized string. The following example illustrates both functions. When searching for a string value, you may want to search for variations on a specific word. 
 
-## Limitations
+There are several description attributes by which you can search, including `longDescription`, `shortDescription`, `description` or `name`. There is a single `SKU` attribute to search based on `SKU`.
+
+In this example we are searching the `longDescription` for iPhone&#42;. We have appended iPhone with a wildcard `*` so we can search for iPhones with any suffix. We are also looking for any products that have a SKU with a value of **7619002** - note the **or** `|`. Finally, in our example we have updated the number of results that can be returned per page to **15**. Our search will return page **5** of the total **184** pages. Additional information on how to specify the number of results that should be returned per page and which page to return can be found in our Pagination section.
+
+## Wildcard - Limitations
 
 + You cannot use a wildcard to begin a string search (e.g. <code>(name=*top)</code>); this type of search is extremely resource intensive and doing so will result in a <code>400</code> error.
 + Wildcard with data is valid for strings only. When used alone, the wildcard can represent any data type. When used with other characters, the wildcard can only represent string data. For example, to find Canon products with customer reviews of 4.x, you cannot use <code>(manufacturer=canon&customerReviewAverage=4.*)</code> as the search string. You would have to use a search string like this: <code>(manufacturer=canon&customerReviewAverage>4&customerReviewAverage<5)</code>.
+
+## Filtered product attribute
+
+Certain attributes, such as `active=true`, `digital=false`, `preowned=false` or `marketplace=false` inherently filter results.
+
+If your search string is `sku=*`, you will only return active products, not all products. This is the same as specifying `sku=*&active=true`. If you want a list of all active and inactive products, you can specify `sku=*&active=*`.
+
+Because `active` is a boolean attribute, `active=*` will return products for which `active` is either true or false. It's the same as `sku=*&(active=true|active=false)`.
+
+*If your search string goes to sku.xml or sku.json these filters are ignored.*
+
 
 ## Keyword Search Function
 
@@ -478,3 +494,36 @@ Our **Keyword Search** function `(search=searchterm)` allows you to search text 
 + <code>longDescription</code>
 + <code>features.feature</code>
 + <code>details.value</code>
+
+## Search on Reviews
+```shell
+curl "https://api.bestbuy.com/v1/products(customerReviewAverage>=4&customerReviewCount>100)?show=customerReviewAverage,customerReviewCount,name,sku&format=json&apiKey=YourAPIKey"
+```
+```javascript
+var bby = require('bestbuy')('YourAPIKey');
+bby.products('customerReviewAverage>=4&customerReviewCount>100',{show:'customerReviewAverage,customerReviewCount,name,sku'}).then(function(data){
+  console.log(data);
+});
+```
+```json-doc
+{
+ "products": [
+    {
+      "customerReviewAverage": "4.1",
+      "customerReviewCount": 411,
+      "name": "Insignia™ - Soundbar Home Theater Speaker System",
+      "sku": 4841342
+    },
+    {
+      "customerReviewAverage": "4.3",
+      "customerReviewCount": 411,
+      "name": "Sunpak - PlatinumPlus 6000PG 61\" Tripod",
+      "sku": 1205204
+    }
+  ]
+}
+```
+
+To search for products based on customer review criteria, you can use the `customerReviewAverage` and/or the `customerReviewCount` attributes. You can also limit the product information returned using our `show` functionality. *HINT: You can specify additional attributes in your search or to be included in the response document for most attributes in the Products API.*
+
+In this example, we are searching for all products that have a customer review average greater than four and a customer review count greater than 100. In addition, we are limiting the product information returned to customer review average, customer review count, name and sku, and forcing a format of json (default is xml when using the Products API).
