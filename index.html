@@ -167,7 +167,7 @@
 
 <h2 id="sort">Sort</h2>
 
-<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&amp;show=sku,name,salePrice&amp;sort=salesRankMediumTerm.asc&amp;apiKey=YourAPIKey'</span>
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(categoryPath.name="All%20Flat-Panel%20TVs")?format=json&amp;show=sku,name,salePrice&amp;sort=salesRankMediumTerm.asc&amp;apiKey=YourAPIKey'</span>
 </code></pre>
 
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
@@ -227,7 +227,7 @@
 
 <h2 id="facets">Facets</h2>
 
-<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&amp;show=sku,name,salePrice&amp;facet=manufacturer,5&amp;apiKey=YourAPIKey'</span>
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(categoryPath.name="All%20Flat-Panel%20TVs")?format=json&amp;show=sku,name,salePrice&amp;facet=manufacturer,5&amp;apiKey=YourAPIKey'</span>
 </code></pre>
 
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
@@ -719,7 +719,7 @@
 <p>You can also use the value <code class="prettyprint">today</code> to represent the current day. If you want to see all the products that were released today, use this query.</p>
 
 <h2 id="search-for-multiple-attribute-values">Search for multiple attribute values</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&amp;color in(white,bisque,stainless-steel))?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&amp;color%20in(white,bisque,stainless-steel))?format=json&amp;show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
 <span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'categoryPath.id=abcat0901005&amp;color in(white,bisque,stainless-steel)'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
@@ -869,7 +869,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>When used as part of a string search, the wildcard performs two functions. First, it tokenizes the string, breaking it into words. Second, it operates as a standard wildcard, matching any set of characters in the tokenized string. The following example illustrates both functions. When searching for a string value, you may want to search for variations on a specific word. </p>
+<p>When used as part of a string search, the wildcard performs two functions. First, it tokenizes the string, breaking it into words. Second, it operates as a standard wildcard, matching any set of characters in the tokenized string. The following example illustrates both functions. When searching for a string value, you may want to search for variations on a specific word.</p>
 
 <p>There are several description attributes by which you can search, including <code class="prettyprint">longDescription</code>, <code class="prettyprint">shortDescription</code>, <code class="prettyprint">description</code> or <code class="prettyprint">name</code>. There is a single <code class="prettyprint">SKU</code> attribute to search based on <code class="prettyprint">SKU</code>.</p>
 
@@ -1746,7 +1746,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <h2 id="open-box-by-list-of-skus">Open Box by List of SKUs</h2>
 
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/beta/products/openBox(sku in(5729048,7528703,4839357,8153056,8610161))?apiKey=YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/beta/products/openBox(sku%20in(5729048,7528703,4839357,8153056,8610161))?apiKey=YourAPIKey"</span>
 </code></pre>
 
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
