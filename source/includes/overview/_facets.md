@@ -1,7 +1,7 @@
 ## Facets
 
 ```shell
-curl 'https://api.bestbuy.com/v1/products(categoryPath.name="All Flat-Panel TVs")?format=json&show=sku,name,salePrice&facet=manufacturer,5&apiKey=YourAPIKey'
+curl 'https://api.bestbuy.com/v1/products(categoryPath.name="All%20Flat-Panel%20TVs")?format=json&show=sku,name,salePrice&facet=manufacturer,5&apiKey=YourAPIKey'
 ```
 
 ```javascript
