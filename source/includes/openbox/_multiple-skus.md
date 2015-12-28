@@ -1,6 +1,6 @@
 ## Open Box by List of SKUs
 ```shell
-curl "https://api.bestbuy.com/beta/products/openBox(sku in(5729048,7528703,4839357,8153056,8610161))?apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/beta/products/openBox(sku%20in(5729048,7528703,4839357,8153056,8610161))?apiKey=YourAPIKey"
 ```
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');

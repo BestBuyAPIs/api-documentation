@@ -262,7 +262,7 @@ You can also use the value `today` to represent the current day. If you want to 
 ## Search for multiple attribute values
 
 ```shell
-curl "https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&color in(white,bisque,stainless-steel))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/v1/products(categoryPath.id=abcat0901005&color%20in(white,bisque,stainless-steel))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
 ```
 
 ```javascript
@@ -432,7 +432,7 @@ bby.products('longDescription=iPhone*|sku=7619002',{show:'sku,name',pageSize:15,
 }
 ```
 
-When used as part of a string search, the wildcard performs two functions. First, it tokenizes the string, breaking it into words. Second, it operates as a standard wildcard, matching any set of characters in the tokenized string. The following example illustrates both functions. When searching for a string value, you may want to search for variations on a specific word. 
+When used as part of a string search, the wildcard performs two functions. First, it tokenizes the string, breaking it into words. Second, it operates as a standard wildcard, matching any set of characters in the tokenized string. The following example illustrates both functions. When searching for a string value, you may want to search for variations on a specific word.
 
 There are several description attributes by which you can search, including `longDescription`, `shortDescription`, `description` or `name`. There is a single `SKU` attribute to search based on `SKU`.
 
