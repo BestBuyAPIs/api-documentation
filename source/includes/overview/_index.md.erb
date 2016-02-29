@@ -2,7 +2,13 @@
 
 Welcome to the Best Buy Developer API site! Whether you're an API pro, a beginning developer or a Best Buy partner, our extensive API catalog is waiting for your imagination. Our API suite allows you to query Products, Stores, Reviews and much more. Come on in to explore our data, browse descriptions of the available attributes and see examples of working requests and responses.
 
-If this is your first time using our APIs, please check out our Getting Started guide. If you already have your API key, our Search and Response Formats can help you refine your search results.
+If this is your first time using our APIs, please check out our [Getting Started](http://developer.bestbuy.com/documentation/getting-started) guide. If you already have your API key, our Search and Response Formats can help you refine your search results.
+
+Here's a collection of sample queries in Postman that'll help you get up to speed with our APIs faster. Please Note: Some portions of the query parameters for Best Buy’s APIs are included in the path (e.g., …v1/products(categoryPath.id in(pcmcat194000050022)&manufacturer=Nostalgia Electrics)?apiKey={{apiKey}}&format=json…). In Postman, you can update those parameters in the grey bar showing the full query string. 
+
+[![Run in Postman](https://run.pstmn.io/button.png)](https://www.getpostman.com/run-collection/fdbd434f83a8e3855c62)
+
+PS - remember to put your apiKey in the [global environment](https://www.getpostman.com/docs/environments).
 
 <%= partial "includes/overview/responseFormat" %>
 <%= partial "includes/overview/show" %>
@@ -12,3 +18,4 @@ If this is your first time using our APIs, please check out our Getting Started 
 <%= partial "includes/overview/retrievingCollections" %>
 <%= partial "includes/overview/bulk" %>
 <%= partial "includes/overview/errors" %>
+

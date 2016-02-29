@@ -5,7 +5,6 @@ Search consists of one or more terms that generally include an attribute, operat
 
 Attribute *names* are case sensitive; attribute *values* are not.
 
-
 ## Available Operators
 
 + `=` - attribute **equals** a specified value
