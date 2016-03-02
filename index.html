@@ -82,16 +82,6 @@
 
 <p>If this is your first time using our APIs, please check out our <a href="http://developer.bestbuy.com/documentation/getting-started">Getting Started</a> guide. If you already have your API key, our Search and Response Formats can help you refine your search results.</p>
 
-<h3 id="postman-collection">Postman Collection</h3>
-
-<p>Here&rsquo;s a collection of sample queries in Postman that&rsquo;ll help you get up to speed with our APIs faster. </p>
-
-<p><strong>Please Note:</strong> Some portions of the query parameters for Best Buy’s APIs are included in the path (e.g., …v1/products(categoryPath.id in(pcmcat194000050022)&amp;manufacturer=Nostalgia Electrics)?apiKey={{apiKey}}&amp;format=json…). In Postman, you can update those parameters in the grey bar showing the full query string. </p>
-
-<p><a href="https://www.getpostman.com/run-collection/fdbd434f83a8e3855c62"><img alt="Run in Postman" src="https://run.pstmn.io/button.png" /></a></p>
-
-<p>PS - remember to put your apiKey in the <a href="https://www.getpostman.com/docs/environments">global environment</a>.</p>
-
 <h2 id="response-format">Response Format</h2>
 
 <p>Responses can be returned in either <strong>JSON</strong> or <strong>XML</strong>.</p>
@@ -504,6 +494,23 @@
 <td>There is a server error on the Best Buy side.</td>
 </tr>
 </tbody></table>
+
+<h2 id="postman">Postman</h2>
+
+<p>Here&rsquo;s a collection of sample queries in Postman that&rsquo;ll help you get up to speed with our APIs faster.</p>
+
+<p><a href="https://www.getpostman.com/run-collection/fdbd434f83a8e3855c62"><img alt="Run in Postman" src="https://run.pstmn.io/button.png" /></a></p>
+
+<h3 id="important-notes">Important Notes</h3>
+
+<ul>
+<li>You must defined <code class="prettyprint">apiKey</code> within in an <a href="https://www.getpostman.com/docs/environments">environment</a>.</li>
+<li>Some portions of the query parameters for Best Buy’s APIs are included in the path: (e.g., <code>…/v1/<b>products(categoryPath.id=pcmcat194000050022&amp;manufacturer=Apple)</b>?apiKey={{apiKey}}&amp;format=json</code>). You should update the in-path parameters within Postman&rsquo;s grey bar that shows the URL.
+
+<ul>
+<li>v2 of the Best Buy API will move these parameters out of the path and into the query string.</li>
+</ul></li>
+</ul>
 
           <h1 id="search-techniques">Search Techniques</h1>
 
