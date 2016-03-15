@@ -14,16 +14,15 @@ If you are interested in only one type of product, you can make a bulk download 
 
 Type | Description
 ---- | -----------
-productsActive | Includes marketplace, digital, preowned; excludes BlackTie plans
-productsInactive | Includes all inactive products; includes marketplace, digital, preowned, BlackTie plans
+productsActive | Includes digital, preowned; excludes BlackTie plans
+productsInactive | Includes all inactive products; includes digital, preowned, BlackTie plans
 productsMusic | Active music
 productsMovie | Active movies
-productsHardgood | Active hardgoods; includes preowned; excludes marketplace
+productsHardgood | Active hardgoods; includes preowned
 productsBundle | Active bundles
-productsGame | Active games; includes marketplace and preowned
-productsSoftware | Active software; includes marketplace
+productsGame | Active games; includes preowned
+productsSoftware | Active software
 productsBlackTie | Active BlackTie
-productsMarketplace | Active marketplace products
 productsDigital | Active digital products
 
 ### Query Syntax

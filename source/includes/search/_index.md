@@ -444,7 +444,7 @@ In this example we are searching the `longDescription` for iPhone&#42;. We have 
 
 ## Filtered product attribute
 
-Certain attributes, such as `active=true`, `digital=false`, `preowned=false` or `marketplace=false` inherently filter results.
+Certain attributes, such as `active=true`, `digital=false` or `preowned=false` inherently filter results.
 
 If your search string is `sku=*`, you will only return active products, not all products. This is the same as specifying `sku=*&active=true`. If you want a list of all active and inactive products, you can specify `sku=*&active=*`.
 
