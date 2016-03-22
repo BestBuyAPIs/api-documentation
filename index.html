@@ -902,7 +902,7 @@
 
 <h2 id="filtered-product-attribute">Filtered product attribute</h2>
 
-<p>Certain attributes, such as <code class="prettyprint">active=true</code>, <code class="prettyprint">digital=false</code>, <code class="prettyprint">preowned=false</code> or <code class="prettyprint">marketplace=false</code> inherently filter results.</p>
+<p>Certain attributes, such as <code class="prettyprint">active=true</code>, <code class="prettyprint">digital=false</code> or <code class="prettyprint">preowned=false</code> inherently filter results.</p>
 
 <p>If your search string is <code class="prettyprint">sku=*</code>, you will only return active products, not all products. This is the same as specifying <code class="prettyprint">sku=*&amp;active=true</code>. If you want a list of all active and inactive products, you can specify <code class="prettyprint">sku=*&amp;active=*</code>.</p>
 
@@ -1562,11 +1562,11 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </thead><tbody>
 <tr>
 <td>productsActive</td>
-<td>Includes marketplace, digital, preowned; excludes BlackTie plans</td>
+<td>Includes digital, preowned; excludes BlackTie plans</td>
 </tr>
 <tr>
 <td>productsInactive</td>
-<td>Includes all inactive products; includes marketplace, digital, preowned, BlackTie plans</td>
+<td>Includes all inactive products; includes digital, preowned, BlackTie plans</td>
 </tr>
 <tr>
 <td>productsMusic</td>
@@ -1578,7 +1578,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </tr>
 <tr>
 <td>productsHardgood</td>
-<td>Active hardgoods; includes preowned; excludes marketplace</td>
+<td>Active hardgoods; includes preowned</td>
 </tr>
 <tr>
 <td>productsBundle</td>
@@ -1586,19 +1586,15 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </tr>
 <tr>
 <td>productsGame</td>
-<td>Active games; includes marketplace and preowned</td>
+<td>Active games; includes preowned</td>
 </tr>
 <tr>
 <td>productsSoftware</td>
-<td>Active software; includes marketplace</td>
+<td>Active software</td>
 </tr>
 <tr>
 <td>productsBlackTie</td>
 <td>Active BlackTie</td>
-</tr>
-<tr>
-<td>productsMarketplace</td>
-<td>Active marketplace products</td>
 </tr>
 <tr>
 <td>productsDigital</td>
