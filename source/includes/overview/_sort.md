@@ -37,7 +37,7 @@ bby.products('categoryPath.name="All Flat-Panel TVs"',{show:'sku,name,salePrice'
     }
 ```
 
-*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
+*Applies to: Products API &#8226; Stores API &#8226; Categories API*
 
 You can specify the way in which you'd like to have the results sorted by one or more attribute value(s).
 

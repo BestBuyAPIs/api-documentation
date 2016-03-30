@@ -1,6 +1,6 @@
 ## Retrieving Collections
 
-*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
+*Applies to: Products API &#8226; Stores API &#8226; Categories API*
 
 To retrieve more than one item at a time (e.g. all Products in our catalog), use one of the following queries. *By default the max page size is 100 (meaning 100 unique results). See Pagination for more information on returning results greater than 100.*
 
@@ -8,7 +8,6 @@ Description | Query | Result
 ------------|-------|-------
 **retrieve all products** | https://api.bestbuy.com/v1/products?apiKey=YourAPIKey | returns a collection of products
 **retrieve all stores** | https://api.bestbuy.com/v1/stores?apiKey=YourAPIKey | returns a collection of stores
-**retrieve all reviews** | https://api.bestbuy.com/v1/reviews?apiKey=YourAPIKey | returns a collection of reviews
 **retrieve all categories** | https://api.bestbuy.com/v1/categories?apiKey=YourAPIKey | returns a collection of categories
 
 Other sections in this documentation explain how to modify these queries to retrieve only the information that you need.

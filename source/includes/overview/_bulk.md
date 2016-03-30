@@ -6,5 +6,4 @@ The following APIs offer bulk downloading capabilities:
 
 + [Categories](#categories-bulk-download)
 + [Products](#products-bulk-download)
-+ [Reviews](#reviews-bulk-download)
 + [Stores](#stores-bulk-download)

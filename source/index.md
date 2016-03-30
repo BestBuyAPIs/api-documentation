@@ -17,7 +17,6 @@ includes:
   - products
   - openbox
   - categories
-  - reviews
   - recommendations
   - stores
   - commerce

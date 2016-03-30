@@ -37,7 +37,7 @@ bby.products('type=Movie',{show:'sku,name,salePrice',page:10,pageSize:3}).then(f
     }
 ```
 
-*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API*
+*Applies to: Products API &#8226; Stores API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API*
 
 Even if you've trimmed down the number of products returned by making use of search, many of our APIs have the potential to return lots of results. To make these large responses more manageable, we break them into pages. By default, we include 10 results per page, but you can ask for up to 100 per page by making use of the `pageSize` parameter. Use the `page` parameter to choose which page of results you'd like returned.
 
