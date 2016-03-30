@@ -78,7 +78,7 @@
         
           <h1 id="overview">Overview</h1>
 
-<p>Welcome to the Best Buy Developer API site! Whether you&rsquo;re an API pro, a beginning developer or a Best Buy partner, our extensive API catalog is waiting for your imagination. Our API suite allows you to query Products, Stores, Reviews and much more. Come on in to explore our data, browse descriptions of the available attributes and see examples of working requests and responses.</p>
+<p>Welcome to the Best Buy Developer API site! Whether you&rsquo;re an API pro, a beginning developer or a Best Buy partner, our extensive API catalog is waiting for your imagination. Our API suite allows you to query Products, Stores and much more. Come on in to explore our data, browse descriptions of the available attributes and see examples of working requests and responses.</p>
 
 <p>If this is your first time using our APIs, please check out our <a href="http://developer.bestbuy.com/documentation/getting-started">Getting Started</a> guide. If you already have your API key, our Search and Response Formats can help you refine your results.</p>
 
@@ -86,7 +86,7 @@
 
 <p>Responses can be returned in either <strong>JSON</strong> or <strong>XML</strong>.</p>
 
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API</em></p>
 
 <p>To request a single item, such as a specific product, indicate the desired response format with the extension added after the item&rsquo;s identifier. For example, <code class="prettyprint">/products/8880044.json</code>.</p>
 
@@ -124,7 +124,7 @@
 );
 </code></pre>
 
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API</em></p>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API</em></p>
 
 <p>To perform cross-site scripting and work with browsers that do not support CORS, use <strong>JSONP</strong> to load our API onto your pages.</p>
 
@@ -152,7 +152,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API</em></p>
 
 <p>The <strong><code class="prettyprint">show</code></strong> attribute allows you to control which attributes are returned. You can return specific attributes by following the syntax below. To return all attributes, use <code class="prettyprint">show=all</code>.</p>
 
@@ -204,7 +204,7 @@
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API</em></p>
 
 <p>You can specify the way in which you&rsquo;d like to have the results sorted by one or more attribute value(s).</p>
 
@@ -256,7 +256,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API</em></p>
 
 <p>You can retrieve summary information about the items that are returned by your query by using the <code class="prettyprint">facets</code> query parameter.</p>
 
@@ -298,7 +298,7 @@
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API</em></p>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API</em></p>
 
 <p>Even if you&rsquo;ve trimmed down the number of products returned by making use of search, many of our APIs have the potential to return lots of results. To make these large responses more manageable, we break them into pages. By default, we include 10 results per page, but you can ask for up to 100 per page by making use of the <code class="prettyprint">pageSize</code> parameter. Use the <code class="prettyprint">page</code> parameter to choose which page of results you&rsquo;d like returned.</p>
 
@@ -350,7 +350,7 @@
 
 <h2 id="retrieving-collections">Retrieving Collections</h2>
 
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API</em></p>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API</em></p>
 
 <p>To retrieve more than one item at a time (e.g. all Products in our catalog), use one of the following queries. <em>By default the max page size is 100 (meaning 100 unique results). See Pagination for more information on returning results greater than 100.</em></p>
 
@@ -370,11 +370,6 @@
 <td><strong>retrieve all stores</strong></td>
 <td>https://api.bestbuy.com/v1/stores?apiKey=YourAPIKey</td>
 <td>returns a collection of stores</td>
-</tr>
-<tr>
-<td><strong>retrieve all reviews</strong></td>
-<td>https://api.bestbuy.com/v1/reviews?apiKey=YourAPIKey</td>
-<td>returns a collection of reviews</td>
 </tr>
 <tr>
 <td><strong>retrieve all categories</strong></td>
@@ -453,13 +448,12 @@
 <ul>
 <li><a href="#categories-bulk-download">Categories</a></li>
 <li><a href="#products-bulk-download">Products</a></li>
-<li><a href="#reviews-bulk-download">Reviews</a></li>
 <li><a href="#stores-bulk-download">Stores</a></li>
 </ul>
 
 <h2 id="errors">Errors</h2>
 
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API</em></p>
+<p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API &#8226; Recommendations API</em></p>
 
 <p>Best Buy uses standard HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g., a required parameter was missing), and codes in the 5xx range indicate an error with Best Buy&rsquo;s servers.</p>
 
@@ -514,7 +508,7 @@
 
           <h1 id="search-techniques">Search Techniques</h1>
 
-<p><em>Applies to: Products API &#149; Stores API &#149; Reviews API &#149; Categories API</em></p>
+<p><em>Applies to: Products API &#149; Stores API &#149; Categories API</em></p>
 
 <p>Search consists of one or more terms that generally include an attribute, operator and value. Terms are combined with ampersands <code class="prettyprint">&amp;</code> or pipes <code class="prettyprint">|</code>. Searches are implemented as part of an HTTP GET request to the deisred Best Buy API. <code class="prettyprint">term1&amp;term2</code> - specifies term1 AND term2 <code class="prettyprint">term1|term2</code> - specifies term1 OR term2.</p>
 
@@ -2028,110 +2022,6 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 <ul>
 <li><code class="prettyprint">https://api.bestbuy.com/v1/categories.xml.zip?apiKey=YourAPIKey</code> - XML format</li>
 <li><code class="prettyprint">https://api.bestbuy.com/v1/categories.json.zip?apiKey=YourAPIKey</code> - JSON format</li>
-</ul>
-
-          <h1 id="reviews-api">Reviews API</h1>
-<pre class="highlight shell"><code>curl <span class="s2">"http://api.bestbuy.com/v1/reviews(submissionTime%3E2015-04-29&amp;sku=3142553)?pageSize=2&amp;format=json&amp;apiKey=YourAPIKey"</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
-<span class="nx">bby</span><span class="p">.</span><span class="nx">reviews</span><span class="p">(</span><span class="s1">'submissionTime&gt;2015-04-29&amp;sku=3142553'</span><span class="p">,{</span><span class="na">pageSize</span><span class="p">:</span><span class="mi">2</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s1">'util'</span><span class="p">).</span><span class="nx">inspect</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">null</span><span class="p">));</span>
-<span class="p">});</span>
-</code></pre>
-
-<blockquote>
-<p>Returns all reviews written after March 29th, 2015, for a specific product (SKU 3142553)</p>
-</blockquote>
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">838</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">419</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"reviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">70517989</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">3142553</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"reviewer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laks"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"aboutMe"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Great Value"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Got it with Nikon Camera in the bundle. Has good performance."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"submissionTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-26T15:34:45"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">70447523</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">3142553</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"reviewer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asfan"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"aboutMe"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SD Card, nice"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What can I say it's an SD card. Solid price for Black Friday for this storage size."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"submissionTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-25T12:25:44"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>The Reviews API provides access to individual consumer reviews that have been submitted on <strong>BESTBUY.COM</strong> for the products we sell. You can use it to retrieve information such as the author of the review, the date that the review was submitted, the reviewer&rsquo;s rating (0-5 where 5 is the best) of a product and the reviewer&rsquo;s comments about the product.</p>
-
-<p>Both real-time calls and bulk download calls are available for Reviews data. These are updated daily.</p>
-
-<p>The Reviews data include the review ID, author info, reviewer rating for a product, comments submitted and the time of submission for each review.</p>
-
-<h2 id="common-attributes">Common Attributes</h2>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>comment</strong></td>
-<td>Comment left by the reviewer</td>
-</tr>
-<tr>
-<td><strong>id</strong></td>
-<td>A unique review identifier for each review submitted</td>
-</tr>
-<tr>
-<td><strong>rating</strong></td>
-<td>Average &ldquo;score&rdquo; or ratings as submitted by reviewers. The rating attribute provides an average of all the ratings submitted for a product by reviewers. The ratings that can be submitted using a range from zero to five where five is the best rating that can be given. Ratings may be returned using decimals (example 3.5)</td>
-</tr>
-<tr>
-<td><strong>reviewer</strong></td>
-<td>The &ldquo;nickname&rdquo; of the reviewer submitting the review</td>
-</tr>
-<tr>
-<td><strong>sku</strong></td>
-<td>SKU identifier for a product</td>
-</tr>
-<tr>
-<td><strong>submissionTime</strong></td>
-<td>The date and time the review was submitted</td>
-</tr>
-<tr>
-<td><strong>title</strong></td>
-<td>The title of the review given by the reviewer</td>
-</tr>
-</tbody></table>
-
-<h2 id="reviews-bulk-download">Reviews Bulk Download</h2>
-
-<p>There are two files generated for all reviews:</p>
-
-<ul>
-<li><code class="prettyprint">https://api.bestbuy.com/v1/reviews.xml.zip?apiKey=YourAPIKey</code> - XML format</li>
-<li><code class="prettyprint">https://api.bestbuy.com/v1/reviews.json.zip?apiKey=YourAPIKey</code> - JSON format</li>
 </ul>
 
           <h1 id="recommendations-api">Recommendations API</h1>
