@@ -1,5 +1,5 @@
 # Search Techniques
-*Applies to: Products API &#149; Stores API &#149; Reviews API &#149; Categories API*
+*Applies to: Products API &#149; Stores API &#149; Categories API*
 
 Search consists of one or more terms that generally include an attribute, operator and value. Terms are combined with ampersands `&` or pipes `|`. Searches are implemented as part of an HTTP GET request to the deisred Best Buy API. `term1&term2` - specifies term1 AND term2 `term1|term2` - specifies term1 OR term2.
 

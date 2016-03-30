@@ -2,7 +2,7 @@
 
 Responses can be returned in either **JSON** or **XML**.
 
-*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
+*Applies to: Products API &#8226; Stores API &#8226; Categories API*
 
 To request a single item, such as a specific product, indicate the desired response format with the extension added after the item's identifier. For example, `/products/8880044.json`.
 
@@ -41,7 +41,7 @@ $.ajax({
 );
 ```
 
-*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API*
+*Applies to: Products API &#8226; Stores API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API*
 
 To perform cross-site scripting and work with browsers that do not support CORS, use **JSONP** to load our API onto your pages.
 

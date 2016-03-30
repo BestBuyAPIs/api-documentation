@@ -22,7 +22,7 @@ bby.products(8880044,{show:'sku,name,salePrice'}).then(function(data){
 ```
 
 
-*Applies to: Products API &#8226; Stores API &#8226; Reviews API &#8226; Categories API*
+*Applies to: Products API &#8226; Stores API &#8226; Categories API*
 
 The **`show`** attribute allows you to control which attributes are returned. You can return specific attributes by following the syntax below. To return all attributes, use `show=all`.
 
