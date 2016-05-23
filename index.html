@@ -96,40 +96,6 @@
 
 <p>When using any of the endpoints in the Recommendations API the response format returned will be json. The <strong>XML</strong> format is not supported for the Recommendations API endpoints. You can specify the format using <code class="prettyprint">/6534009/alsoViewed.json</code> or not specify a format like <code class="prettyprint">/6534009/alsoViewed</code>.</p>
 
-<h3 id="jsonp">JSONP</h3>
-
-<pre class="highlight plaintext"><code>$.ajax({
-    method: 'GET',
-    url: '//api.bestbuy.com/v1/products(name=Batman*)',
-    data: {
-        format: 'json',
-        apiKey: APIKEY
-    },
-    cache: true, // necessary because our API rejects queries with unrecognized query parameters, such as the underscore injected when this isn't included
-    dataType: 'jsonp'
-}).always(
-    function(result) {
-        var output = "";
-        if (!result.error &amp;&amp; result.products) {
-            output = "Products:\n";
-            result.products.forEach(function(product) {
-                output += "\t* " + product.name + "\n";
-            });
-        } else {
-            output = "Unable to access products (see browser console for more information)";
-            console.log(result);
-        }
-        alert(output);
-    }
-);
-</code></pre>
-
-<p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API &#8226; Recommendations API &#8226; Buying Options API</em></p>
-
-<p>To perform cross-site scripting and work with browsers that do not support CORS, use <strong>JSONP</strong> to load our API onto your pages.</p>
-
-<p>Shown to the right is a javascript example, leveraging jQuery&rsquo;s JSONP support, that displays product names by the sample query from the Basic Search section.</p>
-
 <h2 id="returned-attributes">Returned Attributes</h2>
 
 <pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products/8880044.json?show=sku,name,salePrice&amp;apiKey=YourAPIKey"</span>
