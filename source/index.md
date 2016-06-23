@@ -13,7 +13,7 @@ toc_footers:
 
 includes:
   - overview
-  - gettingStarted
+  - gettingstarted
   - search
   - products
   - openbox
