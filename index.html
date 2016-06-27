@@ -987,6 +987,186 @@
 
 <p><em>PLEASE NOTE: Music and movie data may be used only where an ability to purchase the related music or movies from BESTBUY.COM is provided to end users. Developers using music and movie data to redirect to BESTBUY.COM must become members of the Best Buy Affiliate Program to allow the sale of music and movies through BESTBUY.COM under the terms of the Affiliate Program.</em></p>
 
+<h2 id="detail">Detail</h2>
+
+<p>The Best Buy Detail attributes contain a wealth of knowledge about Best Buy products. The intention of these attributes is to provide product descriptions, dimensions, accessories and reviews.</p>
+
+<h3 id="attribute-list">Attribute List</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>accessories.sku</strong></td>
+<td>Collection of SKUs that could be an accessory to originating SKU</td>
+<td>long</td>
+</tr>
+<tr>
+<td><strong>color</strong></td>
+<td>Product color</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>condition</strong></td>
+<td>Identifies if the product is new, refurbished or pre-owned</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>customerReviewAverage</strong></td>
+<td>Average &ldquo;score&rdquo; or ratings as submitted by reviewers</td>
+<td>float</td>
+</tr>
+<tr>
+<td><strong>customerReviewCount</strong></td>
+<td>Number of customer reviews</td>
+<td>integer</td>
+</tr>
+<tr>
+<td><strong>customerTopRated</strong></td>
+<td>Identifies if the product is top rated based on ratings from reviewers. If the Avg rating &gt;= 4.5 and Qty of ratings &gt;= 15, customerTopRated is set to be &ldquo;true&rdquo;, else is set to &ldquo;false&rdquo;</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>depth</strong></td>
+<td>Product depth (inches)</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td>Product description</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>details.name</strong></td>
+<td>Collection of details about product (Example: whether a camera has a zoom)</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>details.value</strong></td>
+<td>Collection of values that support the product (Example: A camera&rsquo;s number of Megapixels or amount of zoom)</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>digital</strong></td>
+<td>Identifies if product is available in a digital format</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>features.feature</strong></td>
+<td>Collection of product features</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>format</strong></td>
+<td>Identifies media product format</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>frequentlyPurchasedWith.sku</strong></td>
+<td>Collection of SKUs that are frequently purchased with originating SKU</td>
+<td>long</td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td>Product height (inches)</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>includedItemList.includedItem</strong></td>
+<td>Collection of items included with product (Example: Canon EOS 60D Digital SLR Camera, EF-S 18-135mm IS lens, Battery pack, Battery charger)</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>longDescription</strong></td>
+<td>Detailed product description</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>longDescriptionHtml</strong></td>
+<td>Detailed product description with HTML formatting</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>manufacturer</strong></td>
+<td>Product manufacturer</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>modelNumber</strong></td>
+<td>Manufacturer product model number</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>Product name</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>preowned</strong></td>
+<td>Identifies if product has been previously owned (used)</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>quantityLimit</strong></td>
+<td>Maximum quantity of product that can be ordered</td>
+<td>integer</td>
+</tr>
+<tr>
+<td><strong>relatedProducts.sku</strong></td>
+<td>Collection of SKUs that are similar to originating SKU</td>
+<td>long</td>
+</tr>
+<tr>
+<td><strong>releaseDate</strong></td>
+<td>Date the product was released</td>
+<td>date</td>
+</tr>
+<tr>
+<td><strong>shortDescription</strong></td>
+<td>Brief product description</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>shortDescriptionHtml</strong></td>
+<td>Brief product description (HTML formatting)</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>sku</strong></td>
+<td>Best Buy unique product identifier</td>
+<td>long</td>
+</tr>
+<tr>
+<td><strong>upc</strong></td>
+<td>Universal Product Code (UPC)</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>warrantyLabor</strong></td>
+<td>Manufacture labor warranty description</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>warrantyParts</strong></td>
+<td>Manufacture parts warranty description</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>weight</strong></td>
+<td>Product weight</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>width</strong></td>
+<td>Product width (inches)</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
 <h2 id="pricing-and-sales-ranking">Pricing and Sales Ranking</h2>
 
 <p>Best Buy&rsquo;s Pricing attributes make it easy to identify the product price, if a product is on sale, how much you can save and even when we made our last pricing changes. We also provide sales ranking over given time periods so you can have an idea of the best-sellers.</p>
