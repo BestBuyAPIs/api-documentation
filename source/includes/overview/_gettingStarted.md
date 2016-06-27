@@ -14,15 +14,20 @@ Use a basic GET request to get API data. For example, to find product informatio
 
 *HINT: Don't forget to replace **YourAPIKey** with the API key that you received from us.*
 
-json
-```#request:
-http://api.bestbuy.com/v1/products/8880044.json?apiKey=YourAPIKey```
+```text 
+#request:
+http://api.bestbuy.com/v1/products/8880044.json?apiKey=YourAPIKey
+```
 
-```#response:
+```text
+#response:
+```
+```json
 {
   "sku": 8880044,
   "productId": 1484301,
-  "name": "Batman Begins (Blu-ray Disc)" ```
+  "name": "Batman Begins (Blu-ray Disc)"
+```
 
 ## Stay Connected
 Keep up with the latest changes in our APIs through our [release notes](#https://developer.bestbuy.com/release-notes) and [blog](#https://developer.bestbuy.com/blog).
