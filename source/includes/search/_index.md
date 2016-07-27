@@ -297,6 +297,10 @@ bby.products('categoryPath.id=abcat0901005&color in(white,bisque,stainless-steel
 
 If you want multiple values of a single attribute, you can specify them individually. For example, if you want to see white, bisque, or stainless-steel side-by-side refrigerators, use this query.
 
+*NOTE: To search for products based on a list of attribute values, we recommend using the `in` operator. Most attributes can be used with the `in` operator. The most common attribute used is `SKU`. Using the `in` operator helps to avoid Query Per Second errors (QPS).* 
+
+*For example: `http://api.bestbuy.com/v1/products(sku in(43900,2088495,7150065))?apiKey=YourAPIKey`*
+
 ## Wildcards - Value is present
 
 ```shell
