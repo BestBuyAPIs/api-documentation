@@ -54,7 +54,7 @@ bby.stores('region=ut',{show:'storeId,city,region'}).then(function(data){
     }
 ```
 
-Our Products, Stores, Reviews and Categories APIs can be searched by nearly all available attributes. For example, to find only the stores located in Utah, you can use the query shown to the right.
+Our Products, Stores and Categories APIs can be searched by nearly all available attributes. For example, to find only the stores located in Utah, you can use the query shown to the right.
 
 ## Search by all attributes (AND)
 
