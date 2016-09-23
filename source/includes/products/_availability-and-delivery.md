@@ -10,7 +10,7 @@ Attribute | Description
 **inStoreAvailabilityTextHtml** | Additional information regarding inStoreAvailability (HTML formatting)
 **inStoreAvailabilityUpdateDate** | Provides date and time inStoreAvailability last updated
 **inStorePickup** | Identifies if a product can be purchased online and picked up in a store
-**onlineAvailability** | Identifies if a product can be purchased oinlne
+**onlineAvailability** | Identifies if a product can be purchased online
 **onlineAvailabilityText** | Additional information regarding online availability
 **onlineAvailabilityTextHtml** | Additional information regarding online availability (HTML formatting)
 **onlineAvailabilityUpdateDate** | Provides date and time onlineAvailability was last updated
