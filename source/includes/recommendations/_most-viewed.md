@@ -27,7 +27,7 @@ bby.recommendations('mostViewed','abcat0107000').then(function(data){
       },
       "links": {
         "product": "http://api.bestbuy.com/v1/products/1740039.json",
-        "addToCart": "http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&type=category&cmp=RMX&ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&qvsids=1740039"
+        "addToCart": "http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&type=category&cmp=RMX&ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&qvsids=1740039",
         "web": "http://www.bestbuy.com/site/belkin-hdmi-to-vga-adapter/1740039.p?id=1219062507184&skuId=1740039&cmp=RMX&ky=2dN2vg9ikE823Sb2cqFFchnSnf6JkvQna"
       },
       "names": {

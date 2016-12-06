@@ -47,7 +47,8 @@ bby.openBox('categoryId=abcat0400000)').then(function(data){
         "regular": 199.99
       },
       "sku": "5729048"
-    },
+    }
+  ]
 }
 ```
 

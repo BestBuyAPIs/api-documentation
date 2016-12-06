@@ -54,6 +54,7 @@ bby.openBox(8610161).then(function(data){
       },
       "sku": "8610161"
     }
+  ]
 }
 ```
 The Open Box Single SKU endpoint allows you to query by SKU all Open Box offers associated with a SKU. If there are no Open Box offers available, the query will return a HTTP 200 response code with an empty result set.

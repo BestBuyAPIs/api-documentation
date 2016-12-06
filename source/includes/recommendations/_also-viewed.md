@@ -24,7 +24,7 @@ bby.recommendations('alsoViewed',5747275).then(function(data){
       },
       "links": {
         "product": "http://api.bestbuy.com/v1/products/5747275.json",
-        "addToCart": "http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&type=category&cmp=RMX&ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&qvsids=5747275"
+        "addToCart": "http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&type=category&cmp=RMX&ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&qvsids=5747275",
         "web": "http://www.bestbuy.com/site/batman-begins-blu-ray-disc/8880044.p?id=1484301&skuId=8880044&cmp=RMX&ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2"
       },
       "names": {
@@ -36,7 +36,8 @@ bby.recommendations('alsoViewed',5747275).then(function(data){
       },
       "rank": 3,
       "sku": "5747275"
-    },
+    }
+  ]
 }
 ```
 
