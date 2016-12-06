@@ -36,6 +36,5 @@ Attribute | Description | Type
 **upc** | Universal Product Code (UPC) | string
 **warrantyLabor** | Manufacture labor warranty description | string
 **warrantyParts** | Manufacture parts warranty description | string
-**warrantyService** | Collection of warranty details related to a specific SKU | string
 **weight** | Product weight | string
 **width** | Product width (inches) | string
