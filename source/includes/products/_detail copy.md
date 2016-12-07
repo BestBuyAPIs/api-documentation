@@ -12,9 +12,8 @@ Attribute | Description
 > Search for warranties associated with SKU 5005633
 
 ```shell
-curl "http://api.remix.bestbuy.com/v1/products/5005633/warranties.json?apiKey=[apiKey]"
+curl "http://api.bestbuy.com/v1/products/5005633/warranties.json?apiKey=[apiKey]"
 ```
-
 
 ```json-doc
 {{
