@@ -1,6 +1,6 @@
 # Warranties
 
-The Warranties endpoint within the Best Buy Products API helps you access a list of warranties associated with a specific Best Buy product, along with select data associated with the warranty (e.g., SKU for the warranty, shortName, price, type, dept/class/subclass, term). For more information (such as skuId, shortName, currentPrice, type, department, subclass, and class), you can look up a specific warranty by SKU in our Products endpoint.
+The Warranties endpoint within the Best Buy Products API helps you access a list of warranties associated with a specific Best Buy product, along with select data associated with the warranty (e.g., SKU for the warranty, shortName, price, type, dept/class/subclass, term). For more information, you can look up a specific warranty by SKU in our Products endpoint.
 
 ## Common Attributes
 
@@ -16,6 +16,7 @@ Attribute | Description
 ```shell
 curl "http://api.bestbuy.com/v1/products/5005633/warranties.json?apiKey=[apiKey]"
 ```
+Descriptions of other warranty-related attributes, including those listed below, can be found in our core Products documentation.
 
 ```json-doc
 {{
