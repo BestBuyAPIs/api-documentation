@@ -1,15 +1,15 @@
 ## Warranties
 
-The Warranties endpoint within the Best Buy Products API helps you access a list of warranties associated with a Best Buy product, along with select data associated with the warranty. For more detailed information about a specific warranty, you can look that warranty by SKU in our Products endpoint.
+The Warranties endpoint within the Best Buy Products API helps you access a list of warranties associated with a Best Buy product, along with select data associated with the warranty. For more detailed information about a specific warranty, you can look at that warranty by SKU in our Products endpoint.
 
 > Search for warranties associated with SKU 5005633
 
 ```shell
-curl "http://api.bestbuy.com/v1/products/5005633/warranties.json?apiKey=[apiKey]"
+curl "http://api.bestbuy.com/v1/products/5005633/warranties.json?apiKey=YourAPIKey"
 ```
 
 ```json-doc
-{
+[{
 	"skuId": "2745188",
 	"shortName": "1-Year Accidental Geek Squad Protection",
 	"currentPrice": 149.99,
@@ -21,6 +21,7 @@ curl "http://api.bestbuy.com/v1/products/5005633/warranties.json?apiKey=[apiKey]
 	"term": "12 months",
 	"class": "332"
  }
+]
 ```
 
 ### Common Attributes
