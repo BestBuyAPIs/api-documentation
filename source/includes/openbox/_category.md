@@ -26,7 +26,7 @@ bby.openBox('categoryId=abcat0400000)').then(function(data){
         "standard": "http://img.bbystatic.com/BestBuy_US/images/products/5729/5729048_sc.jpg"
       },
       "links": {
-        "product": "http://api.bestbuy.com/v1/products/5729048.json?apiKey=YourAPIKey",
+        "product": "https://api.bestbuy.com/v1/products/5729048.json?apiKey=YourAPIKey",
         "web": "http://www.bestbuy.com/site/canon-ef-40mm-f-2-8-stm-standard-lens-black/5729048.p?id=1218688218296&skuId=5729048&cmp=RMX&ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4#tab=buyingOptions",
         "addToCart": "https://api.bestbuy.com/click/-/5729048/cart"
       },
