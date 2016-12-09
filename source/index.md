@@ -21,7 +21,6 @@ includes:
   - recommendations
   - stores
   - commerce
-
 search: true
 ---
 
