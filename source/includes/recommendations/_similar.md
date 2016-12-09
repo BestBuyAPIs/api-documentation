@@ -1,6 +1,6 @@
 ## Similar Products
 ```shell
-curl "http://api.bestbuy.com/beta/products/2874502/similar?apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/beta/products/2874502/similar?apiKey=YourAPIKey"
 ```
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
@@ -23,7 +23,7 @@ bby.recommendations('similar',2874502).then(function(data){
         "standard": "http://images.bestbuy.com/BestBuy_US/images/products/2874/2874502_sc.jpg"
       },
       "links": {
-        "product": "http://api.bestbuy.com/v1/products/2874502.json",
+        "product": "https://api.bestbuy.com/v1/products/2874502.json",
         "addToCart": "http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&type=category&cmp=RMX&ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&qvsids=2874502",
         "web": "http://www.bestbuy.com/site/apple-ipad-mini-with-wi-fi-16gb-space-gray-black/2874502.p?id=1219080300496&skuId=2874502&cmp=RMX&ky=2dN2vg9ikE823Sb2cqFFchnSnf6JkvQna"
       },

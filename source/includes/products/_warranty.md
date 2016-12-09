@@ -5,7 +5,7 @@ The Warranties endpoint within the Best Buy Products API helps you access a list
 > Search for warranties associated with SKU 5005633
 
 ```shell
-curl "http://api.bestbuy.com/v1/products/5005633/warranties.json?apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/v1/products/5005633/warranties.json?apiKey=YourAPIKey"
 ```
 
 ```json-doc

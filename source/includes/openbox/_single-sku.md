@@ -25,7 +25,7 @@ bby.openBox(8610161).then(function(data){
         "standard": "http://img.bbystatic.com/BestBuy_US/images/products/8610/8610161_rc.jpg"
       },
       "links": {
-        "product": "http://api.bestbuy.com/v1/products/8610161.json?apiKey=YourAPIKey",
+        "product": "https://api.bestbuy.com/v1/products/8610161.json?apiKey=YourAPIKey",
         "web": "http://www.bestbuy.com/site/acer-11-6-chromebook-intel-celeron-2gb-memory-16gb-emmc-flash-memory-moonstone-white/8610161.p?id=1219351773817&skuId=8610161&cmp=RMX&ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4#tab=buyingOptions",
         "addToCart": "https://api.bestbuy.com/click/-/8610161/cart"
       },

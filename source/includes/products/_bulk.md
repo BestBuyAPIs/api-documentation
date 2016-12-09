@@ -32,4 +32,4 @@ productsDigital | Active digital products
 + [subset] must be a "Type" from the above list
 
 ### Sample Query For Digital Products
-`http://api.bestbuy.com/v1/subsets/productsDigital.xml.zip?apiKey=YourAPIKey`
+`https://api.bestbuy.com/v1/subsets/productsDigital.xml.zip?apiKey=YourAPIKey`

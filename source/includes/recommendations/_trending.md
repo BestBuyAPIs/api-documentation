@@ -1,6 +1,6 @@
 ## Trending Products
 ```shell
-curl "http://api.bestbuy.com/beta/products/trendingViewed(categoryId=abcat0400000)?apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/beta/products/trendingViewed(categoryId=abcat0400000)?apiKey=YourAPIKey"
 ```
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
@@ -26,7 +26,7 @@ bby.recommendations('trendingViewed','abcat0400000').then(function(data){
         "standard": "http://img.bbystatic.com/BestBuy_US/images/products/8896/8896132_sc.jpg"
       },
       "links": {
-        "product": "http://api.bestbuy.com/v1/products/8896132.json?apiKey=YourAPIKey",
+        "product": "https://api.bestbuy.com/v1/products/8896132.json?apiKey=YourAPIKey",
         "web": "http://www.bestbuy.com/site/canon-eos-70d-dslr-camera-with-18-135mm-is-stm-lens-black/8896132.p?id=1218941181224&skuId=8896132&cmp=RMX&ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4",
         "addToCart": "http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&type=category&cmp=RMX&ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4&qvsids=8896132"
       },
