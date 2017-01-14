@@ -19,7 +19,6 @@ productsInactive | Includes all inactive products; includes digital, preowned, B
 productsMusic | Active music
 productsMovie | Active movies
 productsHardgood | Active hardgoods; includes preowned
-productsBundle | Active bundles
 productsGame | Active games; includes preowned
 productsSoftware | Active software
 productsBlackTie | Active BlackTie
