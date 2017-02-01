@@ -70,21 +70,21 @@ bby.stores('postalCode=55423', {show: 'storeId,storeType,name,city,region'}).the
   "stores": [
     {
       "storeId": 2387,
-      "storeType": "Mobile",
+      "storeType": "Mobile SAS",
       "name": "Best Buy Mobile - Richfield",
       "city": "Richfield",
       "region": "MN"
     },
     {
       "storeId": 281,
-      "storeType": "BigBox",
+      "storeType": "Big Box",
       "name": "Richfield",
       "city": "Richfield",
       "region": "MN"
     },
     {
       "storeId": 8001,
-      "storeType": "Express",
+      "storeType": "Express Kiosk",
       "name": "Best Buy HQ",
       "city": "Richfield",
       "region": "MN"
@@ -105,14 +105,14 @@ Attribute | Description
 **fullPostalCode** | 9-digit postal code if available for store location
 **lat** | Latitude
 **lng** | Longitude
-**location** | Details about location of a store; primarily used for identifying Best Buy Express stores
+**location** | Details about location of a store; primarily used for identifying Best Buy Express Kiosk stores
 **longName** | Full store name
 **name** | Store name
 **phone** | Store phone number; phone number for Express stores goes to Best Buy Customer Service
 **postalCode** | 5-digit postal code
 **region** | State, territory
 **storeId** | Store number
-**storeType** | Indicates the type of store<li> There are six types of Best Buy stores: "Big Box", "Mobile SAS", "Express Kiosk", "Warehouse Sale", "Outlet Center" and "PAC Standalone Store"<li>"Big Box" value represents large showroom stores featuring HDTVs, computers, gaming, appliances, cell phones, tablets, Geek Squad services and more<li>"Mobile SAS" value represents specialty shops focused on smartphones, tablets, accessories, services and plans<li>"Express Kiosk" value represents vending machine-style, self-checkout stores offering audio goods and accessories, found in airports, on college campuses and more
+**storeType** | Indicates the type of store. There are six types of Best Buy stores: "Big Box", "Mobile SAS", "Express Kiosk", "Warehouse Sale", "Outlet Center" and "PAC Standalone Store"<li>"Big Box" value represents large showroom stores featuring HDTVs, computers, gaming, appliances, cell phones, tablets, Geek Squad services and more<li>"Mobile SAS" value represents specialty shops focused on smartphones, tablets, accessories, services and plans<li>"Express Kiosk" value represents vending machine-style, self-checkout stores offering audio goods and accessories, found in airports, on college campuses and more<li>"Warehouse Sale" value represents occasional sale locations<li>"Outlet Center" value represents locations that sell open box and clearance products. Outlet Centers are open only a portion of the week<li>"PAC Standalone Store" value represents Pacific Sales locations not located within a Big Box store - these locations only sell the Pacific Sales selection of kitchen and bath products
 
 
 ##Area Function
@@ -140,12 +140,12 @@ bby.stores('area(55423,10)',{show:'storeId,storeType,name', pageSize: 2}).then(f
   "stores": [
     {
       "storeId": 2387,
-      "storeType": "Mobile",
+      "storeType": "Mobile SAS",
       "name": "Best Buy Mobile - Richfield"
     },
     {
       "storeId": 281,
-      "storeType": "BigBox",
+      "storeType": "Big Box",
       "name": "Richfield"
     }
   ]
@@ -154,7 +154,7 @@ bby.stores('area(55423,10)',{show:'storeId,storeType,name', pageSize: 2}).then(f
 
 The Stores API includes a special function `area(location,distance)` enabling you to locate stores near a specified location.
 
-Use the `postalCode` attribute or a `lat`-`long` pair to search based on a location. When postal code is used the reference point in the postal code (zipcode) area is determined by a standard mapping service. If no distance is specified in the function, radius is defaulted to 10 miles. The `location` will be populated with the distance from the specified postal code or lat/long to the store in miles.
+Use the `postalCode` attribute or a `lat`-`lng` pair to search based on a location. When postal code is used the reference point in the postal code (zipcode) area is determined by a standard mapping service. If no distance is specified in the function, radius is defaulted to 10 miles. The `location` will be populated with the distance from the specified postal code or lat/long to the store in miles.
 
 _Note_: _You may notice the stores returned are stated to be just over 10 miles from the ZIP code. This is due to the way return distance is calculated. The search area is defined as a square, bounded by location point +/- distance identified in request. All stores in that square are returned. Return distance is calculated linearly from the location point (creates a circle). Stores near the corner of the square might be listed as farther than the query distance specified._
 
@@ -272,7 +272,10 @@ bby.stores('storeId=1118',{show:'services'}).then(function(data){
           "service": "Samsung Experience"
         },
         {
-          "service": "LG Experience "
+          "service": "LG Experience"
+        },
+        {
+          "service": "Trade-In"
         },
         {
           "service": "Car & GPS Installation Services"
@@ -312,7 +315,7 @@ curl "https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,3)&storeType=Exp
   "stores": [
     {
       "storeId": 8001,
-      "storeType": "Express",
+      "storeType": "Express Kiosk",
       "city": "Richfield",
       "region": "MN",
       "name": "Best Buy HQ",
