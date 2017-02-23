@@ -41,7 +41,9 @@ bby.products('type=Movie',{show:'sku,name,salePrice',page:10,pageSize:3}).then(f
 
 Even if you've trimmed down the number of products returned by making use of search, many of our APIs have the potential to return lots of results. To make these large responses more manageable, we break them into pages. By default, we include 10 results per page, but you can ask for up to 100 per page by making use of the `pageSize` parameter. Use the `page` parameter to choose which page of results you'd like returned.
 
-Here is an explanation of the meta data when more than one page is available
+**Note:** If your result set is more than 10 pages, you should use the `cursorMark` parameter to walk through your results. See [Cursor Marks](#cursor-marks) for more information. 
+
+Here is an explanation of the meta data when more than one page is available:
 
 Name | Description | Additional Details
 -----|-------------|-------------------
