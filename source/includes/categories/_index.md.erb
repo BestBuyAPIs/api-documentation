@@ -120,9 +120,3 @@ bby.categories('name=Sony DSLR Camera*',{show:'path'}).then(function(data){
 ```
 
 The following query will return the category path for the category `name` specified in the input. In the below example we are requesting the category path for a **Sony DSLR Camera**. The query results are shown in a flat hierarchical path starting from the root. In this case **Best Buy** is the root category which is the first in the path, followed by its child category **Name Brands**, whose child is **Sony**, and its child **Sony DSLR Camera**, which is also the last category in this path.
-
-## Categories Bulk Download
-There are two files generated for all categories:
-
-+ `https://api.bestbuy.com/v1/categories.xml.zip?apiKey=YourAPIKey` - XML format
-+ `https://api.bestbuy.com/v1/categories.json.zip?apiKey=YourAPIKey` - JSON format
