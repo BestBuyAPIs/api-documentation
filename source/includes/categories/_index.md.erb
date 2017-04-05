@@ -8,7 +8,7 @@ As part of the category details, we provide a flat hierarchical path for each ca
 
 Similarly, the Subcategories path attributes provide a collection of subcategories for the parent category. Each category can have one or more subcategories associated to it, which are identified by subcategory ids and names.
 
-_The Products API also includes the category path information for each product. For additional information on the category attributes in Products API, refer to [Categorizations.](/documentation/products-api#documentation/products-api-categorizations)_
+_The Products API also includes the category path information for each product. For additional information on the category attributes in Products API, refer to [Categorizations.](#categorizations)_
 
 
 ## Common Attributes
@@ -17,6 +17,7 @@ Attribute | Description
 --------- | -----------
 **name** | Used to find all subcategories (e.g., parents, siblings, children) within a specific category
 **id** | Used to find all results within a specific category (e.g., abcat0100000)
+**url** | URL to corresponding BESTBUY.COM category page
 **path.name** | Used to find all categories, starting with the root, within a particular path (e.g., electronics)
 **path.id** | Used to find all categories, starting with the root, within a particular path (e.g., abcat0014001)
 **subCategories.name** | Used to identify subcategories within a specific category (e.g., Kitchen Essentials within Gift Ideas)
@@ -45,22 +46,27 @@ bby.categories('',{show:'id'}).then(function(data){
   "queryTime": "0.003",
   "totalTime": "0.025",
   "partial": false,
-  "canonicalUrl": "/v1/categories?show=id&format=json&apiKey=YourAPIKey",
+  "canonicalUrl": "/v1/categories?show=id,url&format=json&apiKey=YourAPIKey",
   "categories": [
     {
-      "id": "abcat0010000"
+      "id": "abcat0010000",
+      "url": "http://www.bestbuy.com/site/electronics/gift-ideas/abcat0010000.c?id=abcat0010000"
     },
     {
-      "id": "abcat0020001"
+      "id": "abcat0020001",
+      "url": "http://www.bestbuy.com/site/electronics/gift-ideas/abcat0020001.c?id=abcat0020001"
     },
     {
-      "id": "abcat0020002"
+      "id": "abcat0020002",
+      "url": "http://www.bestbuy.com/site/electronics/gift-ideas/abcat0020002.c?id=abcat0020002"
     },
     {
-      "id": "abcat0020004"
+      "id": "abcat0020004",
+      "url": "http://www.bestbuy.com/site/electronics/gift-ideas/abcat0020004.c?id=abcat0020004"
     },
     {
-      "id": "abcat0100000"
+      "id": "abcat0100000",
+      "url": "http://www.bestbuy.com/site/electronics/gift-ideas/abcat0100000.c?id=abcat0100000"
     }]
 }
 ```
