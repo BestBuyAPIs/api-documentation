@@ -1,6 +1,8 @@
 ## Availability
 The Availability attributes provide details into which products can be purchased online and which products can be picked up in stores.
 
+*Note: For store-specific availability, please refer to our [Stores API](#stores-api) documentation.*
+
 Attribute | Description
 --------- | -----------
 **friendsAndFamilyPickup** | Identifies if a product is eligible for friends and family pickup
