@@ -139,12 +139,12 @@ If you want items with **any** of the specified attributes, combine them with a 
 ## Complex Searches
 
 ```shell
-curl "https://api.bestbuy.com/v1/products(platform=psp&(salePrice<=15|(salePrice<=20&tradeInValue>=10)))?format=json&show=sku,name,salePrice&apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/v1/products(platform=psp&(salePrice<=15|(salePrice<=20&inStorePickup=true)))?format=json&show=sku,name,salePrice,inStorePickup,platform&apiKey=YourAPIKey"
 ```
 
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
-bby.products('platform=psp&(salePrice<=15|(salePrice<=20&tradeInValue>=10))',{show:'sku,name,salePrice'}).then(function(data){
+bby.products('platform=psp&(salePrice<=15|(salePrice<=20&inStorePickup=true))',{show:'sku,name,salePrice,inStorePickup,platform'}).then(function(data){
   console.log(data);
 });
 ```
@@ -152,34 +152,34 @@ bby.products('platform=psp&(salePrice<=15|(salePrice<=20&tradeInValue>=10))',{sh
 ```json-doc
 [
   {
-    "sku": 7049721,
-    "name": "Ape Escape: On the Loose Greatest Hits - PSP",
-    "salePrice": 7.99,
-    "tradeInValue": 0.00,
-    "platform": "PSP"
+    "sku":8005115,
+    "name":"Lumines II - PSP",
+    "salePrice":9.99,
+    "inStorePickup":true,
+    "platform":"PSP"
   },
   {
-    "sku": 9335436,
-    "name": "Chessmaster: The Art of Learning - PSP",
-    "salePrice": 9.99,
-    "tradeInValue": 0.00,
-    "platform": "PSP"
+    "sku":8376027,
+    "name":"Practical Intelligence Quotient 2 - PSP",
+    "salePrice":14.99,
+    "inStorePickup":true,
+    "platform":"PSP"
   },
   {
-    "sku": 1450486,
-    "name": "Megamind: The Blue Defender - PSP",
-    "salePrice": 11.99,
-    "tradeInValue": 0.00,
-    "platform": "PSP"
+    "sku":9335436,
+    "name":"Chessmaster: The Art of Learning - PSP",
+    "salePrice":9.99,
+    "inStorePickup":true,
+    "platform":"PSP"
   }
 ]
 ```
 
-Complex searches can be performed by combining AND `&` and OR `|` operations with parantheses. For example: let's say that you're looking for a Play Station Portable video game `(platform=psp)`. You don't want to spend more than $15 `(salePrice<=15)`. However, because you will trade in the game when you're done, you could spend up to $20 `(saleProce<=20)` - but only if the game's trade-in value is more than $10 `(tradeInValue>10)`.
+Complex searches can be performed by combining AND `&` and OR `|` operations with parantheses. For example: let's say that you're looking for a Play Station Portable video game `(platform=psp)`. You don't want to spend more than $15 `(salePrice<=15)`. However, because you will trade in the game when you're done, you could spend up to $20 `(salePrice<=20)`. You also want to make sure the game is available to buy online and pickup at a store `(inStorePickup=true)`.
 
 The search terms for this example can be combined as:
 
-`platform=psp & (salePrice<=15 | (salePrice<=20 & tradeInValue>10))`
+`platform=psp & (salePrice<=15 | (salePrice<=20 & inStorePickup=true))`
 
 ## Search by date range
 
