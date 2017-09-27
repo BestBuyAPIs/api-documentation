@@ -18,7 +18,6 @@ Attribute | Description | Type
 **digital** | Identifies if product is available in a digital format | boolean
 **features.feature** | Collection of product features | string
 **format** | Identifies media product format | string
-**frequentlyPurchasedWith.sku** | Collection of SKUs that are frequently purchased with originating SKU | long
 **height** | Product height (inches) | string
 **includedItemList.includedItem** | Collection of items included with product (Example: Canon EOS 60D Digital SLR Camera, EF-S 18-135mm IS lens, Battery pack, Battery charger) | string
 **longDescription** | Detailed product description | string
@@ -28,13 +27,18 @@ Attribute | Description | Type
 **name** | Product name | string
 **preowned** | Identifies if product has been previously owned (used) | boolean
 **quantityLimit** | Maximum quantity of product that can be ordered |integer
-**relatedProducts.sku** | Collection of SKUs that are similar to originating SKU | long
+**productVariations.sku** | Collection of related SKUs that are variaitions (e.g. color, size) of the originating SKU | long
 **releaseDate** | Date the product was released | date
 **shortDescription** | Brief product description | string
 **shortDescriptionHtml** | Brief product description (HTML formatting) | string
-**sku** | Best Buy unique product identifier | long
+**sku** | Best Buy unique 7-digit product identifier | long
 **upc** | Universal Product Code (UPC) | string
 **warrantyLabor** | Manufacture labor warranty description | string
 **warrantyParts** | Manufacture parts warranty description | string
 **weight** | Product weight | string
 **width** | Product width (inches) | string
+**discs.tracks** | Name and sequence for songs on a designated Music SKU | string
+**contracts.type** | Type of phone contract for activated device SKU| string
+**contracts.prices** | Regular and current monthly contract pricing for activated device SKU | long
+**contracts.priceNote** | Description of contract pricing for activated device SKU  | string
+

@@ -8,13 +8,9 @@ Attribute | Description
 **friendsAndFamilyPickup** | Identifies if a product is eligible for friends and family pickup
 **homeDelivery** | Identifies if a product must be fulfilled using home delivery instead of shipping
 **inStoreAvailability** | Identifies if a product is available for purchase in a Best Buy store
-**inStoreAvailabilityText** | Additional information regarding inStoreAvailability
-**inStoreAvailabilityTextHtml** | Additional information regarding inStoreAvailability (HTML formatting)
 **inStoreAvailabilityUpdateDate** | Provides date and time inStoreAvailability last updated
 **inStorePickup** | Identifies if a product can be purchased online and picked up in a store
 **onlineAvailability** | Identifies if a product can be purchased online
-**onlineAvailabilityText** | Additional information regarding online availability
-**onlineAvailabilityTextHtml** | Additional information regarding online availability (HTML formatting)
 **onlineAvailabilityUpdateDate** | Provides date and time onlineAvailability was last updated
 **orderable** | Product ordering status
 **specialOrder** | Identifies whether a product will require special handling for delivery
