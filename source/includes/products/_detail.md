@@ -18,7 +18,6 @@ Attribute | Description | Type
 **digital** | Identifies if product is available in a digital format | boolean
 **features.feature** | Collection of product features | string
 **format** | Identifies media product format | string
-**frequentlyPurchasedWith.sku** | Collection of SKUs that are frequently purchased with originating SKU | long
 **height** | Product height (inches) | string
 **includedItemList.includedItem** | Collection of items included with product (Example: Canon EOS 60D Digital SLR Camera, EF-S 18-135mm IS lens, Battery pack, Battery charger) | string
 **longDescription** | Detailed product description | string
@@ -27,14 +26,15 @@ Attribute | Description | Type
 **modelNumber** | Manufacturer product model number | string
 **name** | Product name | string
 **preowned** | Identifies if product has been previously owned (used) | boolean
+**productVariations.sku** | Collection of related SKUs that are variations (e.g. color, size) of the originating SKU | long
 **quantityLimit** | Maximum quantity of product that can be ordered |integer
-**relatedProducts.sku** | Collection of SKUs that are similar to originating SKU | long
 **releaseDate** | Date the product was released | date
 **shortDescription** | Brief product description | string
 **shortDescriptionHtml** | Brief product description (HTML formatting) | string
-**sku** | Best Buy unique product identifier | long
+**sku** | Best Buy unique 7-digit product identifier | long
 **upc** | Universal Product Code (UPC) | string
 **warrantyLabor** | Manufacture labor warranty description | string
 **warrantyParts** | Manufacture parts warranty description | string
 **weight** | Product weight | string
 **width** | Product width (inches) | string
+
