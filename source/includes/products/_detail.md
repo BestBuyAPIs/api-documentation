@@ -26,8 +26,8 @@ Attribute | Description | Type
 **modelNumber** | Manufacturer product model number | string
 **name** | Product name | string
 **preowned** | Identifies if product has been previously owned (used) | boolean
+**productVariations.sku** | Collection of related SKUs that are variations (e.g. color, size) of the originating SKU | long
 **quantityLimit** | Maximum quantity of product that can be ordered |integer
-**productVariations.sku** | Collection of related SKUs that are variaitions (e.g. color, size) of the originating SKU | long
 **releaseDate** | Date the product was released | date
 **shortDescription** | Brief product description | string
 **shortDescriptionHtml** | Brief product description (HTML formatting) | string
@@ -37,8 +37,4 @@ Attribute | Description | Type
 **warrantyParts** | Manufacture parts warranty description | string
 **weight** | Product weight | string
 **width** | Product width (inches) | string
-**discs.tracks** | Name and sequence for songs on a designated Music SKU | string
-**contracts.type** | Type of phone contract for activated device SKU| string
-**contracts.prices** | Regular and current monthly contract pricing for activated device SKU | long
-**contracts.priceNote** | Description of contract pricing for activated device SKU  | string
 

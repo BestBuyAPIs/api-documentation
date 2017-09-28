@@ -4,6 +4,9 @@ Best Buy's Pricing attributes make it easy to identify the product price, if a p
 Attribute | Description
 --------- | -----------
 **bestSellingRank** | Ranks products by number of units sold
+**contracts.type** | Type of contract for Mobile phone
+**contracts.prices** | Regular and current monthly contract pricing for Mobile phone
+**contracts.priceNote** | Description of contract pricing for Mobile phone
 **dollarSavings** | Identifies amount saved
 **lowPriceGuarantee** | Identifies if a product qualifies for the Best Buy low price guarantee
 **onSale** | Identifies if sale price is less than regular price
@@ -15,7 +18,7 @@ Attribute | Description
 **priceWithPlan.newTwoYearPlanSalePrice** | Mobile phone sale price when purchased with 2-year plan
 **priceWithPlan.upgradeTwoYearPlanSalePrice** | Mobile phone sale price when purchased with 2-year upgrade plan
 **priceWithPlan.newTwoYearPlanRegularPrice** | Mobile phone price when purchased with new 2-year plan
-**priceWithPlan.upgradeTwoYearPlanRegularPrice** | Mobile phone price when purchased with 2-year upgrade plan
+**priceWithPlan.upgradeTwoYearPlanRegularPrice** | Mobile phone price when purchased with 2-year upgrade plan  
 **regularPrice** | Product's regular selling price
 **salePrice** | Current item selling price
 **salesRankLongTerm** | Sales rank over past 5-21 days
