@@ -1152,11 +1152,6 @@
 <td>string</td>
 </tr>
 <tr>
-<td><strong>frequentlyPurchasedWith.sku</strong></td>
-<td>Collection of SKUs that are frequently purchased with originating SKU</td>
-<td>long</td>
-</tr>
-<tr>
 <td><strong>height</strong></td>
 <td>Product height (inches)</td>
 <td>string</td>
@@ -1197,14 +1192,14 @@
 <td>boolean</td>
 </tr>
 <tr>
+<td><strong>productVariations.sku</strong></td>
+<td>Collection of related SKUs that are variations (e.g. color, size) of the originating SKU</td>
+<td>long</td>
+</tr>
+<tr>
 <td><strong>quantityLimit</strong></td>
 <td>Maximum quantity of product that can be ordered</td>
 <td>integer</td>
-</tr>
-<tr>
-<td><strong>relatedProducts.sku</strong></td>
-<td>Collection of SKUs that are similar to originating SKU</td>
-<td>long</td>
 </tr>
 <tr>
 <td><strong>releaseDate</strong></td>
@@ -1223,7 +1218,7 @@
 </tr>
 <tr>
 <td><strong>sku</strong></td>
-<td>Best Buy unique product identifier</td>
+<td>Best Buy unique 7-digit product identifier</td>
 <td>long</td>
 </tr>
 <tr>
@@ -1266,6 +1261,18 @@
 <tr>
 <td><strong>bestSellingRank</strong></td>
 <td>Ranks products by number of units sold</td>
+</tr>
+<tr>
+<td><strong>contracts.type</strong></td>
+<td>Type of contract for Mobile phone</td>
+</tr>
+<tr>
+<td><strong>contracts.prices</strong></td>
+<td>Regular and current monthly contract pricing for Mobile phone</td>
+</tr>
+<tr>
+<td><strong>contracts.priceNote</strong></td>
+<td>Description of contract pricing for Mobile phone</td>
 </tr>
 <tr>
 <td><strong>dollarSavings</strong></td>
@@ -1362,14 +1369,6 @@
 <td>Identifies if a product is available for purchase in a Best Buy store</td>
 </tr>
 <tr>
-<td><strong>inStoreAvailabilityText</strong></td>
-<td>Additional information regarding inStoreAvailability</td>
-</tr>
-<tr>
-<td><strong>inStoreAvailabilityTextHtml</strong></td>
-<td>Additional information regarding inStoreAvailability (HTML formatting)</td>
-</tr>
-<tr>
 <td><strong>inStoreAvailabilityUpdateDate</strong></td>
 <td>Provides date and time inStoreAvailability last updated</td>
 </tr>
@@ -1380,14 +1379,6 @@
 <tr>
 <td><strong>onlineAvailability</strong></td>
 <td>Identifies if a product can be purchased online</td>
-</tr>
-<tr>
-<td><strong>onlineAvailabilityText</strong></td>
-<td>Additional information regarding online availability</td>
-</tr>
-<tr>
-<td><strong>onlineAvailabilityTextHtml</strong></td>
-<td>Additional information regarding online availability (HTML formatting)</td>
 </tr>
 <tr>
 <td><strong>onlineAvailabilityUpdateDate</strong></td>
