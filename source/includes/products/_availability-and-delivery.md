@@ -45,6 +45,7 @@ The Shipping and Delivery attributes provide details about the cost of shipping 
 Attribute | Description
 --------- | -----------
 **freeShipping** | Identifies if a product qualifies for free shipping
+**freeShippingEligible** | Identifies if a product is currently eligible to receive free shipping from an existing offer
 **shippingCost** | Provides product's lowest shipping costs
 **shippingWeight** | Identifies product's shipping weight (pounds)
 **shippingLevelsOfService** | An array of shipping options
