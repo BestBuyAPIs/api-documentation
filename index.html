@@ -608,10 +608,10 @@
 
 <ul>
 <li><code class="prettyprint">=</code> - attribute <strong>equals</strong> a specified value</li>
-<li><code class="prettyprint">=!</code>- attribute <strong>does not equal</strong> a specified value</li>
+<li><code class="prettyprint">!=</code>- attribute <strong>does not equal</strong> a specified value</li>
 <li><code class="prettyprint">&gt;</code> - attribute <strong>greater than</strong> a specified value</li>
 <li><code class="prettyprint">&lt;</code> - attribute <strong>less than</strong> a specified value</li>
-<li><code class="prettyprint">&gt;=&lt;</code> - attribute <strong>greater than or equal to</strong> a specified value</li>
+<li><code class="prettyprint">&gt;=</code> - attribute <strong>greater than or equal to</strong> a specified value</li>
 <li><code class="prettyprint">&lt;=</code> - attribute <strong>less than or equal to</strong> a specified value</li>
 <li><code class="prettyprint">in</code> - search based on a <strong>list</strong> of attribute values</li>
 </ul>
@@ -1434,6 +1434,10 @@
 <td>Identifies if a product qualifies for free shipping</td>
 </tr>
 <tr>
+<td><strong>freeShippingEligible</strong></td>
+<td>Identifies if a product is currently eligible to receive free shipping from an existing offer</td>
+</tr>
+<tr>
 <td><strong>shippingCost</strong></td>
 <td>Provides product&rsquo;s lowest shipping costs</td>
 </tr>
@@ -1530,19 +1534,6 @@
 <td>URL of top image</td>
 </tr>
 </tbody></table>
-
-<h3 id="serving-images-over-ssl">Serving Images Over SSL</h3>
-
-<p>By default, all images are served over HTTP. For example <code class="prettyprint">http://img.bbystatic.com/BestBuy_US/images/products/4971/4971903_sb.jpg</code></p>
-
-<p>If your application is HTTPS and you need to serve our images over HTTPS, there are two quick adjustments you need to make:</p>
-
-<ul>
-<li>Switch the scheme from <code class="prettyprint">http</code> to <code class="prettyprint">https</code></li>
-<li>Switch the hostname from <code class="prettyprint">img.bbystatic.com</code> to <code class="prettyprint">img-ssl.bbystatic.com</code></li>
-</ul>
-
-<p>Put another way, you should do a string replace from <code class="prettyprint">http://img.bbystatic.com/</code> to <code class="prettyprint">https://img-ssl.bbystatic.com/</code>. The resulting image URL should look like <code class="prettyprint">https://img-ssl.bbystatic.com/BestBuy_US/images/products/4971/4971903_sb.jpg</code></p>
 
 <h2 id="links">Links</h2>
 
