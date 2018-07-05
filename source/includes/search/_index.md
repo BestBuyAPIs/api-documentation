@@ -8,10 +8,10 @@ Attribute *names* are case sensitive; attribute *values* are not.
 ## Available Operators
 
 + `=` - attribute **equals** a specified value
-+ `=!`- attribute **does not equal** a specified value
++ `!=`- attribute **does not equal** a specified value
 + `>` - attribute **greater than** a specified value
 + `<` - attribute **less than** a specified value
-+ `>=<` - attribute **greater than or equal to** a specified value
++ `>=` - attribute **greater than or equal to** a specified value
 + `<=` - attribute **less than or equal to** a specified value
 + `in` - search based on a **list** of attribute values
 
