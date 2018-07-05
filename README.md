@@ -37,3 +37,5 @@ You can now see the docs at <http://localhost:4567>.
 ## Need Help? Found a bug?
 You can either [submit an issue](https://github.com/BestBuyAPIs/api-documentation/issues) or contact us at developer@bestbuy.com.
 
+Once your issue has been resolved, the Best Buy team will publish the documentation changes (using `rake publish`).
+
