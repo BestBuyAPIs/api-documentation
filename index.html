@@ -1248,6 +1248,37 @@
 </tr>
 </tbody></table>
 
+<h2 id="california-proposition-65">California Proposition 65</h2>
+
+<p>California Proposition 65 (CA Prop 65) is a California regulation requiring businesses with 10 or more employees to provide a “clear and reasonable warning” before knowingly and intentionally exposing individuals in California to a chemical listed by the state as known to cause cancer or reproductive toxicity. The CA Prop 65 regulation provides safe harbor warnings that meet the “clear and reasonable warning” requirement. As of August 30, 2018, these safe harbor warnings require either a short-form warning or a chemical-specific warning for any product containing a listed chemical. Websites and mobile applications that sell products must provide the same warning that is displayed on the product and/or product packaging.</p>
+
+<p>In order to comply with CA Prop 65, the warning is required for all products offered for purchase. The warning may be implemented by displaying the CA Prop 65 warning at a point prior to purchase of an affected product to (a) all customers, or (b) only to customers who enter a California ship-to address.</p>
+
+<p>Best Buy&rsquo;s Products API provides the following fields for this purpose:</p>
+
+<h3 id="attribute-list">Attribute List</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>proposition65WarningMessage</strong></td>
+<td>A custom warning message which can be up to 360 characters. It can be null/empty depending on the product.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>proposition65WarningType</strong></td>
+<td>Values of 01 to 05 indicating the type of warning required for this product. This field will ALWAYS contain a value. <br/><strong>01</strong> - None (There is no warning message required for this product)<br/><strong>02</strong> - Cancer<br/><strong>03</strong> - Reproductive Harm<br/><strong>04</strong> - Cancer and Reproductive Harm<br/><strong>05</strong> - Unknown (We currently do not have information about warnings on this product)</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p>For more information on this regulation including the list of chemicals, please go to <a href="https://oehha.ca.gov/proposition-65">https://oehha.ca.gov/proposition-65</a>.</p>
+
 <h2 id="pricing-and-sales-ranking">Pricing and Sales Ranking</h2>
 
 <p>Best Buy&rsquo;s Pricing attributes make it easy to identify the product price, if a product is on sale, how much you can save and even when we made our last pricing changes. We also provide sales ranking over given time periods so you can have an idea of the best-sellers.</p>
