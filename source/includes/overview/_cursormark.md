@@ -1,7 +1,7 @@
 ## Cursor Marks
 
 ```shell
-curl -G "https://api.bestbuy.com/v1/products(type=HardGood)?format=json&show=sku,name,salePrice&pageSize=100&apiKey=$BBY_API_KEY" --data-urlencode "cursorMark=*"
+curl -G "https://api.bestbuy.com/v1/products(type=HardGood)?format=json&show=sku,name,salePrice&pageSize=100&apiKey=YourAPIKey" --data-urlencode "cursorMark=*"
 ```
 
 ```javascript
