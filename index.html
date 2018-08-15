@@ -330,7 +330,7 @@
 
 <h2 id="cursor-marks">Cursor Marks</h2>
 
-<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(type=HardGood)?format=json&amp;show=sku,name,salePrice&amp;pageSize=100&amp;cursorMark=*&amp;apiKey=YourAPIKey'</span>
+<pre class="highlight shell"><code>curl -G <span class="s2">"https://api.bestbuy.com/v1/products(type=HardGood)?format=json&amp;show=sku,name,salePrice&amp;pageSize=100&amp;apiKey=YourAPIKey"</span> --data-urlencode <span class="s2">"cursorMark=*"</span>
 </code></pre>
 
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
@@ -368,7 +368,7 @@
 
 <p>With large result sets - e.g., query sets with more than 10 pages of results - we recommend you use the <code class="prettyprint">cursorMark</code> parameter to walk through your results. You can use <code class="prettyprint">cursorMark</code> to walk through the full product or store catalog, deltas since you last queried for active products, or any other query result. The <code class="prettyprint">cursorMark</code> works a lot like a bookmark, keeping track of what subset of items are currently shown in your result set and how to get to the next subset of items. </p>
 
-<p>To use the <code class="prettyprint">cursorMark</code> with your result set, add <code class="prettyprint">cursorMark=*</code> to your query parameters. A <code class="prettyprint">nextCursorMark</code> parameter will be included in the metadata that you will use to walk through the full result set. After the initial result, replace the asterisk <code class="prettyprint">*</code> with the <code class="prettyprint">nextCursorMark</code> value noted in the current metadata to move to the next subset of results. For each subset, a fresh hash value will be presented. When you reach the end of the cursor marks, you will receive an empty result. </p>
+<p>To use the <code class="prettyprint">cursorMark</code> with your result set, add <code class="prettyprint">cursorMark=*</code> to your query parameters. A <code class="prettyprint">nextCursorMark</code> parameter will be included in the metadata that you will use to walk through the full result set. After the initial result, replace the asterisk <code class="prettyprint">*</code> with the <code class="prettyprint">nextCursorMark</code> value noted in the current metadata to move to the next subset of results. For each subset, a fresh hash value will be presented. To avoid errors, please urlencode the hash returned when sending it as the <code class="prettyprint">cursorMark</code> query parameter in subsequent requests. When you reach the end of the cursor marks, you will receive an empty result. </p>
 
 <p><strong>Tip:</strong> To query for updates or deltas since you last walked through the result set you can use the <code class="prettyprint">itemUpdateDate</code> attribute. To ensure that your query results include changes to a product&rsquo;s active/inactive status, add <code class="prettyprint">active=*</code> to your query parameters. For example: <code class="prettyprint">.../v1/products(itemUpdateDate&gt;2017-02-06T16:00:00&amp;active=*)?format=json&amp;pageSize=100&amp;cursorMark=*&amp;apiKey=YOUR_API_KEY</code></p>
 
