@@ -1,7 +1,7 @@
 ## Cursor Marks
 
 ```shell
-curl 'https://api.bestbuy.com/v1/products(type=HardGood)?format=json&show=sku,name,salePrice&pageSize=100&cursorMark=*&apiKey=YourAPIKey'
+curl -G "https://api.bestbuy.com/v1/products(type=HardGood)?format=json&show=sku,name,salePrice&pageSize=100&apiKey=YourAPIKey" --data-urlencode "cursorMark=*"
 ```
 
 ```javascript
@@ -39,7 +39,7 @@ bby.products('type=HardGood',{show:'sku,name,salePrice',pageSize:100,cursorMark=
 
 With large result sets - e.g., query sets with more than 10 pages of results - we recommend you use the `cursorMark` parameter to walk through your results. You can use `cursorMark` to walk through the full product or store catalog, deltas since you last queried for active products, or any other query result. The `cursorMark` works a lot like a bookmark, keeping track of what subset of items are currently shown in your result set and how to get to the next subset of items. 
 
-To use the `cursorMark` with your result set, add `cursorMark=*` to your query parameters. A `nextCursorMark` parameter will be included in the metadata that you will use to walk through the full result set. After the initial result, replace the asterisk `*` with the `nextCursorMark` value noted in the current metadata to move to the next subset of results. For each subset, a fresh hash value will be presented. When you reach the end of the cursor marks, you will receive an empty result. 
+To use the `cursorMark` with your result set, add `cursorMark=*` to your query parameters. A `nextCursorMark` parameter will be included in the metadata that you will use to walk through the full result set. After the initial result, replace the asterisk `*` with the `nextCursorMark` value noted in the current metadata to move to the next subset of results. For each subset, a fresh hash value will be presented. To avoid errors, please urlencode the hash returned when sending it as the `cursorMark` query parameter in subsequent requests. When you reach the end of the cursor marks, you will receive an empty result. 
 
 **Tip:** To query for updates or deltas since you last walked through the result set you can use the `itemUpdateDate` attribute. To ensure that your query results include changes to a product's active/inactive status, add `active=*` to your query parameters. For example: `.../v1/products(itemUpdateDate>2017-02-06T16:00:00&active=*)?format=json&pageSize=100&cursorMark=*&apiKey=YOUR_API_KEY`
 
