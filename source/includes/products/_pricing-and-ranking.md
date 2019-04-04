@@ -11,7 +11,7 @@ Attribute | Description
 **lowPriceGuarantee** | Identifies if a product qualifies for the Best Buy low price guarantee
 **onSale** | Identifies if sale price is less than regular price
 **percentSavings** | Identifies the percent saved between the regularPrice and salePrice
-**priceRestriction** | Identifies product sale price display restrictions (<i>guidelines for displaying lowest salePrice are sent to developers with privileged keys</i>): <li>MAP restriction identifies Minimum Advertised Price; actual selling price may not be shown until prodcut is added to cart</li><li>ICR restriction identifies In-Checkout Rebate Price; actual selling price may not be shown until checkout</li>
+**priceRestriction** | Identifies product sale price display restrictions: <li>MAP restriction identifies Minimum Advertised Price; actual selling price may not be shown until prodcut is added to cart</li><li>ICR restriction identifies In-Checkout Rebate Price; actual selling price may not be shown until checkout</li>
 **priceUpdateDate** | Date and time product price was last updated
 **priceWithPlan.newTwoYearPlan** | Mobile phone price when purchased with new 2-year plan
 **priceWithPlan.upgradeTwoYearPlan** | Mobile phone price when purchased with 2-year upgrade plan
