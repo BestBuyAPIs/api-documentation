@@ -3,7 +3,7 @@
 Thanks for being interested in contributing to Best Buy's API!
 
 - If you find a bug or want to add a feature, create an issue on [GitHub](https://github.com/BestBuyAPIs/api-documentation)
-- If you have questions, you can email us at developer@bestbuy.com
+- If you have questions, you can [contact us](https://developer.bestbuy.com/contact-us)
 - If you'd like to learn more, please visit https://developer.bestbuy.com/
 
 # Contributing to Slate
