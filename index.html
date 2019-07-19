@@ -82,8 +82,6 @@
 
 <p>If this is your first time using our APIs, please check out our <a href="http://developer.bestbuy.com/documentation/getting-started">Getting Started</a> guide. If you already have your API key, our Search and Response Formats can help you refine your results.</p>
 
-<p><em>NOTE: Effective in early 2017, JSONP will be disabled in the interest of protecting user privacy. This will prevent developers making API calls from the client side and thus exposing API keys to the general public. If you have any questions or ideas on this issue, please contact us at developer@bestbuy.com.</em></p>
-
 <h2 id="response-format">Response Format</h2>
 
 <p>Responses can be returned in either <strong>JSON</strong> or <strong>XML</strong>.</p>
@@ -594,7 +592,7 @@
 
 <p>Keep up with the latest changes in our APIs through our <a href="https://developer.bestbuy.com/release-notes">release notes</a> and <a href="https://developer.bestbuy.com/blog">blog</a>.</p>
 
-<p>Have fun and please let us know what you think. Shoot us an email at <strong>developer@bestbuy.com</strong>, tweet us at <a href="https://twitter.com/bestbuyapi">@BestBuyAPI</a> or hop on the <a href="https://developer.bestbuy.com/support">StackOverflow support forum</a> and share your ideas on how we can deliver the best product. Let’s develop the future of retail together.</p>
+<p>Have fun and please let us know what you think. Tweet us at <a href="https://twitter.com/bestbuyapi">@BestBuyAPI</a> or head over to our <a href="https://developer.bestbuy.com/support">support page</a> and share your ideas on how we can deliver the best product. Let’s develop the future of retail together.</p>
 
           <h1 id="search-techniques">Search Techniques</h1>
 
@@ -1323,7 +1321,7 @@
 </tr>
 <tr>
 <td><strong>priceRestriction</strong></td>
-<td>Identifies product sale price display restrictions (<i>guidelines for displaying lowest salePrice are sent to developers with privileged keys</i>): <li>MAP restriction identifies Minimum Advertised Price; actual selling price may not be shown until prodcut is added to cart</li><li>ICR restriction identifies In-Checkout Rebate Price; actual selling price may not be shown until checkout</li></td>
+<td>Identifies product sale price display restrictions: <li>MAP restriction identifies Minimum Advertised Price; actual selling price may not be shown until prodcut is added to cart</li><li>ICR restriction identifies In-Checkout Rebate Price; actual selling price may not be shown until checkout</li></td>
 </tr>
 <tr>
 <td><strong>priceUpdateDate</strong></td>
@@ -2603,18 +2601,11 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </blockquote>
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2387</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile SAS"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile - Richfield"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richfield"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MN"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">281</span><span class="p">,</span><span class="w">
       </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Box"</span><span class="p">,</span><span class="w">
@@ -2703,15 +2694,15 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </tr>
 <tr>
 <td><strong>storeType</strong></td>
-<td>Indicates the type of store. There are six types of Best Buy stores: &ldquo;Big Box&rdquo;, &ldquo;Mobile SAS&rdquo;, &ldquo;Express Kiosk&rdquo;, &ldquo;Warehouse Sale&rdquo;, &ldquo;Outlet Center&rdquo; and &ldquo;PAC Standalone Store&rdquo;<li>&ldquo;Big Box&rdquo; value represents large showroom stores featuring HDTVs, computers, gaming, appliances, cell phones, tablets, Geek Squad services and more<li>&ldquo;Mobile SAS&rdquo; value represents specialty shops focused on smartphones, tablets, accessories, services and plans<li>&ldquo;Express Kiosk&rdquo; value represents vending machine-style, self-checkout stores offering audio goods and accessories, found in airports, on college campuses and more<li>&ldquo;Warehouse Sale&rdquo; value represents occasional sale locations<li>&ldquo;Outlet Center&rdquo; value represents locations that sell open box and clearance products. Outlet Centers are open only a portion of the week<li>&ldquo;PAC Standalone Store&rdquo; value represents Pacific Sales locations not located within a Big Box store - these locations only sell the Pacific Sales selection of kitchen and bath products</td>
+<td>Indicates the type of store. There are five types of Best Buy stores: &ldquo;Big Box&rdquo;, &ldquo;Express Kiosk&rdquo;, &ldquo;Warehouse Sale&rdquo;, &ldquo;Outlet Center&rdquo; and &ldquo;PAC Standalone Store&rdquo;<li>&ldquo;Big Box&rdquo; value represents large showroom stores featuring HDTVs, computers, gaming, appliances, cell phones, tablets, Geek Squad services and more<li>&ldquo;Express Kiosk&rdquo; value represents vending machine-style, self-checkout stores offering audio goods and accessories, found in airports, on college campuses and more<li>&ldquo;Warehouse Sale&rdquo; value represents occasional sale locations<li>&ldquo;Outlet Center&rdquo; value represents locations that sell open box and clearance products. Outlet Centers are open only a portion of the week<li>&ldquo;PAC Standalone Store&rdquo; value represents Pacific Sales locations not located within a Big Box store - these locations only sell the Pacific Sales selection of kitchen and bath products</td>
 </tr>
 </tbody></table>
 
 <h2 id="area-function">Area Function</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/stores(area(55423,10))?format=json&amp;show=storeId,storeType,name&amp;pageSize=2&amp;apiKey=YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/stores(area(55423,10))?format=json&amp;show=storeId,storeType,name&amp;pageSize=1&amp;apiKey=YourAPIKey"</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
-<span class="nx">bby</span><span class="p">.</span><span class="nx">stores</span><span class="p">(</span><span class="s1">'area(55423,10)'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'storeId,storeType,name'</span><span class="p">,</span> <span class="na">pageSize</span><span class="p">:</span> <span class="mi">2</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">stores</span><span class="p">(</span><span class="s1">'area(55423,10)'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'storeId,storeType,name'</span><span class="p">,</span> <span class="na">pageSize</span><span class="p">:</span> <span class="mi">1</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre>
@@ -2721,16 +2712,11 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </blockquote>
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
   </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
   </span><span class="nt">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2387</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile SAS"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy Mobile - Richfield"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">281</span><span class="p">,</span><span class="w">
       </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Box"</span><span class="p">,</span><span class="w">
@@ -2936,7 +2922,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <h3 id="sku-specific-availability">SKU Specific Availability</h3>
 
-<p>You can look up near real time store availability for single SKUs. You may search either on <code class="prettyprint">postalCode</code> or based on <code class="prettyprint">storeId</code>. Results for <code class="prettyprint">postalCode</code> queries will include all stores within a 250 mile radius, sorted by proximity. </p>
+<p>You can look up near real time store availability for single SKUs. You may search either on <code class="prettyprint">postalCode</code> or based on <code class="prettyprint">storeId</code>. Results for <code class="prettyprint">postalCode</code> queries will include all stores within a 250 mile radius, sorted by proximity.</p>
 
 <h3 id="broad-availability-query">Broad Availability Query</h3>
 <pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,3)&amp;storeType=Express)+products(sku=5038019)?format=json&amp;show=storeId,storeType,city,region,name,products.name,products.sku,products&amp;pageSize=1&amp;apiKey=YourAPIKey"</span>
@@ -2977,7 +2963,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
           <h1 id="commerce-api">Commerce API</h1>
 
-<p>The Best Buy Commerce API allows our partners to introduce a seamless cart experience to their customers, exposing the ability to select various fulfillment options including <em>Store Pickup</em> at one of our 1,400+ locations, <em>Ship To Home</em> and <em>Home Delivery</em>. If you have not yet been issued a Commerce API key, please contact <a href="mailto:developer@bestbuy.com">developer@bestbuy.com</a>.</p>
+<p>The Best Buy Commerce API allows our partners to introduce a seamless cart experience to their customers, exposing the ability to select various fulfillment options including <em>Store Pickup</em> at one of our 1,400+ locations, <em>Ship To Home</em> and <em>Home Delivery</em>. If you have not yet been issued a Commerce API key, please <a href="https://developer.bestbuy.com/contact-us">contact us</a>.</p>
 
 <p>Within the Commerce APIs, partners have the ability to integrate your e-commerce solution with Best Buy&rsquo;s online experience.</p>
 
@@ -2994,7 +2980,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <h2 id="getting-a-commerce-api-key">Getting a Commerce API Key</h2>
 
-<p>Please contact us at <a href="mailto:developer@bestbuy.com">developer@bestbuy.com</a> to request an invite to the Commerce API program and a corresponding API Key. Current CAPI partners can access reporting and documentation via the same address.</p>
+<p>Please <a href="https://developer.bestbuy.com/contact-us">contact us</a> to request an invite to the Commerce API program and a corresponding API Key. Current CAPI partners can access reporting and documentation via the same address.</p>
 
       </div>
       <div class="dark-box">
