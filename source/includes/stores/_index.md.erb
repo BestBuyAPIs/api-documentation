@@ -63,18 +63,11 @@ bby.stores('postalCode=55423', {show: 'storeId,storeType,name,city,region'}).the
 ```json-doc
 {
   "from": 1,
-  "to": 3,
-  "total": 3,
+  "to": 2,
+  "total": 2,
   "currentPage": 1,
   "totalPages": 1,
   "stores": [
-    {
-      "storeId": 2387,
-      "storeType": "Mobile SAS",
-      "name": "Best Buy Mobile - Richfield",
-      "city": "Richfield",
-      "region": "MN"
-    },
     {
       "storeId": 281,
       "storeType": "Big Box",
@@ -112,18 +105,18 @@ Attribute | Description
 **postalCode** | 5-digit postal code
 **region** | State, territory
 **storeId** | Store number
-**storeType** | Indicates the type of store. There are six types of Best Buy stores: "Big Box", "Mobile SAS", "Express Kiosk", "Warehouse Sale", "Outlet Center" and "PAC Standalone Store"<li>"Big Box" value represents large showroom stores featuring HDTVs, computers, gaming, appliances, cell phones, tablets, Geek Squad services and more<li>"Mobile SAS" value represents specialty shops focused on smartphones, tablets, accessories, services and plans<li>"Express Kiosk" value represents vending machine-style, self-checkout stores offering audio goods and accessories, found in airports, on college campuses and more<li>"Warehouse Sale" value represents occasional sale locations<li>"Outlet Center" value represents locations that sell open box and clearance products. Outlet Centers are open only a portion of the week<li>"PAC Standalone Store" value represents Pacific Sales locations not located within a Big Box store - these locations only sell the Pacific Sales selection of kitchen and bath products
+**storeType** | Indicates the type of store. There are five types of Best Buy stores: "Big Box", "Express Kiosk", "Warehouse Sale", "Outlet Center" and "PAC Standalone Store"<li>"Big Box" value represents large showroom stores featuring HDTVs, computers, gaming, appliances, cell phones, tablets, Geek Squad services and more<li>"Express Kiosk" value represents vending machine-style, self-checkout stores offering audio goods and accessories, found in airports, on college campuses and more<li>"Warehouse Sale" value represents occasional sale locations<li>"Outlet Center" value represents locations that sell open box and clearance products. Outlet Centers are open only a portion of the week<li>"PAC Standalone Store" value represents Pacific Sales locations not located within a Big Box store - these locations only sell the Pacific Sales selection of kitchen and bath products
 
 
 ##Area Function
 
 ```shell
-curl "https://api.bestbuy.com/v1/stores(area(55423,10))?format=json&show=storeId,storeType,name&pageSize=2&apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/v1/stores(area(55423,10))?format=json&show=storeId,storeType,name&pageSize=1&apiKey=YourAPIKey"
 ```
 
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
-bby.stores('area(55423,10)',{show:'storeId,storeType,name', pageSize: 2}).then(function(data){
+bby.stores('area(55423,10)',{show:'storeId,storeType,name', pageSize: 1}).then(function(data){
   console.log(data);
 });
 ```
@@ -133,16 +126,11 @@ bby.stores('area(55423,10)',{show:'storeId,storeType,name', pageSize: 2}).then(f
 ```json-doc
 {
   "from": 1,
-  "to": 2,
+  "to": 1,
   "total": 22,
   "currentPage": 1,
   "totalPages": 11,
   "stores": [
-    {
-      "storeId": 2387,
-      "storeType": "Mobile SAS",
-      "name": "Best Buy Mobile - Richfield"
-    },
     {
       "storeId": 281,
       "storeType": "Big Box",
@@ -325,7 +313,7 @@ The Stores API, in conjunction with the Products API, allows you to search store
 
 ###SKU Specific Availability
 
-You can look up near real time store availability for single SKUs. You may search either on `postalCode` or based on `storeId`. Results for `postalCode` queries will include all stores within a 250 mile radius, sorted by proximity. 
+You can look up near real time store availability for single SKUs. You may search either on `postalCode` or based on `storeId`. Results for `postalCode` queries will include all stores within a 250 mile radius, sorted by proximity.
 
 
 
