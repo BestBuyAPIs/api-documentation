@@ -16,7 +16,7 @@ Check out [Slate](https://github.com/tripit/slate).
 Go to https://developer.bestbuy.com and click "Get API Key"
 
 #### How can I learn more about the Best Buy API?
-Visit https://developer.bestbuy.com or email developer@bestbuy.com
+Visit https://developer.bestbuy.com
 
 ## Getting Started with the Best Buy API Documentation
 *Yes, this is identical to getting started with Slate.*
@@ -35,7 +35,7 @@ Visit https://developer.bestbuy.com or email developer@bestbuy.com
 You can now see the docs at <http://localhost:4567>.
 
 ## Need Help? Found a bug?
-You can either [submit an issue](https://github.com/BestBuyAPIs/api-documentation/issues) or contact us at developer@bestbuy.com.
+You can either [submit an issue](https://github.com/BestBuyAPIs/api-documentation/issues) or [contact us](https://developer.bestbuy.com/contact-us).
 
 Once your issue has been resolved, the Best Buy team will publish the documentation changes (using `rake publish`).
 
