@@ -9,5 +9,5 @@ Attributes | Description
 **offers.id** | Offer identifier
 **offers.startDate** | Offer start date
 **offers.text** | Description of offer 
-**offers.type** | Offer types can include the following: <li>special_offer: identified by Best Buy marketing managers</li> <li>digital_insert: identifies products that are a part of weekly insert that can be found in a Sunday newspaper</li> <li>deal_of_the_day: small group of products being promoted for one day only</li>
+**offers.type** | Offer types can include the following: <li>special_offer: identified by Best Buy marketing managers</li> <li>digital_insert: identifies products that are featured in Best Buy's Top Deals</li> <li>deal_of_the_day: small group of products being promoted for one day only</li>
 **offers.url** | URL of offer information on BESTBUY.COM

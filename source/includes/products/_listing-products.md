@@ -5,7 +5,7 @@ Attribute | Description | Type
 --------- | ----------- | ----
 **active** | Identifies if product is currently supported in the BESTBUY.COM catalog | boolean
 **activeUpdateDate** | Date and time the active attribute was last changed | date
-**bundledIn.sku** | Returns SKUs of bundles that that include this product | long
+**bundledIn.sku** | Returns SKUs of bundles that include this product | long
 **itemUpdateDate** | Date and time any change was made to this product | date
 **members.sku** | Collection of skus within a bundle | long
 **new** | Identifies if the product was added within last 30 days | boolean
