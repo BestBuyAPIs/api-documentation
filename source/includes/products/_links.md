@@ -7,9 +7,9 @@ Attribute | Description
 **url** | URL to BESTBUY.COM product detail page
 
 <br>
-For our **affiliate partners** we provide this same functionality but use a special link so you can get credit for your sale. Affiliates add their LinkShare Affiliate Tracking Code (LID) to their query request. The URL generated will direct the customer to BESTBUY.COM with this item in their cart and credit the affiliate with the sale. <i>Additional information on the affiliate program can be found <a href="https://developer.bestbuy.com/affiliate-program" target="_blank">here</a>.</i>
+For our **affiliate partners** we provide this same functionality but use a special link so you can get credit for your sale. Affiliates add their Impact Partner ID (IPID) to their query request. The URL generated will direct the customer to BESTBUY.COM with this item in their cart and credit the affiliate with the sale. <i>Additional information on the affiliate program can be found <a href="https://developer.bestbuy.com/affiliate-program" target="_blank">here</a>.</i>
 
 Attribute | Description
 --------- | -----------
-**linkShareAffiliateAddToCartUrl** | URL to BESTBUY.COM with item in cart
-**linkShareAffiliateUrl** | URL to BESTBUY.COM product detail page
+**affiliateAddToCartUrl** | URL to BESTBUY.COM with item in cart
+**affiliateUrl** | URL to BESTBUY.COM product detail page
