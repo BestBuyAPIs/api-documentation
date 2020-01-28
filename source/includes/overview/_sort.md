@@ -1,12 +1,12 @@
 ## Sort
 
 ```shell
-curl 'https://api.bestbuy.com/v1/products(categoryPath.name="All%20Flat-Panel%20TVs")?format=json&show=sku,name,salePrice&sort=salesRankMediumTerm.asc&apiKey=YourAPIKey'
+curl 'https://api.bestbuy.com/v1/products(categoryPath.name="All%20Flat-Screen%20TVs")?format=json&show=sku,name,salePrice&sort=salePrice&apiKey=YourAPIKey'
 ```
 
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
-bby.products('categoryPath.name="All Flat-Panel TVs"',{show:'sku,name,salePrice',sort:'salesRankMediumTerm.asc'}).then(function(data){
+bby.products('categoryPath.name="All Flat-Screen TVs"',{show:'sku,name,salePrice',sort:'salePrice.asc'}).then(function(data){
   console.log(data);
 });
 ```
@@ -23,18 +23,18 @@ bby.products('categoryPath.name="All Flat-Panel TVs"',{show:'sku,name,salePrice'
   "queryTime": "0.005",
   "totalTime": "0.035",
   "partial": false,
-  "canonicalUrl": "/v1/products(categoryPath.name=All Flat-Panel TVs)?show=sku,name,salePrice&sort=salesRankMediumTerm&format=json&apiKey=YourAPIKey",
+  "canonicalUrl": "/v1/products(categoryPath.name=All Flat-Screen TVs)?show=sku,name,salePrice&sort=salePrice&format=json&apiKey=YourAPIKey",
   "products": [
     {
-      "sku": 3356036,
-      "name": "Insignia™ - 32\" Class (31-1/2\" Diag.) - LED - 720p - 60Hz - HDTV",
-      "salePrice": 179.99
+      "sku": 6164904,
+      "name": "Insignia™ - 19\" Class - LED - 720p - HDTV",
+      "salePrice": 69.99
     },
     {
-      "sku": 2563138,
-      "name": "Insignia™ - 48\" Class (47-5/8\" Diag.) - LED - 1080p - 60Hz - HDTV",
-      "salePrice": 399.99
-    }
+      "sku": 6260936,
+      "name": "Insignia™ - 22\" Class - LED - 1080p - HDTV",
+      "salePrice": 69.99
+    },
 ```
 
 *Applies to: Products API &#8226; Stores API &#8226; Categories API*
