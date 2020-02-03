@@ -144,11 +144,11 @@
 
 <h2 id="sort">Sort</h2>
 
-<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(categoryPath.name="All%20Flat-Panel%20TVs")?format=json&amp;show=sku,name,salePrice&amp;sort=salesRankMediumTerm.asc&amp;apiKey=YourAPIKey'</span>
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.bestbuy.com/v1/products(categoryPath.name="All%20Flat-Screen%20TVs")?format=json&amp;show=sku,name,salePrice&amp;sort=salePrice&amp;apiKey=YourAPIKey'</span>
 </code></pre>
 
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
-<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'categoryPath.name="All Flat-Panel TVs"'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">,</span><span class="na">sort</span><span class="p">:</span><span class="s1">'salesRankMediumTerm.asc'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">products</span><span class="p">(</span><span class="s1">'categoryPath.name="All Flat-Screen TVs"'</span><span class="p">,{</span><span class="na">show</span><span class="p">:</span><span class="s1">'sku,name,salePrice'</span><span class="p">,</span><span class="na">sort</span><span class="p">:</span><span class="s1">'salePrice.asc'</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre>
@@ -166,18 +166,18 @@
   </span><span class="nt">"queryTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.005"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"totalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.035"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(categoryPath.name=All Flat-Panel TVs)?show=sku,name,salePrice&amp;sort=salesRankMediumTerm&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/products(categoryPath.name=All Flat-Screen TVs)?show=sku,name,salePrice&amp;sort=salePrice&amp;format=json&amp;apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">3356036</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insignia™ - 32\" Class (31-1/2\" Diag.) - LED - 720p - 60Hz - HDTV"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">179.99</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6164904</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insignia™ - 19\" Class - LED - 720p - HDTV"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">69.99</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">2563138</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insignia™ - 48\" Class (47-5/8\" Diag.) - LED - 1080p - 60Hz - HDTV"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">399.99</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">6260936</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insignia™ - 22\" Class - LED - 1080p - HDTV"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"salePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">69.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
 </span></code></pre>
 
 <p><em>Applies to: Products API &#8226; Stores API &#8226; Categories API</em></p>
@@ -2896,46 +2896,11 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>The Stores API, in conjunction with the Products API, allows you to search stores for a product and identify if it is available. In-store availability searches will return only those stores that have a given product in stock. Stores not returned do not have that product in stock. You can get near real time availability for specific SKUs based on either a store ID or postal code search. If you prefer to use a broader query - e.g., based on lat/long data or a wider set of product query parameters - your results will be based on estimated data (see below).</p>
+<p>The Stores API, in conjunction with the Products API, allows you to search stores for a product and identify if it is available. In-store availability searches will return only those stores that have a given product in stock. Stores not returned do not have that product in stock. You can get near real time availability for specific SKUs based on either a store ID or postal code search.</p>
 
 <h3 id="sku-specific-availability">SKU Specific Availability</h3>
 
 <p>You can look up near real time store availability for single SKUs. You may search either on <code class="prettyprint">postalCode</code> or based on <code class="prettyprint">storeId</code>. Results for <code class="prettyprint">postalCode</code> queries will include all stores within a 250 mile radius, sorted by proximity.</p>
-
-<h3 id="broad-availability-query">Broad Availability Query</h3>
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,3)&amp;storeType=Express)+products(sku=5038019)?format=json&amp;show=storeId,storeType,city,region,name,products.name,products.sku,products&amp;pageSize=1&amp;apiKey=YourAPIKey"</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="c1">//Not yet implemented</span>
-</code></pre>
-
-<blockquote>
-<p>Shows Express stores within 3 miles of 44.882942,-93.2775 (Richfield, MN) that carry SKU 5038019 (Insignia 5-Way Stereo Splitter).</p>
-</blockquote>
-<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"storeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8001</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Express Kiosk"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Richfield"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MN"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Best Buy HQ"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insignia™ - 6\" 5-Way Stereo Splitter - White"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="mi">5038019</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>If you prefer a broader query, you can use a fuller set of query parameters. Using this wider search, availability in stores is calculated using counts and previous-day sales to determine if the product is likely to be available, might be available or is unlikely to be available.  The algorithm errs on the side of caution, and anything that is not available defaults to &ldquo;not available&rdquo;.</p>
 
 <p><em>HINT: The Products API attribute <code class="prettyprint">inStoreAvailability</code> will tell you if a product is sold in stores but not if it&rsquo;s available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store.</em></p>
 
