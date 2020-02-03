@@ -309,50 +309,10 @@ curl "https://api.bestbuy.com/v1/products/4807511/stores.json?postalCode=55423&a
 }
 ```
 
-The Stores API, in conjunction with the Products API, allows you to search stores for a product and identify if it is available. In-store availability searches will return only those stores that have a given product in stock. Stores not returned do not have that product in stock. You can get near real time availability for specific SKUs based on either a store ID or postal code search. If you prefer to use a broader query - e.g., based on lat/long data or a wider set of product query parameters - your results will be based on estimated data (see below).
+The Stores API, in conjunction with the Products API, allows you to search stores for a product and identify if it is available. In-store availability searches will return only those stores that have a given product in stock. Stores not returned do not have that product in stock. You can get near real time availability for specific SKUs based on either a store ID or postal code search.
 
 ###SKU Specific Availability
 
 You can look up near real time store availability for single SKUs. You may search either on `postalCode` or based on `storeId`. Results for `postalCode` queries will include all stores within a 250 mile radius, sorted by proximity.
-
-
-
-###Broad Availability Query
-
-```shell
-curl "https://api.bestbuy.com/v1/stores(area(44.882942,-93.2775,3)&storeType=Express)+products(sku=5038019)?format=json&show=storeId,storeType,city,region,name,products.name,products.sku,products&pageSize=1&apiKey=YourAPIKey"
-```
-
-```javascript
-//Not yet implemented
-```
-> Shows Express stores within 3 miles of 44.882942,-93.2775 (Richfield, MN) that carry SKU 5038019 (Insignia 5-Way Stereo Splitter).
-
-```json-doc
-{
-  "from": 1,
-  "to": 1,
-  "total": 3,
-  "currentPage": 1,
-  "totalPages": 3,
-  "stores": [
-    {
-      "storeId": 8001,
-      "storeType": "Express Kiosk",
-      "city": "Richfield",
-      "region": "MN",
-      "name": "Best Buy HQ",
-      "products": [
-        {
-          "name": "Insignia™ - 6\" 5-Way Stereo Splitter - White",
-          "sku": 5038019
-        }
-      ]
-    }
-  ]
-}
-```
-
-If you prefer a broader query, you can use a fuller set of query parameters. Using this wider search, availability in stores is calculated using counts and previous-day sales to determine if the product is likely to be available, might be available or is unlikely to be available.  The algorithm errs on the side of caution, and anything that is not available defaults to "not available".
 
 _HINT: The Products API attribute `inStoreAvailability` will tell you if a product is sold in stores but not if it's available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store._
