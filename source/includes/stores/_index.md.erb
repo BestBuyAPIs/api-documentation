@@ -296,15 +296,16 @@ curl "https://api.bestbuy.com/v1/products/4807511/stores.json?postalCode=55423&a
   "ispuEligible": true,
   "stores": [
     {
-      "storeID": "281",
-      "name": "RICHFIELD MN",
-      "address": "1000 WEST 78TH ST",
-      "city": "RICHFIELD",
+      "storeID": "10",
+      "name": "Maplewood",
+      "address": "1795 County Rd D E",
+      "city": "Maplewood",
       "state": "MN",
-      "postalCode": "55423",
+      "postalCode": "55109",
       "storeType": "Big_Box_Store",
-      "minPickupHours": 1,
-      "lowStock": false
+      "minPickupHours": null,
+      "lowStock": false,
+      "distance": 16.594
     },
   ]
 }
@@ -317,3 +318,16 @@ The Stores API, in conjunction with the Products API, allows you to search store
 You can look up near real time store availability for single SKUs. You may search either on `postalCode` or based on `storeId`. Results for `postalCode` queries will include all stores within a 250 mile radius, sorted by proximity.
 
 _HINT: The Products API attribute `inStoreAvailability` will tell you if a product is sold in stores but not if it's available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store._
+
+Attribute | Description
+--------- | -----------
+**stores.storeID** | The unique ID of the store
+**stores.name** | The store name
+**stores.address** | The street address of the store
+**stores.city** | The city in which the store is located
+**stores.postalCode** | The postal code in which the store is located
+**stores.storeType** | The type of store
+**stores.minPickupHours** | The minimum number of hours that must pass after placing a store pick up order before the item will be available for pick up.
+**stores.lowStock** | Whether or not the product availability at this store is low and may soon shift to out of stock.
+**stores.distance** | The store's distance (in miles) from the given postalCode
+
