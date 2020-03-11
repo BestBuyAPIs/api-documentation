@@ -2886,15 +2886,16 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
   </span><span class="nt">"ispuEligible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"storeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"281"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RICHFIELD MN"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000 WEST 78TH ST"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RICHFIELD"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"storeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maplewood"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1795 County Rd D E"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maplewood"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MN"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55423"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55109"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"storeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big_Box_Store"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"minPickupHours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"lowStock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"minPickupHours"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lowStock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.594</span><span class="w">
     </span><span class="p">},</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2907,6 +2908,50 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 <p>You can look up near real time store availability for single SKUs. You may search either on <code class="prettyprint">postalCode</code> or based on <code class="prettyprint">storeId</code>. Results for <code class="prettyprint">postalCode</code> queries will include all stores within a 250 mile radius, sorted by proximity.</p>
 
 <p><em>HINT: The Products API attribute <code class="prettyprint">inStoreAvailability</code> will tell you if a product is sold in stores but not if it&rsquo;s available at a particular store. Using the In-Store availability queries is equivalent to checking product availability in store.</em></p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>stores.storeID</strong></td>
+<td>The unique ID of the store</td>
+</tr>
+<tr>
+<td><strong>stores.name</strong></td>
+<td>The store name</td>
+</tr>
+<tr>
+<td><strong>stores.address</strong></td>
+<td>The street address of the store</td>
+</tr>
+<tr>
+<td><strong>stores.city</strong></td>
+<td>The city in which the store is located</td>
+</tr>
+<tr>
+<td><strong>stores.postalCode</strong></td>
+<td>The postal code in which the store is located</td>
+</tr>
+<tr>
+<td><strong>stores.storeType</strong></td>
+<td>The type of store</td>
+</tr>
+<tr>
+<td><strong>stores.minPickupHours</strong></td>
+<td>The minimum number of hours that must pass after placing a store pick up order before the item will be available for pick up.</td>
+</tr>
+<tr>
+<td><strong>stores.lowStock</strong></td>
+<td>Whether or not the product availability at this store is low and may soon shift to out of stock.</td>
+</tr>
+<tr>
+<td><strong>stores.distance</strong></td>
+<td>The store&rsquo;s distance (in miles) from the given postalCode</td>
+</tr>
+</tbody></table>
 
           <h1 id="commerce-api">Commerce API</h1>
 
