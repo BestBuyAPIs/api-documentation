@@ -22,7 +22,6 @@ jobs:
         run: |
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git remote set-url origin https://github.com/Rajeswarikuppusamy18/api-documentation.git
 
       - name: Build
         run: |
