@@ -1,4 +1,4 @@
-name: Setup CI
+name: Build and publish
 
 on:
   push:
@@ -26,7 +26,7 @@ jobs:
           git config --global user.email github-actions@github.com
           git remote set-url origin "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
-      - name: Build
+      - name: Build and publish
         run: |
           bundle install
           rake publish
