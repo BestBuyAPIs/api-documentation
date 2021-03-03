@@ -1,0 +1,32 @@
+name: Build and publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build the project
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up ruby-2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      - name: Configure git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+          git remote set-url origin "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+      - name: Build and publish
+        run: |
+          bundle install
+          rake publish
