@@ -98,7 +98,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redcarpet (3.3.4)
+    redcarpet (3.5.1)
     ref (2.0.0)
     rouge (1.9.1)
     sass (3.4.25)
@@ -138,7 +138,7 @@ DEPENDENCIES
   middleman-gh-pages (~> 0.0.3)
   middleman-syntax (~> 2.0.0)
   rake (~> 10.4.2)
-  redcarpet (~> 3.3.2)
+  redcarpet (~> 3.5.1)
   rouge (~> 1.9.0)
   therubyracer (~> 0.12.1)
 
