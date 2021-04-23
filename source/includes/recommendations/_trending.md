@@ -1,6 +1,6 @@
 ## Trending Products
 ```shell
-curl "https://api.bestbuy.com/beta/products/trendingViewed(categoryId=abcat0400000)?apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/v1/products/trendingViewed(categoryId=abcat0400000)?apiKey=YourAPIKey"
 ```
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
@@ -13,33 +13,45 @@ bby.recommendations('trendingViewed','abcat0400000').then(function(data){
 
 ```json-doc
 {
+  "metadata": {
+    "context": {
+      "canonicalUrl": "https://api.bestbuy.com/v1/products/trendingViewed(categoryId=abcat0400000)?apiKey=YourAPIKey"
+    },
+    "resultSet": {
+      "count": 10
+    }
+  },
   "results": [
     {
+      "sku": "6323759",
       "customerReviews": {
-        "averageScore": "4.9",
-        "count": 309
+        "averageScore": 4.8,
+        "count": 1477
       },
       "descriptions": {
-        "short": "20.2-megapixel APS-C CMOS sensorShooting speeds up to 7 fpsBuilt-in Wi-Fi"
+        "short": "24.1-megapixel APS-C format CMOS sensorISO 100-6,400, expandable to 12,800Shooting speeds up to 3 fps9 points of focus1920 x 1080 (Full HD) 30 fps video recording capabilityBuilt-in Wi-Fi, NFC, and GPS capable"
       },
       "images": {
-        "standard": "http://img.bbystatic.com/BestBuy_US/images/products/8896/8896132_sc.jpg"
-      },
-      "links": {
-        "product": "https://api.bestbuy.com/v1/products/8896132.json?apiKey=YourAPIKey",
-        "web": "http://www.bestbuy.com/site/canon-eos-70d-dslr-camera-with-18-135mm-is-stm-lens-black/8896132.p?id=1218941181224&skuId=8896132&cmp=RMX&ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4",
-        "addToCart": "http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&type=category&cmp=RMX&ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4&qvsids=8896132"
+        "standard": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6323/6323759_sa.jpg"
       },
       "names": {
-        "title": "Canon - EOS 70D DSLR Camera with 18-135mm IS STM Lens - Black"
+        "title": "Canon - EOS Rebel T7 DSLR Video Two Lens Kit with EF-S 18-55mm and EF 75-300mm Lenses"
       },
       "prices": {
-        "current": 1449.99,
-        "regular": 1549.99
+        "regular": 549.99,
+        "current": 549.99
       },
-      "rank": 6,
-      "sku": "8896132"
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/6323759.json?apiKey=YourAPIKey",
+        "web": "https://api.bestbuy.com/click/-/6323759/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/6323759/cart"
+      },
+      "rank": 1
     },
+    // ...
+  ]
+}
+
 ```
 
 The Trending Products endpoint returns top ten products, by rank, based on customer views of the **BESTBUY.COM** product detail page over a rolling three hour time period. Trending growth is based on a comparison against the previous three hour time period. You can also pull this same information by **category** or **subcategory**. For more information about identifying category ids please refer to our [Categories API](#categories-api) documentation.

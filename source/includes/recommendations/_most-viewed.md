@@ -1,6 +1,6 @@
 ## Most Popular Viewed
 ```shell
-curl "https://api.bestbuy.com/beta/products/mostViewed(categoryId=abcat0107000)?apiKey=YourAPIKey"
+curl "https://api.bestbuy.com/v1/products/mostViewed(categoryId=abcat0107000)?apiKey=YourAPIKey"
 ```
 ```javascript
 var bby = require('bestbuy')('YourAPIKey');
@@ -13,33 +13,45 @@ bby.recommendations('mostViewed','abcat0107000').then(function(data){
 
 ```json-doc
 {
+  "metadata": {
+    "context": {
+      "canonicalUrl": "https://api.bestbuy.com/v1/products/mostViewed(categoryId=abcat0107000)?apiKey=YourAPIKey"
+    },
+    "resultSet": {
+      "count": 10
+    }
+  },
   "results": [
     {
+      "sku": "5852832",
       "customerReviews": {
-        "averageScore": "4.6",
-        "count": 15
+        "averageScore": 4.3,
+        "count": 4816
       },
       "descriptions": {
-        "short": "Lets you connect your Apple&#174; TV to a VGA-enabled projector; converts digital HDMI output to analog VGA signal; 3.5mm audio port; 6' cord"
+        "short": "Compatible with more than 270,000 entertainment device brands; replaces up to 10 remotes; programmable buttons"
       },
       "images": {
-        "standard": "http://images.bestbuy.com/BestBuy_US/images/products/1740/1740039_sc.jpg"
-      },
-      "links": {
-        "product": "https://api.bestbuy.com/v1/products/1740039.json",
-        "addToCart": "http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&type=category&cmp=RMX&ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&qvsids=1740039",
-        "web": "http://www.bestbuy.com/site/belkin-hdmi-to-vga-adapter/1740039.p?id=1219062507184&skuId=1740039&cmp=RMX&ky=2dN2vg9ikE823Sb2cqFFchnSnf6JkvQna"
+        "standard": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5852/5852832_sa.jpg"
       },
       "names": {
-        "title": "Belkin - HDMI-to-VGA Adapter"
+        "title": "Logitech - Harmony 665 10-Device Universal Remote - Black"
       },
       "prices": {
-        "current": 25.99,
-        "regular": 49.99
+        "regular": 79.99,
+        "current": 79.99
       },
-      "rank": 7,
-      "sku": "1740039"
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/5852832.json?apiKey=YourAPIKey",
+        "web": "https://api.bestbuy.com/click/-/5852832/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/5852832/cart"
+      },
+      "rank": 1
     },
+    // ...
+  ]
+}
+
 ```
 
 The Most Popular Viewed endpoint returns the top ten products, by rank, of the most frequently viewed products on **BESTBUY.COM**. You can also pull this same information by **category** or **subcategory**. To find out additional information about identifying category ids please refer to our [Categories API](#categories-api) documentation. This data for Most Popular Viewed is refreshed every two hours with a maximum accumulation time of 48 hours when determining the top ten products.
