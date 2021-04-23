@@ -2345,7 +2345,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <h2 id="trending-products">Trending Products</h2>
 
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/beta/products/trendingViewed(categoryId=abcat0400000)?apiKey=YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products/trendingViewed(categoryId=abcat0400000)?apiKey=YourAPIKey"</span>
 </code></pre>
 
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
@@ -2359,33 +2359,45 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </blockquote>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/trendingViewed(categoryId=abcat0400000)?apiKey=YourAPIKey"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"resultSet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6323759"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"customerReviews"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"averageScore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.9"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">309</span><span class="w">
+        </span><span class="nt">"averageScore"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.8</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1477</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.2-megapixel APS-C CMOS sensorShooting speeds up to 7 fpsBuilt-in Wi-Fi"</span><span class="w">
+        </span><span class="nt">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24.1-megapixel APS-C format CMOS sensorISO 100-6,400, expandable to 12,800Shooting speeds up to 3 fps9 points of focus1920 x 1080 (Full HD) 30 fps video recording capabilityBuilt-in Wi-Fi, NFC, and GPS capable"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://img.bbystatic.com/BestBuy_US/images/products/8896/8896132_sc.jpg"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/8896132.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/canon-eos-70d-dslr-camera-with-18-135mm-is-stm-lens-black/8896132.p?id=1218941181224&amp;skuId=8896132&amp;cmp=RMX&amp;ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;ky=2l9pmD3wUBb9cc0tkHo49KBFCMPCiIPY4&amp;qvsids=8896132"</span><span class="w">
+        </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6323/6323759_sa.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canon - EOS 70D DSLR Camera with 18-135mm IS STM Lens - Black"</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canon - EOS Rebel T7 DSLR Video Two Lens Kit with EF-S 18-55mm and EF 75-300mm Lenses"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="mf">1449.99</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="mf">1549.99</span><span class="w">
+        </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="mf">549.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="mf">549.99</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8896132"</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/6323759.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/6323759/pdp"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/6323759/cart"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="c1">// ...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>The Trending Products endpoint returns top ten products, by rank, based on customer views of the <strong>BESTBUY.COM</strong> product detail page over a rolling three hour time period. Trending growth is based on a comparison against the previous three hour time period. You can also pull this same information by <strong>category</strong> or <strong>subcategory</strong>. For more information about identifying category ids please refer to our <a href="#categories-api">Categories API</a> documentation.</p>
@@ -2408,7 +2420,7 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <h2 id="most-popular-viewed">Most Popular Viewed</h2>
 
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/beta/products/mostViewed(categoryId=abcat0107000)?apiKey=YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products/mostViewed(categoryId=abcat0107000)?apiKey=YourAPIKey"</span>
 </code></pre>
 
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
@@ -2422,33 +2434,45 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 </blockquote>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/mostViewed(categoryId=abcat0107000)?apiKey=YourAPIKey"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"resultSet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5852832"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"customerReviews"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"averageScore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.6"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
+        </span><span class="nt">"averageScore"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4816</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lets you connect your Apple&amp;#174; TV to a VGA-enabled projector; converts digital HDMI output to analog VGA signal; 3.5mm audio port; 6' cord"</span><span class="w">
+        </span><span class="nt">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Compatible with more than 270,000 entertainment device brands; replaces up to 10 remotes; programmable buttons"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://images.bestbuy.com/BestBuy_US/images/products/1740/1740039_sc.jpg"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/1740039.json"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&amp;qvsids=1740039"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/belkin-hdmi-to-vga-adapter/1740039.p?id=1219062507184&amp;skuId=1740039&amp;cmp=RMX&amp;ky=2dN2vg9ikE823Sb2cqFFchnSnf6JkvQna"</span><span class="w">
+        </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5852/5852832_sa.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Belkin - HDMI-to-VGA Adapter"</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Logitech - Harmony 665 10-Device Universal Remote - Black"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.99</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.99</span><span class="w">
+        </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="mf">79.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="mf">79.99</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1740039"</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/5852832.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/5852832/pdp"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/5852832/cart"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="c1">// ...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 
 <p>The Most Popular Viewed endpoint returns the top ten products, by rank, of the most frequently viewed products on <strong>BESTBUY.COM</strong>. You can also pull this same information by <strong>category</strong> or <strong>subcategory</strong>. To find out additional information about identifying category ids please refer to our <a href="#categories-api">Categories API</a> documentation. This data for Most Popular Viewed is refreshed every two hours with a maximum accumulation time of 48 hours when determining the top ten products.</p>
@@ -2471,43 +2495,52 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 
 <h2 id="also-viewed">Also Viewed</h2>
 
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/beta/products/5747275/alsoViewed?apiKey=YourAPIKey"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products/8880044/alsoViewed?apiKey=YourAPIKey"</span>
 </code></pre>
 
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
-<span class="nx">bby</span><span class="p">.</span><span class="nx">recommendations</span><span class="p">(</span><span class="s1">'alsoViewed'</span><span class="p">,</span><span class="mi">5747275</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">recommendations</span><span class="p">(</span><span class="s1">'alsoViewed'</span><span class="p">,</span><span class="mi">8880044</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre>
 
 <pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/8880044/alsoViewed?apiKey=YourAPIKey"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"resultSet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6111518"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"customerReviews"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"averageScore"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="nt">"averageScore"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1292</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"short"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://images.bestbuy.com/BestBuy_US/images/products/nonsku/default_movies_l.jpg"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/5747275.json"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/olspage.jsp?id=pcmcat152200050035&amp;type=category&amp;cmp=RMX&amp;ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2&amp;qvsids=5747275"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bestbuy.com/site/batman-begins-blu-ray-disc/8880044.p?id=1484301&amp;skuId=8880044&amp;cmp=RMX&amp;ky=1xrtkOPXgHdxEmF4yQx1jGyxiihDiJ5c2"</span><span class="w">
+        </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6111/6111518_sa.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batman Begins (2 Disc) (Ultraviolet Digital Copy) (Blu-ray Disc)"</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batman Begins [4K Ultra HD Blu-ray/Blu-ray] [2005]"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="w">
+        </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.99</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5747275"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/6111518.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/6111518/pdp"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/6111518/cart"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="c1">// ...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2525,6 +2558,143 @@ For our <strong>affiliate partners</strong> we provide this same functionality b
 <tr>
 <td><strong>rank</strong></td>
 <td>The rank of the product based on how many views a product received after starting with originating SKU. The number 1 rank identifies the highest number of page views an associated product received while looking at originating SKU while the number 10 rank identifies the product with the 10th highest page views while look at same originating product</td>
+</tr>
+</tbody></table>
+
+<h2 id="also-bought">Also Bought</h2>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products/8880044/alsoBought?apiKey=YourAPIKey"</span>
+</code></pre>
+
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">recommendations</span><span class="p">(</span><span class="s1">'alsoBought'</span><span class="p">,</span> <span class="mi">8880044</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/8880044/alsoBought?apiKey=YourAPIKey"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"resultSet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9124743"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customerReviews"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"averageScore"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.9</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2003</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"short"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/9124/9124743_sa.jpg"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Dark Knight [WS] [2 Discs] [Blu-ray] [2008]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/9124743.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/9124743/pdp"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/9124743/cart"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="c1">// ...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p>The Also Bought Products endpoint can be used to identify the top ten products that were bought along with the originating product. These results are determined based on aggregated customer purchases over the past thirty days.</p>
+
+<h3 id="also-viewed-product-specific-attributes">Also Viewed Product Specific Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>rank</strong></td>
+<td>The rank of the product based on how often it was purchased together with the originating SKU.</td>
+</tr>
+</tbody></table>
+
+<h2 id="viewed-ultimately-bought">Viewed Ultimately Bought</h2>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.bestbuy.com/v1/products/8880044/viewedUltimatelyBought?apiKey=YourAPIKey"</span>
+</code></pre>
+
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">bby</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bestbuy'</span><span class="p">)(</span><span class="s1">'YourAPIKey'</span><span class="p">);</span>
+<span class="nx">bby</span><span class="p">.</span><span class="nx">recommendations</span><span class="p">(</span><span class="s1">'viewedUltimatelyBought'</span><span class="p">,</span> <span class="mi">8880044</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"canonicalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/8880044/viewedUltimatelyBought?apiKey=YourApiKey"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"resultSet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3921114"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customerReviews"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"averageScore"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2113</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"short"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"standard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/3921/3921114_sa.jpg"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Wolf of Wall Street [2 Discs] [Blu-ray/DVD] [Includes Digital Copy] [2013]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.99</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/v1/products/3921114.json?apiKey=YourAPIKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"web"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/3921114/pdp"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"addToCart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.bestbuy.com/click/-/3921114/cart"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="c1">// ...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The Viewed Ultimately Bought Products endpoint can be used to identify the top ten products that were bought after having viewed the originating product. These results are determined based on aggregated customer purchases and views over the past thirty days.</p>
+
+<h3 id="also-viewed-product-specific-attributes">Also Viewed Product Specific Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>rank</strong></td>
+<td>The rank of the product based on how often it was purchased after having viewed the originating SKU.</td>
 </tr>
 </tbody></table>
 
