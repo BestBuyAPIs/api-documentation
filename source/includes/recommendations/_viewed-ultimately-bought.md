@@ -52,7 +52,7 @@ bby.recommendations('viewedUltimatelyBought', 8880044).then(function(data){
 
 The Viewed Ultimately Bought Products endpoint can be used to identify the top ten products that were bought after having viewed the originating product. These results are determined based on aggregated customer purchases and views over the past thirty days.
 
-### Also Viewed Product Specific Attributes
+### Endpoint-Specific Attributes
 
 Attribute | Description
 --------- | -----------

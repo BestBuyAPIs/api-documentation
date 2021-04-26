@@ -58,7 +58,7 @@ The Most Popular Viewed endpoint returns the top ten products, by rank, of the m
 
 _Note: The difference between Trending Products and Most Popular Viewed Products is that Trending Products reflects change in velocity of product views while Most Popular Viewed reflects page views only._
 
-### Most Popular Product Specific Attributes
+### Endpoint-Specific Attributes
 
 Attribute | Description
 --------- | -----------
