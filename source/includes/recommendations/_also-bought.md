@@ -53,7 +53,7 @@ bby.recommendations('alsoBought', 8880044).then(function(data){
 
 The Also Bought Products endpoint can be used to identify the top ten products that were bought along with the originating product. These results are determined based on aggregated customer purchases over the past thirty days.
 
-### Also Viewed Product Specific Attributes
+### Endpoint-Specific Attributes
 
 Attribute | Description
 --------- | -----------

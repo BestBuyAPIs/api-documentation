@@ -58,7 +58,7 @@ The Trending Products endpoint returns top ten products, by rank, based on custo
 
 *Note: Minimum of 50 page views/hr required for inclusion. In addition, deep subcategories may not have enough user traffic to generate trending data.*
 
-### Trending Products Specific Attributes
+### Endpoint-Specific Attributes
 
 Attribute | Description
 --------- | -----------

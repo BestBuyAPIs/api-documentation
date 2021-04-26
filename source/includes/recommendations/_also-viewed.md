@@ -52,7 +52,7 @@ bby.recommendations('alsoViewed',8880044).then(function(data){
 
 The Also Viewed Products endpoint can be used to identify top ten products that were viewed along with the originating product. These results are determined based on aggregated customer browsing behavior over the past thirty days on **BESTBUY.COM**.
 
-### Also Viewed Product Specific Attributes
+### Endpoint-Specific Attributes
 
 Attribute | Description
 --------- | -----------
